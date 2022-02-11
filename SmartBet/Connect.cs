@@ -14,7 +14,7 @@ namespace EatZD
         {
             return true;
         }
-
+         
         public static string getDocument(string cUrl)
         {
             return getDocument(cUrl, null, null, null, null);
