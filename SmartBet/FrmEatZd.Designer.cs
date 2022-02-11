@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timeReg = new System.Windows.Forms.Timer(this.components);
             this.timerMinuteDs = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -106,6 +106,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.QpbetSetting = new EatZD.BetSetting();
             this.QbetSetting = new EatZD.BetSetting();
+            this.btnWeb2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -140,7 +141,7 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -151,7 +152,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1812, 746);
+            this.splitContainer1.Size = new System.Drawing.Size(1443, 746);
             this.splitContainer1.SplitterDistance = 226;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
@@ -161,11 +162,12 @@
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.btnWeb2);
             this.splitContainer2.Panel1.Controls.Add(this.chkHistory);
             this.splitContainer2.Panel1.Controls.Add(this.chkBetQP);
             this.splitContainer2.Panel1.Controls.Add(this.chkBetQ);
@@ -192,7 +194,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.lstInfo);
-            this.splitContainer2.Size = new System.Drawing.Size(1812, 226);
+            this.splitContainer2.Size = new System.Drawing.Size(1443, 226);
             this.splitContainer2.SplitterDistance = 519;
             this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
@@ -201,7 +203,7 @@
             // 
             this.chkHistory.AutoSize = true;
             this.chkHistory.Location = new System.Drawing.Point(413, 49);
-            this.chkHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.chkHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkHistory.Name = "chkHistory";
             this.chkHistory.Size = new System.Drawing.Size(48, 16);
             this.chkHistory.TabIndex = 69;
@@ -213,7 +215,7 @@
             // 
             this.chkBetQP.AutoSize = true;
             this.chkBetQP.Location = new System.Drawing.Point(413, 24);
-            this.chkBetQP.Margin = new System.Windows.Forms.Padding(2);
+            this.chkBetQP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkBetQP.Name = "chkBetQP";
             this.chkBetQP.Size = new System.Drawing.Size(36, 16);
             this.chkBetQP.TabIndex = 68;
@@ -224,7 +226,7 @@
             // 
             this.chkBetQ.AutoSize = true;
             this.chkBetQ.Location = new System.Drawing.Point(413, 2);
-            this.chkBetQ.Margin = new System.Windows.Forms.Padding(2);
+            this.chkBetQ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkBetQ.Name = "chkBetQ";
             this.chkBetQ.Size = new System.Drawing.Size(30, 16);
             this.chkBetQ.TabIndex = 67;
@@ -234,7 +236,7 @@
             // btnBet
             // 
             this.btnBet.Location = new System.Drawing.Point(326, 35);
-            this.btnBet.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBet.Name = "btnBet";
             this.btnBet.Size = new System.Drawing.Size(76, 31);
             this.btnBet.TabIndex = 66;
@@ -259,9 +261,9 @@
             this.gpRace.Controls.Add(this.rc2);
             this.gpRace.Controls.Add(this.rc1);
             this.gpRace.Location = new System.Drawing.Point(4, 125);
-            this.gpRace.Margin = new System.Windows.Forms.Padding(2);
+            this.gpRace.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpRace.Name = "gpRace";
-            this.gpRace.Padding = new System.Windows.Forms.Padding(2);
+            this.gpRace.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpRace.Size = new System.Drawing.Size(515, 41);
             this.gpRace.TabIndex = 65;
             this.gpRace.TabStop = false;
@@ -271,7 +273,7 @@
             // 
             this.rc14.AutoSize = true;
             this.rc14.Location = new System.Drawing.Point(455, 23);
-            this.rc14.Margin = new System.Windows.Forms.Padding(2);
+            this.rc14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc14.Name = "rc14";
             this.rc14.Size = new System.Drawing.Size(35, 16);
             this.rc14.TabIndex = 13;
@@ -284,7 +286,7 @@
             // 
             this.rc13.AutoSize = true;
             this.rc13.Location = new System.Drawing.Point(421, 23);
-            this.rc13.Margin = new System.Windows.Forms.Padding(2);
+            this.rc13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc13.Name = "rc13";
             this.rc13.Size = new System.Drawing.Size(35, 16);
             this.rc13.TabIndex = 12;
@@ -297,7 +299,7 @@
             // 
             this.rc12.AutoSize = true;
             this.rc12.Location = new System.Drawing.Point(386, 23);
-            this.rc12.Margin = new System.Windows.Forms.Padding(2);
+            this.rc12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc12.Name = "rc12";
             this.rc12.Size = new System.Drawing.Size(35, 16);
             this.rc12.TabIndex = 11;
@@ -310,7 +312,7 @@
             // 
             this.rc11.AutoSize = true;
             this.rc11.Location = new System.Drawing.Point(352, 23);
-            this.rc11.Margin = new System.Windows.Forms.Padding(2);
+            this.rc11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc11.Name = "rc11";
             this.rc11.Size = new System.Drawing.Size(35, 16);
             this.rc11.TabIndex = 10;
@@ -323,7 +325,7 @@
             // 
             this.rc10.AutoSize = true;
             this.rc10.Location = new System.Drawing.Point(317, 23);
-            this.rc10.Margin = new System.Windows.Forms.Padding(2);
+            this.rc10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc10.Name = "rc10";
             this.rc10.Size = new System.Drawing.Size(35, 16);
             this.rc10.TabIndex = 9;
@@ -336,7 +338,7 @@
             // 
             this.rc9.AutoSize = true;
             this.rc9.Location = new System.Drawing.Point(283, 23);
-            this.rc9.Margin = new System.Windows.Forms.Padding(2);
+            this.rc9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc9.Name = "rc9";
             this.rc9.Size = new System.Drawing.Size(29, 16);
             this.rc9.TabIndex = 8;
@@ -349,7 +351,7 @@
             // 
             this.rc8.AutoSize = true;
             this.rc8.Location = new System.Drawing.Point(248, 23);
-            this.rc8.Margin = new System.Windows.Forms.Padding(2);
+            this.rc8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc8.Name = "rc8";
             this.rc8.Size = new System.Drawing.Size(29, 16);
             this.rc8.TabIndex = 7;
@@ -362,7 +364,7 @@
             // 
             this.rc7.AutoSize = true;
             this.rc7.Location = new System.Drawing.Point(214, 23);
-            this.rc7.Margin = new System.Windows.Forms.Padding(2);
+            this.rc7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc7.Name = "rc7";
             this.rc7.Size = new System.Drawing.Size(29, 16);
             this.rc7.TabIndex = 6;
@@ -375,7 +377,7 @@
             // 
             this.rc6.AutoSize = true;
             this.rc6.Location = new System.Drawing.Point(179, 23);
-            this.rc6.Margin = new System.Windows.Forms.Padding(2);
+            this.rc6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc6.Name = "rc6";
             this.rc6.Size = new System.Drawing.Size(29, 16);
             this.rc6.TabIndex = 5;
@@ -388,7 +390,7 @@
             // 
             this.rc5.AutoSize = true;
             this.rc5.Location = new System.Drawing.Point(145, 23);
-            this.rc5.Margin = new System.Windows.Forms.Padding(2);
+            this.rc5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc5.Name = "rc5";
             this.rc5.Size = new System.Drawing.Size(29, 16);
             this.rc5.TabIndex = 4;
@@ -401,7 +403,7 @@
             // 
             this.rc4.AutoSize = true;
             this.rc4.Location = new System.Drawing.Point(110, 23);
-            this.rc4.Margin = new System.Windows.Forms.Padding(2);
+            this.rc4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc4.Name = "rc4";
             this.rc4.Size = new System.Drawing.Size(29, 16);
             this.rc4.TabIndex = 3;
@@ -414,7 +416,7 @@
             // 
             this.rc3.AutoSize = true;
             this.rc3.Location = new System.Drawing.Point(76, 23);
-            this.rc3.Margin = new System.Windows.Forms.Padding(2);
+            this.rc3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc3.Name = "rc3";
             this.rc3.Size = new System.Drawing.Size(29, 16);
             this.rc3.TabIndex = 2;
@@ -427,7 +429,7 @@
             // 
             this.rc2.AutoSize = true;
             this.rc2.Location = new System.Drawing.Point(41, 23);
-            this.rc2.Margin = new System.Windows.Forms.Padding(2);
+            this.rc2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc2.Name = "rc2";
             this.rc2.Size = new System.Drawing.Size(29, 16);
             this.rc2.TabIndex = 1;
@@ -440,7 +442,7 @@
             // 
             this.rc1.AutoSize = true;
             this.rc1.Location = new System.Drawing.Point(7, 23);
-            this.rc1.Margin = new System.Windows.Forms.Padding(2);
+            this.rc1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rc1.Name = "rc1";
             this.rc1.Size = new System.Drawing.Size(29, 16);
             this.rc1.TabIndex = 0;
@@ -452,7 +454,7 @@
             // btnTrade
             // 
             this.btnTrade.Location = new System.Drawing.Point(326, 0);
-            this.btnTrade.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTrade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTrade.Name = "btnTrade";
             this.btnTrade.Size = new System.Drawing.Size(76, 31);
             this.btnTrade.TabIndex = 64;
@@ -464,7 +466,7 @@
             // 
             this.chkAuto.AutoSize = true;
             this.chkAuto.Location = new System.Drawing.Point(10, 53);
-            this.chkAuto.Margin = new System.Windows.Forms.Padding(2);
+            this.chkAuto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkAuto.Name = "chkAuto";
             this.chkAuto.Size = new System.Drawing.Size(72, 16);
             this.chkAuto.TabIndex = 63;
@@ -477,7 +479,7 @@
             // 
             this.btnWeb.Enabled = false;
             this.btnWeb.Location = new System.Drawing.Point(246, 69);
-            this.btnWeb.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWeb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnWeb.Name = "btnWeb";
             this.btnWeb.Size = new System.Drawing.Size(76, 27);
             this.btnWeb.TabIndex = 62;
@@ -489,7 +491,7 @@
             // 
             this.btnStart.Enabled = false;
             this.btnStart.Location = new System.Drawing.Point(246, 35);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(76, 31);
             this.btnStart.TabIndex = 61;
@@ -500,7 +502,7 @@
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(246, 0);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(76, 31);
             this.btnLogin.TabIndex = 60;
@@ -527,7 +529,7 @@
             "13",
             "14"});
             this.cobRace.Location = new System.Drawing.Point(162, 27);
-            this.cobRace.Margin = new System.Windows.Forms.Padding(2);
+            this.cobRace.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cobRace.Name = "cobRace";
             this.cobRace.Size = new System.Drawing.Size(66, 20);
             this.cobRace.TabIndex = 59;
@@ -557,7 +559,7 @@
             // txtUrl
             // 
             this.txtUrl.Location = new System.Drawing.Point(38, 73);
-            this.txtUrl.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUrl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(190, 21);
             this.txtUrl.TabIndex = 57;
@@ -576,7 +578,7 @@
             // txtAccount
             // 
             this.txtAccount.Location = new System.Drawing.Point(38, 4);
-            this.txtAccount.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(68, 21);
             this.txtAccount.TabIndex = 49;
@@ -596,7 +598,7 @@
             // 
             this.cobMatch.FormattingEnabled = true;
             this.cobMatch.Location = new System.Drawing.Point(37, 102);
-            this.cobMatch.Margin = new System.Windows.Forms.Padding(2);
+            this.cobMatch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cobMatch.Name = "cobMatch";
             this.cobMatch.Size = new System.Drawing.Size(267, 20);
             this.cobMatch.TabIndex = 55;
@@ -605,7 +607,7 @@
             // txtPwd
             // 
             this.txtPwd.Location = new System.Drawing.Point(162, 4);
-            this.txtPwd.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPwd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
             this.txtPwd.Size = new System.Drawing.Size(68, 21);
@@ -635,7 +637,7 @@
             // txtPin
             // 
             this.txtPin.Location = new System.Drawing.Point(37, 27);
-            this.txtPin.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPin.Name = "txtPin";
             this.txtPin.Size = new System.Drawing.Size(68, 21);
             this.txtPin.TabIndex = 53;
@@ -647,9 +649,9 @@
             this.lstInfo.FormattingEnabled = true;
             this.lstInfo.ItemHeight = 12;
             this.lstInfo.Location = new System.Drawing.Point(0, 0);
-            this.lstInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.lstInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstInfo.Name = "lstInfo";
-            this.lstInfo.Size = new System.Drawing.Size(1290, 226);
+            this.lstInfo.Size = new System.Drawing.Size(921, 226);
             this.lstInfo.TabIndex = 0;
             // 
             // tabControl1
@@ -659,10 +661,10 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1812, 517);
+            this.tabControl1.Size = new System.Drawing.Size(1443, 517);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage3
@@ -677,9 +679,9 @@
             this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Controls.Add(this.smatSelection);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1804, 491);
+            this.tabPage3.Size = new System.Drawing.Size(1435, 491);
             this.tabPage3.TabIndex = 4;
             this.tabPage3.Text = "聪明投注";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -687,7 +689,8 @@
             // viewHistoryPq
             // 
             this.viewHistoryPq.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.viewHistoryPq.Location = new System.Drawing.Point(1294, 3);
+            this.viewHistoryPq.Location = new System.Drawing.Point(1060, 0);
+            this.viewHistoryPq.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.viewHistoryPq.Name = "viewHistoryPq";
             this.viewHistoryPq.Size = new System.Drawing.Size(452, 492);
             this.viewHistoryPq.TabIndex = 8;
@@ -695,7 +698,8 @@
             // viewHistoryQ
             // 
             this.viewHistoryQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.viewHistoryQ.Location = new System.Drawing.Point(792, 0);
+            this.viewHistoryQ.Location = new System.Drawing.Point(608, 0);
+            this.viewHistoryQ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.viewHistoryQ.Name = "viewHistoryQ";
             this.viewHistoryQ.Size = new System.Drawing.Size(452, 492);
             this.viewHistoryQ.TabIndex = 7;
@@ -723,7 +727,7 @@
             // btnSaveCal
             // 
             this.btnSaveCal.Location = new System.Drawing.Point(63, 400);
-            this.btnSaveCal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSaveCal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSaveCal.Name = "btnSaveCal";
             this.btnSaveCal.Size = new System.Drawing.Size(41, 20);
             this.btnSaveCal.TabIndex = 4;
@@ -734,7 +738,7 @@
             // btnCal
             // 
             this.btnCal.Location = new System.Drawing.Point(8, 400);
-            this.btnCal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCal.Name = "btnCal";
             this.btnCal.Size = new System.Drawing.Size(41, 20);
             this.btnCal.TabIndex = 3;
@@ -755,7 +759,7 @@
             this.panel1.Controls.Add(this.chkQP);
             this.panel1.Controls.Add(this.chkQ);
             this.panel1.Location = new System.Drawing.Point(13, 278);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(79, 21);
             this.panel1.TabIndex = 1;
@@ -764,7 +768,7 @@
             // 
             this.chkQP.AutoSize = true;
             this.chkQP.Location = new System.Drawing.Point(41, 4);
-            this.chkQP.Margin = new System.Windows.Forms.Padding(2);
+            this.chkQP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkQP.Name = "chkQP";
             this.chkQP.Size = new System.Drawing.Size(36, 16);
             this.chkQP.TabIndex = 1;
@@ -775,7 +779,7 @@
             // 
             this.chkQ.AutoSize = true;
             this.chkQ.Location = new System.Drawing.Point(2, 4);
-            this.chkQ.Margin = new System.Windows.Forms.Padding(2);
+            this.chkQ.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkQ.Name = "chkQ";
             this.chkQ.Size = new System.Drawing.Size(30, 16);
             this.chkQ.TabIndex = 0;
@@ -794,10 +798,10 @@
             // 
             this.tabPage1.Controls.Add(this.dgvBetResult);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(1804, 491);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(1435, 536);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "进单情况";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -805,14 +809,14 @@
             // dgvBetResult
             // 
             this.dgvBetResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvBetResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBetResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -829,31 +833,31 @@
             this.Column10,
             this.Column11,
             this.nnn});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBetResult.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBetResult.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvBetResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBetResult.Location = new System.Drawing.Point(2, 2);
-            this.dgvBetResult.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvBetResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvBetResult.Name = "dgvBetResult";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvBetResult.RowHeadersVisible = false;
             this.dgvBetResult.RowHeadersWidth = 51;
             this.dgvBetResult.RowTemplate.Height = 30;
             this.dgvBetResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBetResult.Size = new System.Drawing.Size(1800, 487);
+            this.dgvBetResult.Size = new System.Drawing.Size(1431, 532);
             this.dgvBetResult.TabIndex = 1;
             // 
             // Column1
@@ -960,10 +964,10 @@
             this.tabPage2.Controls.Add(this.QpbetSetting);
             this.tabPage2.Controls.Add(this.QbetSetting);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(1804, 491);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Size = new System.Drawing.Size(1435, 536);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "打单设置";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -993,13 +997,24 @@
             this.QbetSetting.Size = new System.Drawing.Size(487, 261);
             this.QbetSetting.TabIndex = 3;
             // 
+            // btnWeb2
+            // 
+            this.btnWeb2.Location = new System.Drawing.Point(326, 67);
+            this.btnWeb2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWeb2.Name = "btnWeb2";
+            this.btnWeb2.Size = new System.Drawing.Size(76, 27);
+            this.btnWeb2.TabIndex = 70;
+            this.btnWeb2.Text = "网站2";
+            this.btnWeb2.UseVisualStyleBackColor = true;
+            this.btnWeb2.Click += new System.EventHandler(this.btnWeb2_Click);
+            // 
             // FrmEatZd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1812, 746);
+            this.ClientSize = new System.Drawing.Size(1443, 746);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmEatZd";
             this.Text = "SmartBet";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmEatZd_FormClosed);
@@ -1102,5 +1117,6 @@
         private System.Windows.Forms.Button btnSave;
         private ViewHistory viewHistoryPq;
         private ViewHistory viewHistoryQ;
+        private System.Windows.Forms.Button btnWeb2;
     }
 }

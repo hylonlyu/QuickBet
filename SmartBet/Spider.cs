@@ -123,23 +123,6 @@ namespace EatZD
                     //timetag = "30分内";
                     #region
                     timetag = $"{_LastTime}分";
-                    if (_LastTime == 0)
-                    {
-                        timetag = "0秒";
-                        zerocounter++;
-                        if (zerocounter == 6)
-                        {
-                            timetag = "30秒";
-                        }
-                        if (zerocounter == 8)
-                        {
-                            timetag = "20秒";
-                        }
-                        if (zerocounter == 10)
-                        {
-                            timetag = "10秒";
-                        }
-                    }
                     #endregion
 
                 }

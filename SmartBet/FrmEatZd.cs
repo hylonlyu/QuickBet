@@ -555,6 +555,7 @@ namespace EatZD
             frmMatch.Url = $"http://{CCmemberInstance.DoMain}/playerhk.jsp";
             frmMatch.CC = CCmemberInstance.cc;
             frmMatch.Show();
+
         }
 
         private void SetCookie(string Url, CookieContainer CC)
@@ -914,6 +915,14 @@ namespace EatZD
                 ViewQ();
                 ViewQp();
             }
+        }
+
+        private void btnWeb2_Click(object sender, EventArgs e)
+        {
+            FrmWeb frmMatch = new FrmWeb();
+            frmMatch.Url = $"http://{CCmemberInstance.DoMain}/playerhk.jsp";
+            frmMatch.CC = CCmemberInstance.cc;
+            frmMatch.Show();
         }
     }
 }
