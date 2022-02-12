@@ -146,48 +146,55 @@ namespace EatZD
         private void SaveqpOdds(string timetag)
         {
             string sql = "";
-            List<string> arrayList = new List<string>();
-            sql = $"delete From qpOdds where match='{CurrentMatch}' and race={Race} and qtype='QP'  and timetag='{timetag}'";
-            arrayList.Add(sql);
-            for (int i = 1; i <= 20; i++)
+            if(qpOdds!=null)
             {
-                for (int j = 1; j <= 20; j++)
+                List<string> arrayList = new List<string>();
+                sql = $"delete From qpOdds where match='{CurrentMatch}' and race={Race} and qtype='QP'  and timetag='{timetag}'";
+                arrayList.Add(sql);
+                for (int i = 1; i <= qpOdds.GetLength(0) - 1; i++)
                 {
-                    if (qpOdds != null)
+                    for (int j = 1; j <= qpOdds.GetLength(1) - 1; j++)
                     {
-                        if (double.TryParse(qpOdds[i, j], out double odds))
+                        if (qpOdds != null)
                         {
-                            sql = $"insert into qpOdds (match,race,minute,horse1,horse2,odds,qtype,timetag) " +
-                                              $"values('{CurrentMatch}',{Race},{_LastTime},{i},{j},{odds},'QP','{timetag}')";
-                            arrayList.Add(sql);
+                            if (double.TryParse(qpOdds[i, j], out double odds))
+                            {
+                                sql = $"insert into qpOdds (match,race,minute,horse1,horse2,odds,qtype,timetag) " +
+                                                  $"values('{CurrentMatch}',{Race},{_LastTime},{i},{j},{odds},'QP','{timetag}')";
+                                arrayList.Add(sql);
+                            }
                         }
                     }
                 }
+                SqlHelper.ExecuteSqlTran(arrayList);
             }
-            SqlHelper.ExecuteSqlTran(arrayList);
         }
         private void SaveqOdds(string timetag)
         {
             string sql = "";
-            List<string> arrayList = new List<string>();
-            sql = $"delete  From qpOdds where match='{CurrentMatch}' and race={Race} and qtype='Q'  and timetag='{timetag}'";
-            arrayList.Add(sql);
-            for (int i = 1; i <= 20; i++)
+            if (qOdds != null)
             {
-                for (int j = 1; j <= 20; j++)
+                List<string> arrayList = new List<string>();
+                sql = $"delete  From qpOdds where match='{CurrentMatch}' and race={Race} and qtype='Q'  and timetag='{timetag}'";
+                arrayList.Add(sql);
+                for (int i = 1; i <= qOdds.GetLength(0) - 1; i++)
                 {
-                    if (qOdds != null)
+                    for (int j = 1; j <= qOdds.GetLength(1) - 1; j++)
                     {
-                        if (double.TryParse(qOdds[i, j], out double odds))
+                        if (qOdds != null)
                         {
-                            sql = $"insert into qpOdds (match,race,minute,horse1,horse2,odds,qtype,timetag) " +
-                     $"values('{CurrentMatch}',{Race},{_LastTime},'{i}',{j},{odds},'Q','{timetag}')";
-                            arrayList.Add(sql);
+                            if (double.TryParse(qOdds[i, j], out double odds))
+                            {
+                                sql = $"insert into qpOdds (match,race,minute,horse1,horse2,odds,qtype,timetag) " +
+                         $"values('{CurrentMatch}',{Race},{_LastTime},'{i}',{j},{odds},'Q','{timetag}')";
+                                arrayList.Add(sql);
+                            }
                         }
                     }
                 }
+                SqlHelper.ExecuteSqlTran(arrayList);
             }
-            SqlHelper.ExecuteSqlTran(arrayList);
+           
         }
         public void Stop()
         {

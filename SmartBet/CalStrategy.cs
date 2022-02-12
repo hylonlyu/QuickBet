@@ -55,7 +55,7 @@ namespace EatZD
                 {
                     int piao = (int)(ypc / odds);
                     int piao1 = (int)(ypc / odds1);
-                    int gap = (int)((1-piao1*1.0/piao) *100);
+                    int gap = (int)((1- odds1 / odds) *100);
                     DataRow dr = dtRet.NewRow();
                     dr["组合"] = $"{item.Item1}-{item.Item2}";
                     dr["DT"] = odds;

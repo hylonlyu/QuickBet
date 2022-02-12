@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
 
 namespace EatZD
 {
-        public partial class FrmWeb : Form
+    public partial class FrmWeb : Form
     {
         public string Url
         {
@@ -39,8 +32,7 @@ namespace EatZD
 
         private void Init()
         {
-            CefSettings setting = new CefSettings();
-            Cef.Initialize(setting);
+
             SetCookie();
             chromeBrowser = new ChromiumWebBrowser(Url);
             this.panel1.Controls.Add(this.chromeBrowser);

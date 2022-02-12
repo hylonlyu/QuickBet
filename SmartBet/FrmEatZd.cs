@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CefSharp;
+using CefSharp.WinForms;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,6 +62,9 @@ namespace EatZD
             CCmemberInstance.OnBetOk += CCmemberInstance_OnBetOk;
             CCmemberInstance.ShowMsg += CCmemberInstance_ShowMsg;
             CCmemberInstance.OnNewTickt += CCmemberInstance_OnNewTickt;
+
+            CefSettings setting = new CefSettings();
+            Cef.Initialize(setting);
         }
 
         private void CCmemberInstance_OnNewTickt(RaceInfoEnity enity)
@@ -558,17 +563,7 @@ namespace EatZD
 
         }
 
-        private void SetCookie(string Url, CookieContainer CC)
-        {
-            Uri uri = new Uri(Url);
-            string cDomain = uri.Host;
-            CookieContainer container = CC;
-            CookieCollection cc = container.GetCookies(new Uri(Url));
-            foreach (Cookie c in cc)
-            {
-                InternetSetCookie("http://" + cDomain, c.Name.ToString(), c.Value.ToString());
-            }
-        }
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {

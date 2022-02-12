@@ -70,7 +70,7 @@
             this.Controls.Add(this.chkHead);
             this.Controls.Add(this.lblHorse);
             this.Name = "HeadfoodCtrl";
-            this.Size = new System.Drawing.Size(18, 58);
+            this.Size = new System.Drawing.Size(15, 58);
             this.ResumeLayout(false);
             this.PerformLayout();
 
