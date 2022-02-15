@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tblHorse = new System.Windows.Forms.TableLayoutPanel();
@@ -65,6 +65,10 @@
             this.lblYjpc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvGrid = new System.Windows.Forms.DataGridView();
+            this.txtMin = new System.Windows.Forms.TextBox();
+            this.txtMax = new System.Windows.Forms.TextBox();
+            this.radAsc = new System.Windows.Forms.RadioButton();
+            this.radDec = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -85,8 +89,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(465, 627);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -100,33 +104,33 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tblHorse);
-            this.splitContainer1.Size = new System.Drawing.Size(459, 74);
-            this.splitContainer1.SplitterDistance = 26;
+            this.splitContainer1.Size = new System.Drawing.Size(459, 53);
+            this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 0;
             // 
             // tblHorse
             // 
             this.tblHorse.ColumnCount = 20;
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.537522F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.537522F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.537522F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.712042F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.537522F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.537522F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.712042F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.886562F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.537522F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.235602F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.235602F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.061082F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.410122F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.584642F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.235602F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.584642F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.584642F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.410122F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.061082F));
+            this.tblHorse.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.886562F));
             this.tblHorse.Controls.Add(this.headfoodCtrl1, 0, 0);
             this.tblHorse.Controls.Add(this.headfoodCtrl2, 1, 0);
             this.tblHorse.Controls.Add(this.headfoodCtrl3, 2, 0);
@@ -151,9 +155,9 @@
             this.tblHorse.Location = new System.Drawing.Point(0, 0);
             this.tblHorse.Name = "tblHorse";
             this.tblHorse.RowCount = 1;
-            this.tblHorse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblHorse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            this.tblHorse.Size = new System.Drawing.Size(429, 74);
+            this.tblHorse.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblHorse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tblHorse.Size = new System.Drawing.Size(430, 53);
             this.tblHorse.TabIndex = 0;
             // 
             // headfoodCtrl1
@@ -162,10 +166,10 @@
             this.headfoodCtrl1.Foot = false;
             this.headfoodCtrl1.Head = false;
             this.headfoodCtrl1.Horse = "1";
-            this.headfoodCtrl1.Location = new System.Drawing.Point(4, 4);
-            this.headfoodCtrl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl1.Location = new System.Drawing.Point(0, 0);
+            this.headfoodCtrl1.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl1.Name = "headfoodCtrl1";
-            this.headfoodCtrl1.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl1.Size = new System.Drawing.Size(19, 66);
             this.headfoodCtrl1.TabIndex = 0;
             // 
             // headfoodCtrl2
@@ -174,10 +178,10 @@
             this.headfoodCtrl2.Foot = false;
             this.headfoodCtrl2.Head = false;
             this.headfoodCtrl2.Horse = "2";
-            this.headfoodCtrl2.Location = new System.Drawing.Point(25, 4);
-            this.headfoodCtrl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl2.Location = new System.Drawing.Point(19, 0);
+            this.headfoodCtrl2.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl2.Name = "headfoodCtrl2";
-            this.headfoodCtrl2.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl2.Size = new System.Drawing.Size(19, 66);
             this.headfoodCtrl2.TabIndex = 1;
             // 
             // headfoodCtrl3
@@ -186,10 +190,10 @@
             this.headfoodCtrl3.Foot = false;
             this.headfoodCtrl3.Head = false;
             this.headfoodCtrl3.Horse = "3";
-            this.headfoodCtrl3.Location = new System.Drawing.Point(46, 4);
-            this.headfoodCtrl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl3.Location = new System.Drawing.Point(38, 0);
+            this.headfoodCtrl3.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl3.Name = "headfoodCtrl3";
-            this.headfoodCtrl3.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl3.Size = new System.Drawing.Size(19, 66);
             this.headfoodCtrl3.TabIndex = 2;
             // 
             // headfoodCtrl4
@@ -198,10 +202,10 @@
             this.headfoodCtrl4.Foot = false;
             this.headfoodCtrl4.Head = false;
             this.headfoodCtrl4.Horse = "4";
-            this.headfoodCtrl4.Location = new System.Drawing.Point(67, 4);
-            this.headfoodCtrl4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl4.Location = new System.Drawing.Point(57, 0);
+            this.headfoodCtrl4.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl4.Name = "headfoodCtrl4";
-            this.headfoodCtrl4.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl4.Size = new System.Drawing.Size(20, 66);
             this.headfoodCtrl4.TabIndex = 3;
             // 
             // headfoodCtrl5
@@ -210,10 +214,10 @@
             this.headfoodCtrl5.Foot = false;
             this.headfoodCtrl5.Head = false;
             this.headfoodCtrl5.Horse = "5";
-            this.headfoodCtrl5.Location = new System.Drawing.Point(88, 4);
-            this.headfoodCtrl5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl5.Location = new System.Drawing.Point(77, 0);
+            this.headfoodCtrl5.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl5.Name = "headfoodCtrl5";
-            this.headfoodCtrl5.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl5.Size = new System.Drawing.Size(19, 66);
             this.headfoodCtrl5.TabIndex = 4;
             // 
             // headfoodCtrl6
@@ -222,10 +226,10 @@
             this.headfoodCtrl6.Foot = false;
             this.headfoodCtrl6.Head = false;
             this.headfoodCtrl6.Horse = "6";
-            this.headfoodCtrl6.Location = new System.Drawing.Point(109, 4);
-            this.headfoodCtrl6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl6.Location = new System.Drawing.Point(96, 0);
+            this.headfoodCtrl6.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl6.Name = "headfoodCtrl6";
-            this.headfoodCtrl6.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl6.Size = new System.Drawing.Size(19, 66);
             this.headfoodCtrl6.TabIndex = 5;
             // 
             // headfoodCtrl7
@@ -234,10 +238,10 @@
             this.headfoodCtrl7.Foot = false;
             this.headfoodCtrl7.Head = false;
             this.headfoodCtrl7.Horse = "7";
-            this.headfoodCtrl7.Location = new System.Drawing.Point(130, 4);
-            this.headfoodCtrl7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl7.Location = new System.Drawing.Point(115, 0);
+            this.headfoodCtrl7.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl7.Name = "headfoodCtrl7";
-            this.headfoodCtrl7.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl7.Size = new System.Drawing.Size(20, 66);
             this.headfoodCtrl7.TabIndex = 6;
             // 
             // headfoodCtrl8
@@ -246,10 +250,10 @@
             this.headfoodCtrl8.Foot = false;
             this.headfoodCtrl8.Head = false;
             this.headfoodCtrl8.Horse = "8";
-            this.headfoodCtrl8.Location = new System.Drawing.Point(151, 4);
-            this.headfoodCtrl8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl8.Location = new System.Drawing.Point(135, 0);
+            this.headfoodCtrl8.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl8.Name = "headfoodCtrl8";
-            this.headfoodCtrl8.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl8.Size = new System.Drawing.Size(21, 66);
             this.headfoodCtrl8.TabIndex = 7;
             // 
             // headfoodCtrl9
@@ -258,10 +262,10 @@
             this.headfoodCtrl9.Foot = false;
             this.headfoodCtrl9.Head = false;
             this.headfoodCtrl9.Horse = "9";
-            this.headfoodCtrl9.Location = new System.Drawing.Point(172, 4);
-            this.headfoodCtrl9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl9.Location = new System.Drawing.Point(156, 0);
+            this.headfoodCtrl9.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl9.Name = "headfoodCtrl9";
-            this.headfoodCtrl9.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl9.Size = new System.Drawing.Size(19, 66);
             this.headfoodCtrl9.TabIndex = 8;
             // 
             // headfoodCtrl10
@@ -270,10 +274,10 @@
             this.headfoodCtrl10.Foot = false;
             this.headfoodCtrl10.Head = false;
             this.headfoodCtrl10.Horse = "10";
-            this.headfoodCtrl10.Location = new System.Drawing.Point(193, 4);
-            this.headfoodCtrl10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl10.Location = new System.Drawing.Point(175, 0);
+            this.headfoodCtrl10.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl10.Name = "headfoodCtrl10";
-            this.headfoodCtrl10.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl10.Size = new System.Drawing.Size(22, 66);
             this.headfoodCtrl10.TabIndex = 9;
             // 
             // headfoodCtrl11
@@ -282,10 +286,10 @@
             this.headfoodCtrl11.Foot = false;
             this.headfoodCtrl11.Head = false;
             this.headfoodCtrl11.Horse = "11";
-            this.headfoodCtrl11.Location = new System.Drawing.Point(214, 4);
-            this.headfoodCtrl11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl11.Location = new System.Drawing.Point(197, 0);
+            this.headfoodCtrl11.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl11.Name = "headfoodCtrl11";
-            this.headfoodCtrl11.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl11.Size = new System.Drawing.Size(22, 66);
             this.headfoodCtrl11.TabIndex = 10;
             // 
             // headfoodCtrl12
@@ -294,10 +298,10 @@
             this.headfoodCtrl12.Foot = false;
             this.headfoodCtrl12.Head = false;
             this.headfoodCtrl12.Horse = "12";
-            this.headfoodCtrl12.Location = new System.Drawing.Point(235, 4);
-            this.headfoodCtrl12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl12.Location = new System.Drawing.Point(219, 0);
+            this.headfoodCtrl12.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl12.Name = "headfoodCtrl12";
-            this.headfoodCtrl12.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl12.Size = new System.Drawing.Size(21, 66);
             this.headfoodCtrl12.TabIndex = 11;
             // 
             // headfoodCtrl13
@@ -306,10 +310,10 @@
             this.headfoodCtrl13.Foot = false;
             this.headfoodCtrl13.Head = false;
             this.headfoodCtrl13.Horse = "13";
-            this.headfoodCtrl13.Location = new System.Drawing.Point(256, 4);
-            this.headfoodCtrl13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl13.Location = new System.Drawing.Point(240, 0);
+            this.headfoodCtrl13.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl13.Name = "headfoodCtrl13";
-            this.headfoodCtrl13.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl13.Size = new System.Drawing.Size(23, 66);
             this.headfoodCtrl13.TabIndex = 12;
             // 
             // headfoodCtrl14
@@ -318,10 +322,10 @@
             this.headfoodCtrl14.Foot = false;
             this.headfoodCtrl14.Head = false;
             this.headfoodCtrl14.Horse = "14";
-            this.headfoodCtrl14.Location = new System.Drawing.Point(277, 4);
-            this.headfoodCtrl14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl14.Location = new System.Drawing.Point(263, 0);
+            this.headfoodCtrl14.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl14.Name = "headfoodCtrl14";
-            this.headfoodCtrl14.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl14.Size = new System.Drawing.Size(24, 66);
             this.headfoodCtrl14.TabIndex = 13;
             // 
             // headfoodCtrl15
@@ -330,10 +334,10 @@
             this.headfoodCtrl15.Foot = false;
             this.headfoodCtrl15.Head = false;
             this.headfoodCtrl15.Horse = "15";
-            this.headfoodCtrl15.Location = new System.Drawing.Point(298, 4);
-            this.headfoodCtrl15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl15.Location = new System.Drawing.Point(287, 0);
+            this.headfoodCtrl15.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl15.Name = "headfoodCtrl15";
-            this.headfoodCtrl15.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl15.Size = new System.Drawing.Size(22, 66);
             this.headfoodCtrl15.TabIndex = 14;
             // 
             // headfoodCtrl16
@@ -342,10 +346,10 @@
             this.headfoodCtrl16.Foot = false;
             this.headfoodCtrl16.Head = false;
             this.headfoodCtrl16.Horse = "16";
-            this.headfoodCtrl16.Location = new System.Drawing.Point(319, 4);
-            this.headfoodCtrl16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl16.Location = new System.Drawing.Point(309, 0);
+            this.headfoodCtrl16.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl16.Name = "headfoodCtrl16";
-            this.headfoodCtrl16.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl16.Size = new System.Drawing.Size(24, 66);
             this.headfoodCtrl16.TabIndex = 15;
             // 
             // headfoodCtrl17
@@ -354,10 +358,10 @@
             this.headfoodCtrl17.Foot = false;
             this.headfoodCtrl17.Head = false;
             this.headfoodCtrl17.Horse = "17";
-            this.headfoodCtrl17.Location = new System.Drawing.Point(340, 4);
-            this.headfoodCtrl17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl17.Location = new System.Drawing.Point(333, 0);
+            this.headfoodCtrl17.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl17.Name = "headfoodCtrl17";
-            this.headfoodCtrl17.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl17.Size = new System.Drawing.Size(24, 66);
             this.headfoodCtrl17.TabIndex = 16;
             // 
             // headfoodCtrl18
@@ -366,10 +370,10 @@
             this.headfoodCtrl18.Foot = false;
             this.headfoodCtrl18.Head = false;
             this.headfoodCtrl18.Horse = "18";
-            this.headfoodCtrl18.Location = new System.Drawing.Point(361, 4);
-            this.headfoodCtrl18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl18.Location = new System.Drawing.Point(357, 0);
+            this.headfoodCtrl18.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl18.Name = "headfoodCtrl18";
-            this.headfoodCtrl18.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl18.Size = new System.Drawing.Size(23, 66);
             this.headfoodCtrl18.TabIndex = 17;
             // 
             // headfoodCtrl19
@@ -378,10 +382,10 @@
             this.headfoodCtrl19.Foot = false;
             this.headfoodCtrl19.Head = false;
             this.headfoodCtrl19.Horse = "19";
-            this.headfoodCtrl19.Location = new System.Drawing.Point(382, 4);
-            this.headfoodCtrl19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl19.Location = new System.Drawing.Point(380, 0);
+            this.headfoodCtrl19.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl19.Name = "headfoodCtrl19";
-            this.headfoodCtrl19.Size = new System.Drawing.Size(13, 66);
+            this.headfoodCtrl19.Size = new System.Drawing.Size(21, 66);
             this.headfoodCtrl19.TabIndex = 18;
             // 
             // headfoodCtrl20
@@ -390,14 +394,18 @@
             this.headfoodCtrl20.Foot = false;
             this.headfoodCtrl20.Head = false;
             this.headfoodCtrl20.Horse = "20";
-            this.headfoodCtrl20.Location = new System.Drawing.Point(403, 4);
-            this.headfoodCtrl20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headfoodCtrl20.Location = new System.Drawing.Point(401, 0);
+            this.headfoodCtrl20.Margin = new System.Windows.Forms.Padding(0);
             this.headfoodCtrl20.Name = "headfoodCtrl20";
-            this.headfoodCtrl20.Size = new System.Drawing.Size(22, 66);
+            this.headfoodCtrl20.Size = new System.Drawing.Size(29, 66);
             this.headfoodCtrl20.TabIndex = 19;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.radDec);
+            this.panel1.Controls.Add(this.radAsc);
+            this.panel1.Controls.Add(this.txtMax);
+            this.panel1.Controls.Add(this.txtMin);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnView);
             this.panel1.Controls.Add(this.cobQt1);
@@ -407,16 +415,16 @@
             this.panel1.Controls.Add(this.lblYjpc);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 83);
+            this.panel1.Location = new System.Drawing.Point(3, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(459, 34);
+            this.panel1.Size = new System.Drawing.Size(459, 30);
             this.panel1.TabIndex = 1;
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnClear.ForeColor = System.Drawing.Color.Red;
-            this.btnClear.Location = new System.Drawing.Point(369, 0);
+            this.btnClear.Location = new System.Drawing.Point(429, 0);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(26, 28);
             this.btnClear.TabIndex = 0;
@@ -426,7 +434,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(307, 3);
+            this.btnView.Location = new System.Drawing.Point(366, 3);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(56, 23);
             this.btnView.TabIndex = 7;
@@ -437,23 +445,23 @@
             // cobQt1
             // 
             this.cobQt1.FormattingEnabled = true;
-            this.cobQt1.Location = new System.Drawing.Point(251, 3);
+            this.cobQt1.Location = new System.Drawing.Point(164, 3);
             this.cobQt1.Name = "cobQt1";
-            this.cobQt1.Size = new System.Drawing.Size(45, 20);
+            this.cobQt1.Size = new System.Drawing.Size(39, 20);
             this.cobQt1.TabIndex = 6;
             // 
             // cobQt
             // 
             this.cobQt.FormattingEnabled = true;
-            this.cobQt.Location = new System.Drawing.Point(165, 3);
+            this.cobQt.Location = new System.Drawing.Point(104, 3);
             this.cobQt.Name = "cobQt";
-            this.cobQt.Size = new System.Drawing.Size(45, 20);
+            this.cobQt.Size = new System.Drawing.Size(37, 20);
             this.cobQt.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(227, 9);
+            this.label3.Location = new System.Drawing.Point(142, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 4;
@@ -462,7 +470,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(147, 9);
+            this.label2.Location = new System.Drawing.Point(86, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(17, 12);
             this.label2.TabIndex = 2;
@@ -470,9 +478,9 @@
             // 
             // lblYjpc
             // 
-            this.lblYjpc.Location = new System.Drawing.Point(60, 3);
+            this.lblYjpc.Location = new System.Drawing.Point(34, 5);
             this.lblYjpc.Name = "lblYjpc";
-            this.lblYjpc.Size = new System.Drawing.Size(57, 21);
+            this.lblYjpc.Size = new System.Drawing.Size(49, 21);
             this.lblYjpc.TabIndex = 1;
             // 
             // label1
@@ -480,51 +488,89 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(4, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "预计派彩";
+            this.label1.Text = "派彩";
             // 
             // dgvGrid
             // 
             this.dgvGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGrid.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvGrid.Location = new System.Drawing.Point(3, 123);
+            this.dgvGrid.Location = new System.Drawing.Point(3, 98);
             this.dgvGrid.Name = "dgvGrid";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvGrid.RowHeadersVisible = false;
             this.dgvGrid.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvGrid.RowTemplate.Height = 23;
             this.dgvGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGrid.Size = new System.Drawing.Size(459, 501);
+            this.dgvGrid.Size = new System.Drawing.Size(459, 526);
             this.dgvGrid.TabIndex = 2;
             this.dgvGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvGrid_CellFormatting);
+            // 
+            // txtMin
+            // 
+            this.txtMin.Location = new System.Drawing.Point(216, 2);
+            this.txtMin.Name = "txtMin";
+            this.txtMin.Size = new System.Drawing.Size(32, 21);
+            this.txtMin.TabIndex = 8;
+            this.txtMin.Text = "0";
+            // 
+            // txtMax
+            // 
+            this.txtMax.Location = new System.Drawing.Point(254, 3);
+            this.txtMax.Name = "txtMax";
+            this.txtMax.Size = new System.Drawing.Size(32, 21);
+            this.txtMax.TabIndex = 9;
+            this.txtMax.Text = "999";
+            // 
+            // radAsc
+            // 
+            this.radAsc.AutoSize = true;
+            this.radAsc.Checked = true;
+            this.radAsc.Location = new System.Drawing.Point(292, 7);
+            this.radAsc.Name = "radAsc";
+            this.radAsc.Size = new System.Drawing.Size(35, 16);
+            this.radAsc.TabIndex = 10;
+            this.radAsc.TabStop = true;
+            this.radAsc.Text = "升";
+            this.radAsc.UseVisualStyleBackColor = true;
+            // 
+            // radDec
+            // 
+            this.radDec.AutoSize = true;
+            this.radDec.Location = new System.Drawing.Point(327, 7);
+            this.radDec.Name = "radDec";
+            this.radDec.Size = new System.Drawing.Size(35, 16);
+            this.radDec.TabIndex = 11;
+            this.radDec.Text = "降";
+            this.radDec.UseVisualStyleBackColor = true;
             // 
             // ViewHistory
             // 
@@ -580,5 +626,9 @@
         private System.Windows.Forms.ComboBox cobQt;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.RadioButton radDec;
+        private System.Windows.Forms.RadioButton radAsc;
+        private System.Windows.Forms.TextBox txtMax;
+        private System.Windows.Forms.TextBox txtMin;
     }
 }

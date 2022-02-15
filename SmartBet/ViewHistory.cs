@@ -55,7 +55,40 @@ namespace EatZD
             int.TryParse(cobQt.Text.Trim(), out int dt);
             CalStrategy cs = new CalStrategy(Match, Race, Qtype);
             DataTable dtDetail = cs.GetCompareDetail(GetHeads(), GetFoots(), ypc, dt, dt1);
-            dgvGrid.DataSource = dtDetail;
+            dgvGrid.DataSource = AddFilter(dtDetail);
+        }
+
+        private DataTable AddFilter(DataTable dtDetail)
+        {
+            DataTable dtRet = new DataTable();
+            dtRet = dtDetail.Clone();
+            DataRow[] drs = dtDetail.Select(GetDt1Range(),GetSort());
+            foreach(DataRow dr in drs)
+            {
+                dtRet.Rows.Add(dr.ItemArray);
+            }
+            return dtRet;
+        }
+
+        private string GetDt1Range()
+        {
+            double.TryParse(txtMin.Text.Trim(), out double min);
+            double.TryParse(txtMax.Text.Trim(),out double max);
+            string strRet = $"DT1 >={min} and DT1<={max}";
+            return strRet;
+        }
+        private string GetSort()
+        {
+            string strRet;
+            if (radAsc.Checked)
+            {
+                strRet = "相差 asc";
+            }
+            else
+            {
+                strRet = "相差 desc";
+            }
+            return strRet;
         }
         private List<int> GetHeads()
         {

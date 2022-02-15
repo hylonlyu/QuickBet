@@ -29,28 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWeb));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolForward = new System.Windows.Forms.ToolStripButton();
             this.toolBack = new System.Windows.Forms.ToolStripButton();
             this.toolRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolClear = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolForward,
-            this.toolBack,
-            this.toolRefresh,
-            this.toolClear});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1150, 25);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
             // 
             // toolForward
             // 
@@ -58,6 +43,7 @@
             this.toolForward.Name = "toolForward";
             this.toolForward.Size = new System.Drawing.Size(36, 22);
             this.toolForward.Text = "前进";
+            this.toolForward.Click += new System.EventHandler(this.toolForward_Click);
             // 
             // toolBack
             // 
@@ -65,6 +51,7 @@
             this.toolBack.Name = "toolBack";
             this.toolBack.Size = new System.Drawing.Size(36, 22);
             this.toolBack.Text = "后退";
+            this.toolBack.Click += new System.EventHandler(this.toolBack_Click);
             // 
             // toolRefresh
             // 
@@ -72,6 +59,7 @@
             this.toolRefresh.Name = "toolRefresh";
             this.toolRefresh.Size = new System.Drawing.Size(36, 22);
             this.toolRefresh.Text = "刷新";
+            this.toolRefresh.Click += new System.EventHandler(this.toolRefresh_Click);
             // 
             // toolClear
             // 
@@ -82,14 +70,20 @@
             this.toolClear.Size = new System.Drawing.Size(36, 22);
             this.toolClear.Text = "清除";
             // 
-            // panel1
+            // toolStrip1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1150, 828);
-            this.panel1.TabIndex = 4;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolForward,
+            this.toolBack,
+            this.toolRefresh,
+            this.toolClear});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Margin = new System.Windows.Forms.Padding(8);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1150, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // FrmWeb
             // 
@@ -97,7 +91,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1150, 828);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.panel1);
             this.Name = "FrmWeb";
             this.Text = "FrmWeb";
             this.Load += new System.EventHandler(this.FrmWeb_Load);
@@ -109,11 +102,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStrip toolStrip1;
+
         private System.Windows.Forms.ToolStripButton toolForward;
         private System.Windows.Forms.ToolStripButton toolBack;
         private System.Windows.Forms.ToolStripButton toolRefresh;
         private System.Windows.Forms.ToolStripButton toolClear;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }

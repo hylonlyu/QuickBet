@@ -35,7 +35,7 @@ namespace EatZD
 
             SetCookie();
             chromeBrowser = new ChromiumWebBrowser(Url);
-            this.panel1.Controls.Add(this.chromeBrowser);
+            this.Controls.Add(this.chromeBrowser);
             chromeBrowser.LifeSpanHandler = new OpenPageSelf();
             chromeBrowser.Dock = DockStyle.Fill;
         }
@@ -62,6 +62,21 @@ namespace EatZD
 
           
 
+        }
+
+        private void toolForward_Click(object sender, EventArgs e)
+        {
+            this.chromeBrowser.Forward();
+        }
+
+        private void toolBack_Click(object sender, EventArgs e)
+        {
+            this.chromeBrowser.Back();
+        }
+
+        private void toolRefresh_Click(object sender, EventArgs e)
+        {
+            this.chromeBrowser.Reload();
         }
     }
 
