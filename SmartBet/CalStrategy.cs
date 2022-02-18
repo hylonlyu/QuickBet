@@ -127,7 +127,7 @@ namespace EatZD
             DataTable dtRet = new DataTable();
             dtRet.Columns.Add("组合");
             dtRet.Columns.Add("DT");
-            dtRet.Columns.Add("DT1");
+            dtRet.Columns.Add("DT1", typeof(double));
             dtRet.Columns.Add("派彩");
             dtRet.Columns.Add("票");
             dtRet.Columns.Add("票1");

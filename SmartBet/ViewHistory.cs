@@ -42,12 +42,12 @@ namespace EatZD
             cobQt.DataSource = dtSource.Copy();
             cobQt.ValueMember = "minute";
             cobQt.DisplayMember = "minute";
-            cobQt.Text = dt;
+            cobQt.Text = string.IsNullOrEmpty(dt)?"":dt;
 
             cobQt1.DataSource = dtSource.Copy();
             cobQt1.ValueMember = "minute";
             cobQt1.DisplayMember = "minute";
-            cobQt1.Text = dt1;
+            cobQt1.Text = string.IsNullOrEmpty(dt1) ? "" : dt1;
         }
         private void ShowGrid(int dt1 =-1)
         {

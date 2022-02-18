@@ -784,6 +784,7 @@ namespace EatZD
         {
             QbetComposeCtrl1.ClearStrategy();
             QPbetComposeCtrl2.ClearStrategy();
+            SetMinuteDatasource();
         }
 
         private void GetOpenedRace()
@@ -892,11 +893,12 @@ namespace EatZD
         {
             string match = cobMatch.Text;
             string race = GetRace();
-
-            CalStrategy cs = new CalStrategy(match, race, "Q");
-            DataTable dtMinute = cs.GetHistoryMinute();
-            if (dtMinute != null && dtMinute.Rows.Count > 0)
+            if (!(string.IsNullOrEmpty(match) || string.IsNullOrEmpty(race)))
             {
+                CalStrategy cs = new CalStrategy(match, race, "Q");
+                DataTable dtMinute = cs.GetHistoryMinute();
+                //if (dtMinute != null && dtMinute.Rows.Count > 0)
+                //{
                 viewHistoryQ.SetMinuteDatasource(dtMinute);
                 viewHistoryPq.SetMinuteDatasource(dtMinute);
             }

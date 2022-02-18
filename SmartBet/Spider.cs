@@ -146,7 +146,7 @@ namespace EatZD
         private void SaveqpOdds(string timetag)
         {
             string sql = "";
-            if(qpOdds!=null)
+            if(!IsOddsEmpty(qpOdds))
             {
                 List<string> arrayList = new List<string>();
                 sql = $"delete From qpOdds where match='{CurrentMatch}' and race={Race} and qtype='QP'  and timetag='{timetag}'";
@@ -155,14 +155,11 @@ namespace EatZD
                 {
                     for (int j = 1; j <= qpOdds.GetLength(1) - 1; j++)
                     {
-                        if (qpOdds != null)
+                        if (double.TryParse(qpOdds[i, j], out double odds))
                         {
-                            if (double.TryParse(qpOdds[i, j], out double odds))
-                            {
-                                sql = $"insert into qpOdds (match,race,minute,horse1,horse2,odds,qtype,timetag) " +
-                                                  $"values('{CurrentMatch}',{Race},{_LastTime},{i},{j},{odds},'QP','{timetag}')";
-                                arrayList.Add(sql);
-                            }
+                            sql = $"insert into qpOdds (match,race,minute,horse1,horse2,odds,qtype,timetag) " +
+                                              $"values('{CurrentMatch}',{Race},{_LastTime},{i},{j},{odds},'QP','{timetag}')";
+                            arrayList.Add(sql);
                         }
                     }
                 }
@@ -172,7 +169,7 @@ namespace EatZD
         private void SaveqOdds(string timetag)
         {
             string sql = "";
-            if (qOdds != null)
+            if (!IsOddsEmpty(qOdds))
             {
                 List<string> arrayList = new List<string>();
                 sql = $"delete  From qpOdds where match='{CurrentMatch}' and race={Race} and qtype='Q'  and timetag='{timetag}'";
@@ -181,20 +178,39 @@ namespace EatZD
                 {
                     for (int j = 1; j <= qOdds.GetLength(1) - 1; j++)
                     {
-                        if (qOdds != null)
+                        if (double.TryParse(qOdds[i, j], out double odds))
                         {
-                            if (double.TryParse(qOdds[i, j], out double odds))
-                            {
-                                sql = $"insert into qpOdds (match,race,minute,horse1,horse2,odds,qtype,timetag) " +
-                         $"values('{CurrentMatch}',{Race},{_LastTime},'{i}',{j},{odds},'Q','{timetag}')";
-                                arrayList.Add(sql);
-                            }
+                            sql = $"insert into qpOdds (match,race,minute,horse1,horse2,odds,qtype,timetag) " +
+                     $"values('{CurrentMatch}',{Race},{_LastTime},'{i}',{j},{odds},'Q','{timetag}')";
+                            arrayList.Add(sql);
                         }
                     }
                 }
                 SqlHelper.ExecuteSqlTran(arrayList);
             }
-           
+        }
+
+        private bool IsOddsEmpty(string[,] odds)
+        {
+            bool bRet = true;
+            if (odds != null)
+            {
+                for (int i = 1; i <= odds.GetLength(0) - 1; i++)
+                {
+                    for (int j = 1; j <= odds.GetLength(1) - 1; j++)
+                    {
+                        if (double.TryParse(qOdds[i, j], out double odd))
+                        {
+                            if (odd > 0)
+                            {
+                                bRet = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return bRet;
         }
         public void Stop()
         {
