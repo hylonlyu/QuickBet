@@ -189,10 +189,15 @@ namespace EatZD
         #region Config
         private void SaveConfig()
         {
-            if (!string.IsNullOrEmpty(cobMatch.SelectedText.Trim()))
+            if (!string.IsNullOrEmpty(cobMatch.Text.Trim()))
             {
-                Config.MatchCombol = $"{cobMatch.SelectedText.Trim()}|{cobMatch.SelectedValue.ToString().Trim()}";
+                Config.MatchCombol = $"{cobMatch.Text.Trim()}|{cobMatch.SelectedValue.ToString().Trim()}";
             }
+
+            //if (!string.IsNullOrEmpty(cobMatch.SelectedText.Trim()))
+            //{
+            //    Config.MatchCombol = $"{cobMatch.SelectedText.Trim()}|{cobMatch.SelectedValue.ToString().Trim()}";
+            //}
             if (cobMatch.SelectedValue != null)
             {
                 Config.MatchUrl = cobMatch.SelectedValue.ToString();

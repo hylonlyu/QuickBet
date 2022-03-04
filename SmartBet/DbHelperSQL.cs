@@ -10,7 +10,7 @@ namespace EatZD
     public class DbHelperSQL : IDisposable
     {
         //数据库连接字符串(web.config来配置)，多数据库可使用DbHelperSQLP来实现.
-        private string connectionString = @"server=127.0.0.1;database=tt4;User Id=kanfei;Password=#KanFei#";
+        private string connectionString = @"server=.;database=tt4;User Id=kanfei;Password=#KanFei#";
         //private string connectionString = @"server=27.124.41.112;database=trigger2;User Id=kanfei1;Password=#KanFei#";
         /// <summary>
         /// 数据库连接字符串

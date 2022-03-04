@@ -474,14 +474,13 @@
             // chkAuto
             // 
             this.chkAuto.AutoSize = true;
-            this.chkAuto.Location = new System.Drawing.Point(13, 66);
+            this.chkAuto.Location = new System.Drawing.Point(173, 38);
             this.chkAuto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkAuto.Name = "chkAuto";
             this.chkAuto.Size = new System.Drawing.Size(89, 19);
             this.chkAuto.TabIndex = 63;
             this.chkAuto.Text = "自动换场";
             this.chkAuto.UseVisualStyleBackColor = true;
-            this.chkAuto.Visible = false;
             this.chkAuto.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // btnWeb
@@ -537,7 +536,7 @@
             "12",
             "13",
             "14"});
-            this.cobRace.Location = new System.Drawing.Point(216, 34);
+            this.cobRace.Location = new System.Drawing.Point(48, 63);
             this.cobRace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cobRace.Name = "cobRace";
             this.cobRace.Size = new System.Drawing.Size(87, 23);
@@ -547,7 +546,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(168, 36);
+            this.label23.Location = new System.Drawing.Point(7, 67);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(37, 15);
             this.label23.TabIndex = 58;
@@ -575,7 +574,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 10);
+            this.label1.Location = new System.Drawing.Point(8, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 15);
             this.label1.TabIndex = 48;
@@ -583,7 +582,7 @@
             // 
             // txtAccount
             // 
-            this.txtAccount.Location = new System.Drawing.Point(51, 5);
+            this.txtAccount.Location = new System.Drawing.Point(48, 5);
             this.txtAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(89, 25);
@@ -593,7 +592,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(168, 8);
+            this.label2.Location = new System.Drawing.Point(168, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 50;
@@ -611,7 +610,7 @@
             // 
             // txtPwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(216, 5);
+            this.txtPwd.Location = new System.Drawing.Point(211, 5);
             this.txtPwd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.PasswordChar = '*';
@@ -631,7 +630,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 34);
+            this.label3.Location = new System.Drawing.Point(11, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 15);
             this.label3.TabIndex = 52;
@@ -639,7 +638,7 @@
             // 
             // txtPin
             // 
-            this.txtPin.Location = new System.Drawing.Point(49, 34);
+            this.txtPin.Location = new System.Drawing.Point(48, 34);
             this.txtPin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPin.Name = "txtPin";
             this.txtPin.Size = new System.Drawing.Size(89, 25);
