@@ -83,6 +83,24 @@ namespace EatZD
 
         }
 
+        private void GetQData()
+        {
+            Dictionary<string, Tuple<double, double>> dicQData2 = CCmemberInstance.GetQData(Race.ToString());
+            if (dicQData2.Count > 0)
+            {
+                dicQData = dicQData2;
+            }
+        }
+
+        private void GetQPData()
+        {
+            Dictionary<string, Tuple<double, double>> dicQPData2 = CCmemberInstance.GetQPData(Race.ToString());
+            if (dicQPData2.Count > 0)
+            {
+                dicQPData = dicQPData2;
+            }
+        }
+
         private void GetQPOdds()
         {
             Dictionary<string, string[,]> dicData = CCmemberInstance.GetQPOddsByRace(Race.ToString());
@@ -119,12 +137,30 @@ namespace EatZD
 
                 if (_LastTime <= 30)
                 {
+                    GetQData();
+                    GetQPData();
                     GetQPOdds();
                     //timetag = "30分内";
                     #region
                     timetag = $"{_LastTime}分";
                     #endregion
-
+                    if (_LastTime == 0)
+                    {
+                        timetag = "0秒";
+                        zerocounter++;
+                        if (zerocounter == 6)
+                        {
+                            timetag = "30秒";
+                        }
+                        if (zerocounter == 8)
+                        {
+                            timetag = "20秒";
+                        }
+                        if (zerocounter == 10)
+                        {
+                            timetag = "10秒";
+                        }
+                    }
                 }
                 SaveData(timetag);
                 System.Diagnostics.Debug.WriteLine("GetAllData");
@@ -139,8 +175,40 @@ namespace EatZD
 
         private void SaveData(string timetag)
         {
+            SavedicQData(timetag);
+            SavedicQPData(timetag);
             SaveqpOdds(timetag);
             SaveqOdds(timetag);
+        }
+
+        private void SavedicQData(string timetag)
+        {
+            string sql = "";
+            List<string> arrayList = new List<string>();
+            sql = $"delete From dicQData where match='{CurrentMatch}' and race={Race} and qtype='Q' and  timetag='{timetag}'";
+            arrayList.Add(sql);
+            foreach (var item in dicQData)
+            {
+                sql = $"insert into dicQdata (match,race,horse,zhe,piao,minute,qtype,timetag) " +
+                   $"values('{CurrentMatch}',{Race},'{item.Key}',{item.Value.Item1},{item.Value.Item2},{_LastTime},'Q','{timetag}')";
+                arrayList.Add(sql);
+            }
+            SqlHelper.ExecuteSqlTran(arrayList);
+        }
+        private void SavedicQPData(string timetag)
+        {
+            string sql = "";
+            List<string> arrayList = new List<string>();
+            sql = $"delete From dicQData where match='{CurrentMatch}' and race={Race} and qtype='QP'  and timetag='{timetag}'";
+            arrayList.Add(sql);
+            foreach (var item in dicQPData)
+            {
+                sql = $"insert into dicQdata (match,race,horse,zhe,piao,minute,qtype,timetag) " +
+                   $"values('{CurrentMatch}',{Race},'{item.Key}',{item.Value.Item1},{item.Value.Item2},{_LastTime},'QP','{timetag}')";
+                arrayList.Add(sql);
+            }
+            SqlHelper.ExecuteSqlTran(arrayList);
+
         }
 
         private void SaveqpOdds(string timetag)
