@@ -111,9 +111,32 @@ namespace EatZD
 
         private void btnDel_Click(object sender, EventArgs e)
         {
+            ClearSelection();
+        }
+
+        private void ClearSelection()
+        {
             se = new SelectionExpress();
             SetBtnColor();
             lblExpress.Text = se.GetExpresstion();
+        }
+
+        public void SetBatchHorse(List<int> horses)
+        {
+            ClearSelection();
+            foreach (Control c in tblHorses.Controls)
+            {
+                if (c is Button)
+                {
+                    Button btn = c as Button;
+                    string horse = btn.Text.Trim();
+                    int.TryParse(horse,out int h);
+                    if(horses.Contains(h))
+                    {
+                        LeftClick(btn);
+                    }
+                }
+            }
         }
     }
 }

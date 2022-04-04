@@ -33,7 +33,7 @@ namespace EatZD
 
         public DataTable GetHistoryMinute()
         {
-            string sql = $"select distinct(minute) from[qpOdds] where match = '{Match}' and race = {Race} order by minute";
+            string sql = $"select distinct(timetag) as minute from[qpOdds] where match = '{Match}' and race = {Race} order by timetag";
             DataSet ds = SqlHelper.Query(sql);
             return ds.Tables[0];
         }
@@ -41,16 +41,20 @@ namespace EatZD
         {
             DataTable dtRet = CreateDetailTable();
             DataTable dtDt = GetOdds(dt);
+            DataTable dtZhe = GetZhe(dt);
             if(dt1==-1)
             {
                 dt1 = GetLatestTime();
             }
             DataTable dtDt1 = GetOdds(dt1);
+            DataTable dtZhe1 = GetZhe(dt1);
             List<Tuple<int, int>> lstHorse = GetHorseList(lstHead, lstFoot);
             foreach (var item in lstHorse)
             {
                 double odds = GetOdds(item.Item1, item.Item2, dtDt);
                 double odds1 = GetOdds(item.Item1, item.Item2, dtDt1);
+                double zhe = GetZhe(item.Item1, item.Item2, dtZhe);
+                double zhe1 = GetZhe(item.Item1, item.Item2, dtZhe1);
                 if (odds * odds1 != 0)
                 {
                     int piao = (int)(ypc / odds);
@@ -60,7 +64,9 @@ namespace EatZD
                     dr["组合"] = $"{item.Item1}-{item.Item2}";
                     dr["DT"] = odds;
                     dr["DT1"] = odds1;
-                    dr["派彩"] = ypc;
+                    dr["折"] = zhe;
+                    dr["折1"] = zhe1;
+                    //dr["派彩"] = ypc;
                     dr["票"] = piao;
                     dr["票1"] = piao1;
                     dr["相差"] = gap;
@@ -70,6 +76,7 @@ namespace EatZD
             dtRet.DefaultView.Sort = "相差 desc";
             return dtRet.DefaultView.ToTable();
         }
+
 
         public string[,] GetOddsArray()
         {
@@ -110,10 +117,11 @@ namespace EatZD
             }
             return p;
         }
+
         private int GetLatestTime()
         {
             int dt1 = 0;
-            string sql = $"select min(minute) from [qpOdds] where match = '{Match}' and race = {Race}";
+            string sql = $"select min(timetag) from [qpOdds] where match = '{Match}' and race = {Race}";
 
             object obj = SqlHelper.GetSingle(sql);
             if (obj != null)
@@ -128,10 +136,30 @@ namespace EatZD
             dtRet.Columns.Add("组合");
             dtRet.Columns.Add("DT");
             dtRet.Columns.Add("DT1", typeof(double));
-            dtRet.Columns.Add("派彩");
+            dtRet.Columns.Add("折", typeof(double));
+            dtRet.Columns.Add("折1", typeof(double));
+            //dtRet.Columns.Add("派彩");
             dtRet.Columns.Add("票");
             dtRet.Columns.Add("票1");
             dtRet.Columns.Add("相差",typeof(double));
+            return dtRet;
+        }
+
+        private DataTable GetOddsByTag(string tag)
+        {
+            DataTable dtRet = new DataTable();
+            string sql = $"Select * From qpOdds where match='{Match}' and race ={Race} and timetag ={tag} and qtype='{Qtype}'";
+            DataSet ds = SqlHelper.Query(sql);
+            dtRet = ds.Tables[0];
+            return dtRet;
+        }
+
+        private DataTable GetZhe(int timetag)
+        {
+            DataTable dtRet = new DataTable();
+            string sql = $"Select * From dicQData where match='{Match}' and race ={Race} and timetag ={timetag} and qtype='{Qtype}'";
+            DataSet ds = SqlHelper.Query(sql);
+            dtRet = ds.Tables[0];
             return dtRet;
         }
 
@@ -140,10 +168,10 @@ namespace EatZD
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
-        private DataTable GetOdds(int minute)
+        private DataTable GetOdds(int timetag)
         {
             DataTable dtRet = new DataTable();
-            string sql = $"Select * From qpOdds where match='{Match}' and race ={Race} and minute ={minute} and qtype='{Qtype}'";
+            string sql = $"Select * From qpOdds where match='{Match}' and race ={Race} and timetag ={timetag} and qtype='{Qtype}'";
             DataSet ds = SqlHelper.Query(sql);
             dtRet = ds.Tables[0];
             return dtRet;
@@ -181,6 +209,17 @@ namespace EatZD
                 }
             }
             return lstRet;
+        }
+
+        private double GetZhe(int h1, int h2, DataTable dt)
+        {
+            double ret = 0;
+            DataRow[] drs = dt.Select($"horse='{h1}-{h2}'");
+            if (drs.Length > 0)
+            {
+                double.TryParse(drs[0]["zhe"].ToString(), out ret);
+            }
+            return ret;
         }
 
         private double GetOdds(int h1,int h2,DataTable dt)

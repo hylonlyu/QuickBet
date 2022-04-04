@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tblHorse = new System.Windows.Forms.TableLayoutPanel();
@@ -56,6 +56,16 @@
             this.headfoodCtrl19 = new EatZD.HeadfoodCtrl();
             this.headfoodCtrl20 = new EatZD.HeadfoodCtrl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAll = new System.Windows.Forms.Button();
+            this.txtZhe = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.radCha = new System.Windows.Forms.RadioButton();
+            this.radZhe = new System.Windows.Forms.RadioButton();
+            this.radDec = new System.Windows.Forms.RadioButton();
+            this.radAsc = new System.Windows.Forms.RadioButton();
+            this.txtMax = new System.Windows.Forms.TextBox();
+            this.txtMin = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
             this.cobQt1 = new System.Windows.Forms.ComboBox();
@@ -65,16 +75,14 @@
             this.lblYjpc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvGrid = new System.Windows.Forms.DataGridView();
-            this.txtMin = new System.Windows.Forms.TextBox();
-            this.txtMax = new System.Windows.Forms.TextBox();
-            this.radAsc = new System.Windows.Forms.RadioButton();
-            this.radDec = new System.Windows.Forms.RadioButton();
+            this.chkQt1 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tblHorse.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +98,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(465, 627);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -402,6 +410,11 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkQt1);
+            this.panel1.Controls.Add(this.btnAll);
+            this.panel1.Controls.Add(this.txtZhe);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.radDec);
             this.panel1.Controls.Add(this.radAsc);
             this.panel1.Controls.Add(this.txtMax);
@@ -417,8 +430,104 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(459, 30);
+            this.panel1.Size = new System.Drawing.Size(459, 64);
             this.panel1.TabIndex = 1;
+            // 
+            // btnAll
+            // 
+            this.btnAll.Location = new System.Drawing.Point(400, 30);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(56, 23);
+            this.btnAll.TabIndex = 15;
+            this.btnAll.Text = "全选胆";
+            this.btnAll.UseVisualStyleBackColor = true;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
+            // 
+            // txtZhe
+            // 
+            this.txtZhe.Location = new System.Drawing.Point(34, 28);
+            this.txtZhe.Name = "txtZhe";
+            this.txtZhe.Size = new System.Drawing.Size(49, 21);
+            this.txtZhe.TabIndex = 14;
+            this.txtZhe.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 12);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "折1>=";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.radCha);
+            this.panel2.Controls.Add(this.radZhe);
+            this.panel2.Location = new System.Drawing.Point(286, 27);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(100, 32);
+            this.panel2.TabIndex = 12;
+            // 
+            // radCha
+            // 
+            this.radCha.AutoSize = true;
+            this.radCha.Checked = true;
+            this.radCha.Location = new System.Drawing.Point(48, 3);
+            this.radCha.Name = "radCha";
+            this.radCha.Size = new System.Drawing.Size(47, 16);
+            this.radCha.TabIndex = 13;
+            this.radCha.TabStop = true;
+            this.radCha.Text = "相差";
+            this.radCha.UseVisualStyleBackColor = true;
+            // 
+            // radZhe
+            // 
+            this.radZhe.AutoSize = true;
+            this.radZhe.Location = new System.Drawing.Point(7, 3);
+            this.radZhe.Name = "radZhe";
+            this.radZhe.Size = new System.Drawing.Size(41, 16);
+            this.radZhe.TabIndex = 12;
+            this.radZhe.Text = "折1";
+            this.radZhe.UseVisualStyleBackColor = true;
+            // 
+            // radDec
+            // 
+            this.radDec.AutoSize = true;
+            this.radDec.Location = new System.Drawing.Point(327, 5);
+            this.radDec.Name = "radDec";
+            this.radDec.Size = new System.Drawing.Size(35, 16);
+            this.radDec.TabIndex = 11;
+            this.radDec.Text = "降";
+            this.radDec.UseVisualStyleBackColor = true;
+            // 
+            // radAsc
+            // 
+            this.radAsc.AutoSize = true;
+            this.radAsc.Checked = true;
+            this.radAsc.Location = new System.Drawing.Point(292, 5);
+            this.radAsc.Name = "radAsc";
+            this.radAsc.Size = new System.Drawing.Size(35, 16);
+            this.radAsc.TabIndex = 10;
+            this.radAsc.TabStop = true;
+            this.radAsc.Text = "升";
+            this.radAsc.UseVisualStyleBackColor = true;
+            // 
+            // txtMax
+            // 
+            this.txtMax.Location = new System.Drawing.Point(254, 3);
+            this.txtMax.Name = "txtMax";
+            this.txtMax.Size = new System.Drawing.Size(32, 21);
+            this.txtMax.TabIndex = 9;
+            this.txtMax.Text = "999";
+            // 
+            // txtMin
+            // 
+            this.txtMin.Location = new System.Drawing.Point(216, 2);
+            this.txtMin.Name = "txtMin";
+            this.txtMin.Size = new System.Drawing.Size(32, 21);
+            this.txtMin.TabIndex = 8;
+            this.txtMin.Text = "0";
             // 
             // btnClear
             // 
@@ -495,82 +604,54 @@
             // dgvGrid
             // 
             this.dgvGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvGrid.Location = new System.Drawing.Point(3, 98);
+            this.dgvGrid.Location = new System.Drawing.Point(3, 132);
             this.dgvGrid.Name = "dgvGrid";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGrid.RowHeadersVisible = false;
             this.dgvGrid.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGrid.RowTemplate.Height = 23;
             this.dgvGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGrid.Size = new System.Drawing.Size(459, 526);
+            this.dgvGrid.Size = new System.Drawing.Size(459, 492);
             this.dgvGrid.TabIndex = 2;
             this.dgvGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvGrid_CellFormatting);
             // 
-            // txtMin
+            // chkQt1
             // 
-            this.txtMin.Location = new System.Drawing.Point(216, 2);
-            this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(32, 21);
-            this.txtMin.TabIndex = 8;
-            this.txtMin.Text = "0";
-            // 
-            // txtMax
-            // 
-            this.txtMax.Location = new System.Drawing.Point(254, 3);
-            this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(32, 21);
-            this.txtMax.TabIndex = 9;
-            this.txtMax.Text = "999";
-            // 
-            // radAsc
-            // 
-            this.radAsc.AutoSize = true;
-            this.radAsc.Checked = true;
-            this.radAsc.Location = new System.Drawing.Point(292, 7);
-            this.radAsc.Name = "radAsc";
-            this.radAsc.Size = new System.Drawing.Size(35, 16);
-            this.radAsc.TabIndex = 10;
-            this.radAsc.TabStop = true;
-            this.radAsc.Text = "升";
-            this.radAsc.UseVisualStyleBackColor = true;
-            // 
-            // radDec
-            // 
-            this.radDec.AutoSize = true;
-            this.radDec.Location = new System.Drawing.Point(327, 7);
-            this.radDec.Name = "radDec";
-            this.radDec.Size = new System.Drawing.Size(35, 16);
-            this.radDec.TabIndex = 11;
-            this.radDec.Text = "降";
-            this.radDec.UseVisualStyleBackColor = true;
+            this.chkQt1.AutoSize = true;
+            this.chkQt1.Location = new System.Drawing.Point(144, 34);
+            this.chkQt1.Name = "chkQt1";
+            this.chkQt1.Size = new System.Drawing.Size(66, 16);
+            this.chkQt1.TabIndex = 16;
+            this.chkQt1.Text = "固定QT1";
+            this.chkQt1.UseVisualStyleBackColor = true;
             // 
             // ViewHistory
             // 
@@ -586,6 +667,8 @@
             this.tblHorse.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrid)).EndInit();
             this.ResumeLayout(false);
 
@@ -630,5 +713,12 @@
         private System.Windows.Forms.RadioButton radAsc;
         private System.Windows.Forms.TextBox txtMax;
         private System.Windows.Forms.TextBox txtMin;
+        private System.Windows.Forms.TextBox txtZhe;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton radCha;
+        private System.Windows.Forms.RadioButton radZhe;
+        private System.Windows.Forms.Button btnAll;
+        private System.Windows.Forms.CheckBox chkQt1;
     }
 }

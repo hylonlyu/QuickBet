@@ -140,25 +140,25 @@ namespace EatZD
                     GetQData();
                     GetQPData();
                     GetQPOdds();
-                    //timetag = "30分内";
                     #region
-                    timetag = $"{_LastTime}分";
+                    //timetag = $"{_LastTime}分";
+                    timetag = $"{_LastTime}";
                     #endregion
                     if (_LastTime == 0)
                     {
-                        timetag = "0秒";
+                        timetag = "0";
                         zerocounter++;
                         if (zerocounter == 6)
                         {
-                            timetag = "30秒";
+                            timetag = "-30";
                         }
                         if (zerocounter == 8)
                         {
-                            timetag = "20秒";
+                            timetag = "-20";
                         }
                         if (zerocounter == 10)
                         {
-                            timetag = "10秒";
+                            timetag = "-10";
                         }
                     }
                 }

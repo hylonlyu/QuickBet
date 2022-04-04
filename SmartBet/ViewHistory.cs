@@ -11,6 +11,7 @@ using System.Windows.Forms;
 namespace EatZD
 {
     public delegate void ViewHandler();
+    public delegate void ShowGridHandler(List<string> horses,string qtype);
     public partial class ViewHistory : UserControl
     {
         public string Match;
@@ -18,6 +19,7 @@ namespace EatZD
         public string Qtype;
 
         public event ViewHandler ViewEventHandler;
+        public event ShowGridHandler OnShowGrid;
         public ViewHistory()
         {
             InitializeComponent();
@@ -25,8 +27,15 @@ namespace EatZD
 
         public void ShowNow()
         {
-            ShowGrid();
-
+            if(!chkQt1.Checked)
+            {
+                ShowGrid();
+            }
+            else
+            {
+                int.TryParse(cobQt1.Text.Trim(), out int dt1);
+                ShowGrid(dt1);
+            }
         }
         public void ShowHistory()
         {
@@ -55,9 +64,22 @@ namespace EatZD
             int.TryParse(cobQt.Text.Trim(), out int dt);
             CalStrategy cs = new CalStrategy(Match, Race, Qtype);
             DataTable dtDetail = cs.GetCompareDetail(GetHeads(), GetFoots(), ypc, dt, dt1);
-            dgvGrid.DataSource = AddFilter(dtDetail);
+            DataTable dtSource = AddFilter(dtDetail);
+            dgvGrid.DataSource = dtSource;
+            List<string> lstHorse = GetSendHorse(dtSource);
+            OnShowGrid?.Invoke(lstHorse, Qtype);
+            SetZhe1Color();
         }
 
+        private List<string> GetSendHorse(DataTable dtSource)
+        {
+            List<string> lstRet = new List<string>();
+            foreach(DataRow dr in dtSource.Rows)
+            {
+                lstRet.Add(dr["组合"].ToString());
+            }
+            return lstRet;
+        }
         private DataTable AddFilter(DataTable dtDetail)
         {
             DataTable dtRet = new DataTable();
@@ -72,22 +94,41 @@ namespace EatZD
 
         private string GetDt1Range()
         {
+            //DT1
             double.TryParse(txtMin.Text.Trim(), out double min);
             double.TryParse(txtMax.Text.Trim(),out double max);
             string strRet = $"DT1 >={min} and DT1<={max}";
+            //折1
+            double.TryParse(txtZhe.Text.Trim(),out double zhe1);
+            strRet += $" and 折1>={zhe1}";
             return strRet;
         }
         private string GetSort()
         {
-            string strRet;
-            if (radAsc.Checked)
+            string strRet="";
+            if(radCha.Checked)
             {
-                strRet = "相差 asc";
+                if (radAsc.Checked)
+                {
+                    strRet = "相差 asc";
+                }
+                else
+                {
+                    strRet = "相差 desc";
+                }
             }
-            else
+            else if (radZhe.Checked)
             {
-                strRet = "相差 desc";
+                if (radAsc.Checked)
+                {
+                    strRet = "折1 asc";
+                }
+                else
+                {
+                    strRet = "折1 desc";
+                }
             }
+
             return strRet;
         }
         private List<int> GetHeads()
@@ -164,6 +205,75 @@ namespace EatZD
                     }
                 }
             }
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in tblHorse.Controls)
+            {
+                if (c is HeadfoodCtrl)
+                {
+                    HeadfoodCtrl hf = c as HeadfoodCtrl;
+                    hf.SelectHead();
+                }
+            }
+        }
+
+        private void SetZhe1Color()
+        {
+            DataTable dt = dgvGrid.DataSource as DataTable;
+            if (dt != null)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    DataRow dr = dt.Rows[i];
+                    double.TryParse(dr["折"].ToString(), out double zhe);
+                    double.TryParse(dr["折1"].ToString(), out double zhe1);
+                    if (zhe1 >zhe)
+                    {
+                        SetCellColor(i, 4, GetZhe1Color(zhe1));
+                    }
+                    else
+                    {
+                        SetCellColor(i, 4, dgvGrid.DefaultCellStyle.BackColor);
+                    }
+                }
+            }
+
+        }
+        private Color GetZhe1Color(double zhe)
+        {
+            Color Ret = dgvGrid.DefaultCellStyle.BackColor;
+            if(zhe>=82 && zhe<=84)
+            {
+                Ret = Color.FromArgb(0,178,247);
+            }
+            else if(zhe>=85 && zhe<=89)
+            {
+                Ret = Color.FromArgb(249, 165, 160);
+            }
+            else if(zhe>=90 && zhe<=93)
+            {
+                Ret = Color.FromArgb(253, 154, 3);
+            }
+            else if (zhe >= 94 && zhe <= 100)
+            {
+                Ret = Color.FromArgb(255, 0, 255);
+            }
+
+            return Ret;
+        }
+        private void SetCellColor(int row, int col, Color c)
+        {
+            try
+            {
+                dgvGrid.Rows[row].Cells[col].Style.BackColor = c;
+            }
+            catch (Exception ex)
+            {
+
+            }
+
         }
     }
 }

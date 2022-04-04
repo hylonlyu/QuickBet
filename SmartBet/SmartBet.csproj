@@ -104,6 +104,7 @@
     <Compile Include="BetComposeCtrl.Designer.cs">
       <DependentUpon>BetComposeCtrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="BetFail.cs" />
     <Compile Include="BetMoney.cs">
       <SubType>UserControl</SubType>
     </Compile>

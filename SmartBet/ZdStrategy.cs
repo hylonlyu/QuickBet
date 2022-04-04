@@ -186,41 +186,47 @@ namespace EatZD
             double piao = GetBetQpPiao(odds, yjpc);
             if (piao > 0)
             {
-                RaceInfoItem raceitem = new RaceInfoItem();
-                raceitem.Url = Config.MatchUrl;
-                raceitem.Race = Config.Race;
-                raceitem.Horse = horse;
-
-                raceitem.Zhe = Config.XDZK2;
-                raceitem.Win = Util.Morethan10(piao);
-                raceitem.Place = raceitem.Win;
-                raceitem.LWin = (int)Config.XDJX2;
-                raceitem.LPlace = (int)Config.XDJX2;
-                raceitem.Date = GetNow();
-                raceitem.Playtype = PlayType.QP;
-                raceitem.Bettype = BetType.BET;
-                bool bRet = QiPiaoGuaQ(raceitem, out BetResultInfo info);
-
-
-                BettedItem bitem = new BettedItem();
-                bitem.BetTime = DateTime.Now;
-                bitem.Race = raceitem.Race;
-                GetHorses(raceitem.Horse, out int h1, out int h2);
-                bitem.Horse1 = h1.ToString();
-                bitem.Horse2 = h2.ToString();
-                //bitem.Horse = raceitem.Horse;
-                bitem.DBetCount = (int)raceitem.Win;
-                bitem.Zhe = raceitem.Zhe;
-                bitem.Lim = raceitem.LWin;
-                bitem.PlayType = raceitem.Playtype;
-                bitem.BetType = raceitem.Bettype;
-                bitem.Odds = odds;
-                bitem.TotalCount = (int)raceitem.Win;
-                bitem.Result = bRet;
-                bitem.Reason = info.StrAnswer;
-                SendBetOkEvent(bitem);
+                DoBetQpPiao(horse, odds, piao);
             }
         }
+
+        public void DoBetQpPiao(string horse, double odds, double piao)
+        {
+            RaceInfoItem raceitem = new RaceInfoItem();
+            raceitem.Url = Config.MatchUrl;
+            raceitem.Race = Config.Race;
+            raceitem.Horse = horse;
+
+            raceitem.Zhe = Config.XDZK2;
+            raceitem.Win = Util.Morethan10(piao);
+            raceitem.Place = raceitem.Win;
+            raceitem.LWin = (int)Config.XDJX2;
+            raceitem.LPlace = (int)Config.XDJX2;
+            raceitem.Date = GetNow();
+            raceitem.Playtype = PlayType.QP;
+            raceitem.Bettype = BetType.BET;
+            bool bRet = QiPiaoGuaQ(raceitem, out BetResultInfo info);
+
+
+            BettedItem bitem = new BettedItem();
+            bitem.BetTime = DateTime.Now;
+            bitem.Race = raceitem.Race;
+            GetHorses(raceitem.Horse, out int h1, out int h2);
+            bitem.Horse1 = h1.ToString();
+            bitem.Horse2 = h2.ToString();
+            //bitem.Horse = raceitem.Horse;
+            bitem.DBetCount = (int)raceitem.Win;
+            bitem.Zhe = raceitem.Zhe;
+            bitem.Lim = raceitem.LWin;
+            bitem.PlayType = raceitem.Playtype;
+            bitem.BetType = raceitem.Bettype;
+            bitem.Odds = odds;
+            bitem.TotalCount = (int)raceitem.Win;
+            bitem.Result = bRet;
+            bitem.Reason = info.StrAnswer;
+            SendBetOkEvent(bitem);
+        }
+
         private double GetBetQPiao(double odds, double yjpc)
         {
             double piao = yjpc / odds;
@@ -263,41 +269,47 @@ namespace EatZD
             double piao = GetBetQPiao(odds,yjpc);
             if(piao >0)
             {
-                RaceInfoItem raceitem = new RaceInfoItem();
-                raceitem.Url = Config.MatchUrl;
-                raceitem.Race = Config.Race;
-                raceitem.Horse = horse;
-
-                raceitem.Zhe = Config.XDZK;
-                raceitem.Win = Util.Morethan10(piao);
-                raceitem.Place = raceitem.Win;
-                raceitem.LWin = (int)Config.XDJX;
-                raceitem.LPlace = (int)Config.XDJX;
-                raceitem.Date = GetNow();
-                raceitem.Playtype = PlayType.Q;
-                raceitem.Bettype = BetType.BET;
-                bool bRet = QiPiaoGuaQ(raceitem, out BetResultInfo info);
-
-                
-                BettedItem bitem = new BettedItem();
-                bitem.BetTime = DateTime.Now;
-                bitem.Race = raceitem.Race;
-                GetHorses(raceitem.Horse, out int h1, out int h2);
-                bitem.Horse1 = h1.ToString();
-                bitem.Horse2 = h2.ToString();
-                //bitem.Horse = raceitem.Horse;
-                bitem.DBetCount = (int)raceitem.Win;
-                bitem.Zhe = raceitem.Zhe;
-                bitem.Lim = raceitem.LWin;
-                bitem.PlayType = raceitem.Playtype;
-                bitem.BetType = raceitem.Bettype;
-                bitem.Odds = odds;
-                bitem.TotalCount = (int)raceitem.Win;
-                bitem.Result = bRet;
-                bitem.Reason = info.StrAnswer;
-                SendBetOkEvent(bitem);
+                DoBetQPiao(horse, odds, piao);
             }
         }
+
+        public void DoBetQPiao(string horse, double odds, double piao)
+        {
+            RaceInfoItem raceitem = new RaceInfoItem();
+            raceitem.Url = Config.MatchUrl;
+            raceitem.Race = Config.Race;
+            raceitem.Horse = horse;
+
+            raceitem.Zhe = Config.XDZK;
+            raceitem.Win = Util.Morethan10(piao);
+            raceitem.Place = raceitem.Win;
+            raceitem.LWin = (int)Config.XDJX;
+            raceitem.LPlace = (int)Config.XDJX;
+            raceitem.Date = GetNow();
+            raceitem.Playtype = PlayType.Q;
+            raceitem.Bettype = BetType.BET;
+            bool bRet = QiPiaoGuaQ(raceitem, out BetResultInfo info);
+
+
+            BettedItem bitem = new BettedItem();
+            bitem.BetTime = DateTime.Now;
+            bitem.Race = raceitem.Race;
+            GetHorses(raceitem.Horse, out int h1, out int h2);
+            bitem.Horse1 = h1.ToString();
+            bitem.Horse2 = h2.ToString();
+            //bitem.Horse = raceitem.Horse;
+            bitem.DBetCount = (int)raceitem.Win;
+            bitem.Zhe = raceitem.Zhe;
+            bitem.Lim = raceitem.LWin;
+            bitem.PlayType = raceitem.Playtype;
+            bitem.BetType = raceitem.Bettype;
+            bitem.Odds = odds;
+            bitem.TotalCount = (int)raceitem.Win;
+            bitem.Result = bRet;
+            bitem.Reason = info.StrAnswer;
+            SendBetOkEvent(bitem);
+        }
+
         public void DoBetQ(List<BetStrategyCtrl> LstStrategy)
         {
             foreach(var item in LstStrategy)

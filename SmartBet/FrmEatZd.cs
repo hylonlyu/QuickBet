@@ -7,8 +7,11 @@ using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Net;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +21,7 @@ namespace EatZD
     public partial class FrmEatZd : Form
     {
         private FrmWebbrowser frmBrowser;
+        private bool bCanReceive = true;
         /// <summary>
         /// 已经开的比赛场次
         /// </summary>
@@ -81,6 +85,10 @@ namespace EatZD
         {
             ShowInfoMsg(item.ToString());
             ShowBetResult(item);
+            if(!item.Result)
+            {
+                ShowBetFailResult(item);
+            }
         }
 
         private void CCmemberInstance_OnLogout()
@@ -372,7 +380,19 @@ namespace EatZD
         {
             LoadConfig();
             viewHistoryQ.ViewEventHandler += ViewHistoryQ_ViewEventHandler;
+            viewHistoryQ.OnShowGrid += ViewHistoryQ_OnShowGrid;
             viewHistoryPq.ViewEventHandler += ViewHistoryPq_ViewEventHandler;
+            viewHistoryPq.OnShowGrid += ViewHistoryPq_OnShowGrid;
+        }
+
+        private void ViewHistoryPq_OnShowGrid(List<string> horses, string qtype)
+        {
+            SendHorse(horses,qtype);
+        }
+
+        private void ViewHistoryQ_OnShowGrid(List<string> horses, string qtype)
+        {
+            SendHorse(horses, qtype);
         }
 
         private void ViewHistoryPq_ViewEventHandler()
@@ -523,6 +543,42 @@ namespace EatZD
                 btnStart.Text = "开始";
                 CCmemberInstance.Stop();
                 StopGetData();
+            }
+        }
+
+        private void ShowBetFailResult(BettedItem item)
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new Action<BettedItem>(ShowBetFailResult), item);
+            }
+            else
+            {
+                string bettime = item.BetTime.ToLongTimeString();
+                string match = "";
+                string[] tmp = cobMatch.Text.Split("_".ToCharArray());
+                if (tmp.Length > 2)
+                {
+                    match = $"{tmp[0]}_{tmp[1]}";
+                }
+
+                string race = item.Race;
+                string horse = item.Horse;
+                string win = item.PlayType == PlayType.Q ? item.DBetCount.ToString() : "";
+                string place = item.PlayType == PlayType.QP ? item.DBetCount.ToString() : "";
+                string zhe = item.Zhe.ToString();
+                string lwin = item.PlayType == PlayType.Q ? item.Lim.ToString() : "";
+                string lplace = item.PlayType == PlayType.QP ? item.Lim.ToString() : "";
+                string bettype = item.BetType == BetType.EAT ? "吃" : "赌";
+                string odds = item.Odds.ToString();
+                string total = item.TotalCount.ToString();
+                string result = item.Result ? "成功" : "失败";
+                string reason = item.Reason;
+
+                dgvBetFail.Rows.Insert(0, new object[] { bettime, match, race, horse, win, place, zhe, lwin, lplace, bettype, odds, total, result, reason });
+                BetFail bf = new BetFail {horse = item.Horse,odds = item.Odds,piao = item.TotalCount,playtype = item.PlayType };
+                dgvBetFail.Rows[0].Tag = bf;
+               
             }
         }
 
@@ -925,6 +981,308 @@ namespace EatZD
             frmMatch.Url = $"http://{CCmemberInstance.DoMain}/playerhk.jsp";
             frmMatch.CC = CCmemberInstance.cc;
             frmMatch.Show();
+        }
+
+        private void dgvBetFail_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                if(dgvBetFail.SelectedRows !=null)
+                {
+                    BetFail bf = dgvBetFail.SelectedRows[0].Tag as BetFail;
+                    if(bf.playtype == PlayType.Q)
+                    {
+                        CCmemberInstance.DoBetQPiao(bf.horse, bf.odds, bf.piao);
+                    }
+                    else if (bf.playtype == PlayType.QP)
+                    {
+                        CCmemberInstance.DoBetQpPiao(bf.horse, bf.odds, bf.piao);
+                    }
+                }
+             
+            }
+        }
+
+        private List<int> GetHorses()
+        {
+            List<int> lstHorse = new List<int>();
+            
+            if (chkKanfei.Checked)
+            {
+                List<int> tmp = GetHorses(lblKanFei.Text);
+                AppendList(lstHorse, tmp);
+            }
+            if (chkhcQ.Checked)
+            {
+                List<int> tmp = GetHorses(lblhcQ.Text);
+                AppendList(lstHorse, tmp);
+            }
+            if (chkhcPq.Checked)
+            {
+                List<int> tmp = GetHorses(lblhcPq.Text);
+                AppendList(lstHorse, tmp);
+            }
+            return lstHorse;
+        }
+        private List<int> GetHorses(string horses)
+        {
+            List<int> lstRet = new List<int>();
+            Regex re = new Regex(@"\d+", RegexOptions.None);
+            MatchCollection mc = re.Matches(horses);
+            foreach (Match ma in mc)
+            {
+                string num = ma.Value;
+                int.TryParse(num, out int horse);
+                lstRet.Add(horse);
+            }
+
+            return lstRet;
+        }
+
+        private void AppendList(List<int> lstHorse, List<int> tmp)
+        {
+            foreach (var num in tmp)
+            {
+                if (!lstHorse.Contains(num))
+                {
+                    lstHorse.Add(num);
+                }
+            }
+        }
+
+        private void lblKanFei_TextChanged(object sender, EventArgs e)
+        {
+            SelectHorse();
+        }
+
+        private void SelectHorse()
+        {
+            List<int> lstHorse = GetHorses();
+
+            string all = "";
+            lstHorse.ForEach(x => all += $"{x}|");
+            lblAll.Text = all;
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            List<int> lstHorse = GetHorses();
+            smatSelection.SetBatchHorse(lstHorse);
+        }
+
+        private void btnReceive_Click(object sender, EventArgs e)
+        {
+            btnReceive.Enabled = false;
+            //创建接收线程
+            //Thread RecivceThread = new Thread(new ParameterizedThreadStart(RecivceMsg));
+            //RecivceThread.IsBackground = true;
+            //RecivceThread.Start();
+            BackgroundWorker bwReceiveMsg = new BackgroundWorker();
+            bwReceiveMsg.WorkerReportsProgress = true;
+            bwReceiveMsg.WorkerSupportsCancellation = true;
+            bwReceiveMsg.ProgressChanged += BwReceiveMsg_ProgressChanged;
+            bwReceiveMsg.RunWorkerCompleted += BwReceiveMsg_RunWorkerCompleted;
+            bwReceiveMsg.DoWork += BwReceiveMsg_DoWork;
+            bwReceiveMsg.RunWorkerAsync(txtLocalPort.Text.Trim());
+        }
+
+        private void BwReceiveMsg_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker bw = sender as BackgroundWorker;
+            int.TryParse(e.Argument.ToString(), out int port);
+            IPEndPoint local = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
+            UdpClient RecviceClient = new UdpClient(local);
+
+            IPEndPoint remote = new IPEndPoint(IPAddress.Any, 8080);
+            while (true)
+            {
+                try
+                {
+                    byte[] recivcedata = RecviceClient.Receive(ref remote);
+                    string strMsg = Encoding.UTF8.GetString(recivcedata, 0, recivcedata.Length);
+                    if (bCanReceive)
+                    {
+                        ParseMessage(strMsg);
+                        AddMessage(strMsg);
+                        bw.ReportProgress(1);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    bw.ReportProgress(2, ex);
+                }
+            }
+        }
+
+        private void BwReceiveMsg_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("停止接受信息");
+        }
+
+        private void BwReceiveMsg_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage == 1)
+            {
+                SaveConfig();
+                CCmemberInstance.Config = Config;
+            }
+
+            if (e.ProgressPercentage == 2)
+            {
+                Exception ex = e.UserState as Exception;
+                if (ex != null)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void chkRecive_CheckedChanged(object sender, EventArgs e)
+        {
+            bCanReceive = chkRecive.Checked;
+        }
+        private void AddMessage(string msg)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new Action<string>(AddMessage), msg);
+            }
+            else
+            {
+                string time = DateTime.Now.ToString("HH:mm:ss:ffff");
+                lstMessage.Items.Add($"{time} ##  {msg}");
+                lstMessage.SelectedIndex = lstMessage.Items.Count - 1;
+            }
+        }
+        private void ParseMessage(string msg)
+        {
+            if (!string.IsNullOrEmpty(msg))
+            {
+                string[] tmp = msg.Split("#".ToCharArray());
+                if (tmp.Length > 1)
+                {
+                    string match = tmp[0];
+                    string race = tmp[1];
+                    string horses = tmp[2];
+                    //if (race.Equals(Config.Race))
+                    {
+                        ShowHorseNumber(horses);
+                    }
+                }
+            }
+        }
+
+        #region 网络通信来选择马号
+        /// <summary>
+        /// 根据马号来选择只打马号
+        /// </summary>
+        /// <param name="hs"></param>
+        private void ShowHorseNumber(string hs)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new Action<string>(ShowHorseNumber), hs);
+            }
+            else
+            {
+                string horse = hs.Split(@"/".ToCharArray())[0];
+                string type = hs.Split(@"/".ToCharArray())[1];
+                switch (type)
+                {
+                    case "kanfei":
+                        lblKanFei.Text = horse;
+                        break;
+                    case "Q":
+                        lblhcQ.Text = horse;
+                        break;
+                    case "QP":
+                        lblhcPq.Text = horse;
+                        break;
+                }
+            }
+        }
+        #endregion
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(SendMsg);
+            t.IsBackground = true;
+            Hashtable ht = new Hashtable();
+            ht.Add(1, txtMsg.Text);
+            ht.Add(2, txtReceivePort.Text);
+            t.Start(ht);
+        }
+        private void SendMsg(object obj)
+        {
+            Hashtable ht = obj as Hashtable;
+            string message = ht[1].ToString();
+            int.TryParse(ht[2].ToString(), out int port);
+            if (ht != null)
+            {
+                UdpClient SendClient = new UdpClient(0);
+                byte[] bytes = System.Text.Encoding.UTF8.GetBytes(message);
+                IPAddress remoteIp = IPAddress.Parse("127.0.0.1");
+                IPEndPoint iep = new IPEndPoint(remoteIp, port);
+                try
+                {
+                    SendClient.Send(bytes, bytes.Length, iep);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        private void SendMsg(string msg)
+        {
+            Thread t = new Thread(SendMsg);
+            t.IsBackground = true;
+            Hashtable ht = new Hashtable();
+            ht.Add(1, msg);
+            ht.Add(2, txtReceivePort.Text);
+            t.Start(ht);
+        }
+
+        /// <summary>
+        /// 发送回软件进行显示
+        /// </summary>
+        /// <param name="msg"></param>
+        private void SendLocal(string msg)
+        {
+            ParseMessage(msg);
+        }
+        /// <summary>
+        /// 发送前几名的马号
+        /// </summary>
+        private void SendHorse(List<string> horse, string qtype)
+        {
+            int.TryParse(txtHorseCount.Text.Trim(), out int horsecount);
+            string horses = "";
+            HashSet<string> hsSet = new HashSet<string>();
+           //得到要发送的马号
+            for (int i = 0; i < horsecount; i++)
+            {
+                //防止越界
+                if(i<horse.Count)
+                {
+                    string h1 = horse[i].Split("-".ToCharArray())[0];
+                    string h2 = horse[i].Split("-".ToCharArray())[1];
+                    hsSet.Add(h1);
+                    hsSet.Add(h2);
+                }
+            }
+
+            foreach(var h in hsSet)
+            {
+                horses += $"{h}|";
+            }
+            if (horses.Length > 0)
+            {
+                horses = horses.Substring(0, horses.Length - 1);
+                string msg = $"{cobMatch.Text}#{Config.Race}#{horses}/{qtype}";
+                SendMsg(msg);
+                SendLocal(msg);
+            }
         }
     }
 }
