@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timeReg = new System.Windows.Forms.Timer(this.components);
             this.timerMinuteDs = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtHorseCount = new System.Windows.Forms.TextBox();
             this.btnWeb2 = new System.Windows.Forms.Button();
             this.chkHistory = new System.Windows.Forms.CheckBox();
             this.chkBetQP = new System.Windows.Forms.CheckBox();
@@ -117,6 +119,16 @@
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nnn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.txtMsg = new System.Windows.Forms.TextBox();
+            this.txtReceivePort = new System.Windows.Forms.TextBox();
+            this.接收端口 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkRecive = new System.Windows.Forms.CheckBox();
+            this.lstMessage = new System.Windows.Forms.ListBox();
+            this.btnReceive = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtLocalPort = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.QpbetSetting = new EatZD.BetSetting();
             this.QbetSetting = new EatZD.BetSetting();
@@ -136,18 +148,6 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkRecive = new System.Windows.Forms.CheckBox();
-            this.lstMessage = new System.Windows.Forms.ListBox();
-            this.btnReceive = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtLocalPort = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtHorseCount = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.txtMsg = new System.Windows.Forms.TextBox();
-            this.txtReceivePort = new System.Windows.Forms.TextBox();
-            this.接收端口 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -164,9 +164,9 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBetResult)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBetFail)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // timeReg
@@ -212,6 +212,8 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.label7);
+            this.splitContainer2.Panel1.Controls.Add(this.txtHorseCount);
             this.splitContainer2.Panel1.Controls.Add(this.btnWeb2);
             this.splitContainer2.Panel1.Controls.Add(this.chkHistory);
             this.splitContainer2.Panel1.Controls.Add(this.chkBetQP);
@@ -243,6 +245,25 @@
             this.splitContainer2.SplitterDistance = 519;
             this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(423, 204);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 104;
+            this.label7.Text = "发送最前";
+            // 
+            // txtHorseCount
+            // 
+            this.txtHorseCount.Location = new System.Drawing.Point(480, 202);
+            this.txtHorseCount.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHorseCount.Name = "txtHorseCount";
+            this.txtHorseCount.Size = new System.Drawing.Size(29, 21);
+            this.txtHorseCount.TabIndex = 103;
+            this.txtHorseCount.Text = "3";
             // 
             // btnWeb2
             // 
@@ -754,16 +775,16 @@
             this.panel2.Controls.Add(this.chkhcPq);
             this.panel2.Controls.Add(this.chkhcQ);
             this.panel2.Controls.Add(this.chkKanfei);
-            this.panel2.Location = new System.Drawing.Point(8, 425);
+            this.panel2.Location = new System.Drawing.Point(4, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(190, 95);
             this.panel2.TabIndex = 9;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(151, 67);
+            this.btnOk.Location = new System.Drawing.Point(152, 72);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(39, 28);
+            this.btnOk.Size = new System.Drawing.Size(38, 20);
             this.btnOk.TabIndex = 8;
             this.btnOk.Text = "确定";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -872,7 +893,7 @@
             this.QPbetComposeCtrl2.Location = new System.Drawing.Point(488, 2);
             this.QPbetComposeCtrl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QPbetComposeCtrl2.Name = "QPbetComposeCtrl2";
-            this.QPbetComposeCtrl2.Size = new System.Drawing.Size(294, 539);
+            this.QPbetComposeCtrl2.Size = new System.Drawing.Size(294, 540);
             this.QPbetComposeCtrl2.TabIndex = 6;
             // 
             // QbetComposeCtrl1
@@ -882,12 +903,12 @@
             this.QbetComposeCtrl1.Location = new System.Drawing.Point(196, 2);
             this.QbetComposeCtrl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QbetComposeCtrl1.Name = "QbetComposeCtrl1";
-            this.QbetComposeCtrl1.Size = new System.Drawing.Size(294, 539);
+            this.QbetComposeCtrl1.Size = new System.Drawing.Size(294, 540);
             this.QbetComposeCtrl1.TabIndex = 5;
             // 
             // btnSaveCal
             // 
-            this.btnSaveCal.Location = new System.Drawing.Point(63, 400);
+            this.btnSaveCal.Location = new System.Drawing.Point(61, 500);
             this.btnSaveCal.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveCal.Name = "btnSaveCal";
             this.btnSaveCal.Size = new System.Drawing.Size(41, 20);
@@ -898,7 +919,7 @@
             // 
             // btnCal
             // 
-            this.btnCal.Location = new System.Drawing.Point(8, 400);
+            this.btnCal.Location = new System.Drawing.Point(6, 500);
             this.btnCal.Margin = new System.Windows.Forms.Padding(2);
             this.btnCal.Name = "btnCal";
             this.btnCal.Size = new System.Drawing.Size(41, 20);
@@ -909,7 +930,7 @@
             // 
             // betMoney
             // 
-            this.betMoney.Location = new System.Drawing.Point(6, 304);
+            this.betMoney.Location = new System.Drawing.Point(4, 404);
             this.betMoney.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.betMoney.Name = "betMoney";
             this.betMoney.Size = new System.Drawing.Size(188, 102);
@@ -919,7 +940,7 @@
             // 
             this.panel1.Controls.Add(this.chkQP);
             this.panel1.Controls.Add(this.chkQ);
-            this.panel1.Location = new System.Drawing.Point(13, 278);
+            this.panel1.Location = new System.Drawing.Point(11, 378);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(79, 21);
@@ -949,7 +970,7 @@
             // 
             // smatSelection
             // 
-            this.smatSelection.Location = new System.Drawing.Point(10, 2);
+            this.smatSelection.Location = new System.Drawing.Point(8, 102);
             this.smatSelection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.smatSelection.Name = "smatSelection";
             this.smatSelection.Size = new System.Drawing.Size(184, 271);
@@ -970,14 +991,14 @@
             // dgvBetResult
             // 
             this.dgvBetResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvBetResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBetResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -994,26 +1015,26 @@
             this.Column10,
             this.Column11,
             this.nnn});
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBetResult.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBetResult.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvBetResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBetResult.Location = new System.Drawing.Point(2, 2);
             this.dgvBetResult.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBetResult.Name = "dgvBetResult";
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvBetResult.RowHeadersVisible = false;
             this.dgvBetResult.RowHeadersWidth = 51;
             this.dgvBetResult.RowTemplate.Height = 30;
@@ -1121,8 +1142,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.txtHorseCount);
             this.tabPage2.Controls.Add(this.btnSend);
             this.tabPage2.Controls.Add(this.txtMsg);
             this.tabPage2.Controls.Add(this.txtReceivePort);
@@ -1140,18 +1159,126 @@
             this.tabPage2.Text = "打单设置";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(779, 240);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(69, 24);
+            this.btnSend.TabIndex = 100;
+            this.btnSend.Text = "发送";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // txtMsg
+            // 
+            this.txtMsg.Location = new System.Drawing.Point(622, 244);
+            this.txtMsg.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMsg.Name = "txtMsg";
+            this.txtMsg.Size = new System.Drawing.Size(157, 21);
+            this.txtMsg.TabIndex = 99;
+            // 
+            // txtReceivePort
+            // 
+            this.txtReceivePort.Location = new System.Drawing.Point(575, 244);
+            this.txtReceivePort.Margin = new System.Windows.Forms.Padding(2);
+            this.txtReceivePort.Name = "txtReceivePort";
+            this.txtReceivePort.Size = new System.Drawing.Size(42, 21);
+            this.txtReceivePort.TabIndex = 98;
+            this.txtReceivePort.Text = "77";
+            // 
+            // 接收端口
+            // 
+            this.接收端口.AutoSize = true;
+            this.接收端口.Location = new System.Drawing.Point(516, 244);
+            this.接收端口.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.接收端口.Name = "接收端口";
+            this.接收端口.Size = new System.Drawing.Size(53, 12);
+            this.接收端口.TabIndex = 97;
+            this.接收端口.Text = "接收端口";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chkRecive);
+            this.groupBox2.Controls.Add(this.lstMessage);
+            this.groupBox2.Controls.Add(this.btnReceive);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.txtLocalPort);
+            this.groupBox2.Location = new System.Drawing.Point(518, 22);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(426, 212);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "网络通信";
+            // 
+            // chkRecive
+            // 
+            this.chkRecive.AutoSize = true;
+            this.chkRecive.Checked = true;
+            this.chkRecive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRecive.Location = new System.Drawing.Point(147, 16);
+            this.chkRecive.Name = "chkRecive";
+            this.chkRecive.Size = new System.Drawing.Size(48, 16);
+            this.chkRecive.TabIndex = 4;
+            this.chkRecive.Text = "接收";
+            this.chkRecive.UseVisualStyleBackColor = true;
+            this.chkRecive.CheckedChanged += new System.EventHandler(this.chkRecive_CheckedChanged);
+            // 
+            // lstMessage
+            // 
+            this.lstMessage.FormattingEnabled = true;
+            this.lstMessage.ItemHeight = 12;
+            this.lstMessage.Location = new System.Drawing.Point(0, 35);
+            this.lstMessage.Margin = new System.Windows.Forms.Padding(2);
+            this.lstMessage.Name = "lstMessage";
+            this.lstMessage.Size = new System.Drawing.Size(422, 172);
+            this.lstMessage.TabIndex = 3;
+            // 
+            // btnReceive
+            // 
+            this.btnReceive.Location = new System.Drawing.Point(80, 13);
+            this.btnReceive.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReceive.Name = "btnReceive";
+            this.btnReceive.Size = new System.Drawing.Size(62, 23);
+            this.btnReceive.TabIndex = 2;
+            this.btnReceive.Text = "接收";
+            this.btnReceive.UseVisualStyleBackColor = true;
+            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 20);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "端口";
+            // 
+            // txtLocalPort
+            // 
+            this.txtLocalPort.Location = new System.Drawing.Point(37, 14);
+            this.txtLocalPort.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLocalPort.Name = "txtLocalPort";
+            this.txtLocalPort.Size = new System.Drawing.Size(39, 21);
+            this.txtLocalPort.TabIndex = 0;
+            this.txtLocalPort.Text = "88";
+            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(497, 450);
+            this.btnSave.Location = new System.Drawing.Point(515, 280);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(103, 91);
+            this.btnSave.Size = new System.Drawing.Size(54, 31);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // QpbetSetting
             // 
-            this.QpbetSetting.Location = new System.Drawing.Point(2, 280);
+            this.QpbetSetting.Location = new System.Drawing.Point(2, 261);
             this.QpbetSetting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QpbetSetting.Name = "QpbetSetting";
             this.QpbetSetting.Size = new System.Drawing.Size(524, 261);
@@ -1179,14 +1306,14 @@
             // dgvBetFail
             // 
             this.dgvBetFail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetFail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetFail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvBetFail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBetFail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1203,26 +1330,26 @@
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBetFail.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBetFail.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvBetFail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBetFail.Location = new System.Drawing.Point(3, 3);
             this.dgvBetFail.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBetFail.Name = "dgvBetFail";
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetFail.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetFail.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvBetFail.RowHeadersVisible = false;
             this.dgvBetFail.RowHeadersWidth = 51;
             this.dgvBetFail.RowTemplate.Height = 30;
@@ -1329,139 +1456,13 @@
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.Width = 54;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.chkRecive);
-            this.groupBox2.Controls.Add(this.lstMessage);
-            this.groupBox2.Controls.Add(this.btnReceive);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.txtLocalPort);
-            this.groupBox2.Location = new System.Drawing.Point(518, 22);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(426, 212);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "网络通信";
-            // 
-            // chkRecive
-            // 
-            this.chkRecive.AutoSize = true;
-            this.chkRecive.Checked = true;
-            this.chkRecive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkRecive.Location = new System.Drawing.Point(147, 16);
-            this.chkRecive.Name = "chkRecive";
-            this.chkRecive.Size = new System.Drawing.Size(48, 16);
-            this.chkRecive.TabIndex = 4;
-            this.chkRecive.Text = "接收";
-            this.chkRecive.UseVisualStyleBackColor = true;
-            this.chkRecive.CheckedChanged += new System.EventHandler(this.chkRecive_CheckedChanged);
-            // 
-            // lstMessage
-            // 
-            this.lstMessage.FormattingEnabled = true;
-            this.lstMessage.ItemHeight = 12;
-            this.lstMessage.Location = new System.Drawing.Point(0, 35);
-            this.lstMessage.Margin = new System.Windows.Forms.Padding(2);
-            this.lstMessage.Name = "lstMessage";
-            this.lstMessage.Size = new System.Drawing.Size(422, 172);
-            this.lstMessage.TabIndex = 3;
-            // 
-            // btnReceive
-            // 
-            this.btnReceive.Location = new System.Drawing.Point(80, 13);
-            this.btnReceive.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReceive.Name = "btnReceive";
-            this.btnReceive.Size = new System.Drawing.Size(62, 23);
-            this.btnReceive.TabIndex = 2;
-            this.btnReceive.Text = "接收";
-            this.btnReceive.UseVisualStyleBackColor = true;
-            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 20);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "端口";
-            // 
-            // txtLocalPort
-            // 
-            this.txtLocalPort.Location = new System.Drawing.Point(37, 14);
-            this.txtLocalPort.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLocalPort.Name = "txtLocalPort";
-            this.txtLocalPort.Size = new System.Drawing.Size(39, 21);
-            this.txtLocalPort.TabIndex = 0;
-            this.txtLocalPort.Text = "88";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(860, 244);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 102;
-            this.label7.Text = "发送最前";
-            // 
-            // txtHorseCount
-            // 
-            this.txtHorseCount.Location = new System.Drawing.Point(917, 242);
-            this.txtHorseCount.Margin = new System.Windows.Forms.Padding(2);
-            this.txtHorseCount.Name = "txtHorseCount";
-            this.txtHorseCount.Size = new System.Drawing.Size(29, 21);
-            this.txtHorseCount.TabIndex = 101;
-            this.txtHorseCount.Text = "3";
-            // 
-            // btnSend
-            // 
-            this.btnSend.Location = new System.Drawing.Point(779, 240);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(69, 24);
-            this.btnSend.TabIndex = 100;
-            this.btnSend.Text = "发送";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            // txtMsg
-            // 
-            this.txtMsg.Location = new System.Drawing.Point(622, 244);
-            this.txtMsg.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMsg.Name = "txtMsg";
-            this.txtMsg.Size = new System.Drawing.Size(157, 21);
-            this.txtMsg.TabIndex = 99;
-            // 
-            // txtReceivePort
-            // 
-            this.txtReceivePort.Location = new System.Drawing.Point(575, 244);
-            this.txtReceivePort.Margin = new System.Windows.Forms.Padding(2);
-            this.txtReceivePort.Name = "txtReceivePort";
-            this.txtReceivePort.Size = new System.Drawing.Size(42, 21);
-            this.txtReceivePort.TabIndex = 98;
-            this.txtReceivePort.Text = "77";
-            // 
-            // 接收端口
-            // 
-            this.接收端口.AutoSize = true;
-            this.接收端口.Location = new System.Drawing.Point(516, 244);
-            this.接收端口.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.接收端口.Name = "接收端口";
-            this.接收端口.Size = new System.Drawing.Size(53, 12);
-            this.接收端口.TabIndex = 97;
-            this.接收端口.Text = "接收端口";
-            // 
             // FrmEatZd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1443, 823);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmEatZd";
             this.Text = "SmartBet";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmEatZd_FormClosed);
@@ -1487,10 +1488,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBetResult)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBetFail)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBetFail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1604,11 +1605,11 @@
         private System.Windows.Forms.Button btnReceive;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtLocalPort;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtHorseCount;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.TextBox txtMsg;
         private System.Windows.Forms.TextBox txtReceivePort;
         private System.Windows.Forms.Label 接收端口;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtHorseCount;
     }
 }

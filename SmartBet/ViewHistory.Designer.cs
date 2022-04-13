@@ -56,6 +56,7 @@
             this.headfoodCtrl19 = new EatZD.HeadfoodCtrl();
             this.headfoodCtrl20 = new EatZD.HeadfoodCtrl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkQt1 = new System.Windows.Forms.CheckBox();
             this.btnAll = new System.Windows.Forms.Button();
             this.txtZhe = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -75,7 +76,6 @@
             this.lblYjpc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvGrid = new System.Windows.Forms.DataGridView();
-            this.chkQt1 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -433,6 +433,16 @@
             this.panel1.Size = new System.Drawing.Size(459, 64);
             this.panel1.TabIndex = 1;
             // 
+            // chkQt1
+            // 
+            this.chkQt1.AutoSize = true;
+            this.chkQt1.Location = new System.Drawing.Point(144, 34);
+            this.chkQt1.Name = "chkQt1";
+            this.chkQt1.Size = new System.Drawing.Size(66, 16);
+            this.chkQt1.TabIndex = 16;
+            this.chkQt1.Text = "固定QT1";
+            this.chkQt1.UseVisualStyleBackColor = true;
+            // 
             // btnAll
             // 
             this.btnAll.Location = new System.Drawing.Point(400, 30);
@@ -449,7 +459,7 @@
             this.txtZhe.Name = "txtZhe";
             this.txtZhe.Size = new System.Drawing.Size(49, 21);
             this.txtZhe.TabIndex = 14;
-            this.txtZhe.Text = "0";
+            this.txtZhe.Text = "82";
             // 
             // label4
             // 
@@ -473,7 +483,7 @@
             // 
             this.radCha.AutoSize = true;
             this.radCha.Checked = true;
-            this.radCha.Location = new System.Drawing.Point(48, 3);
+            this.radCha.Location = new System.Drawing.Point(40, 3);
             this.radCha.Name = "radCha";
             this.radCha.Size = new System.Drawing.Size(47, 16);
             this.radCha.TabIndex = 13;
@@ -484,7 +494,7 @@
             // radZhe
             // 
             this.radZhe.AutoSize = true;
-            this.radZhe.Location = new System.Drawing.Point(7, 3);
+            this.radZhe.Location = new System.Drawing.Point(4, 3);
             this.radZhe.Name = "radZhe";
             this.radZhe.Size = new System.Drawing.Size(41, 16);
             this.radZhe.TabIndex = 12;
@@ -591,6 +601,7 @@
             this.lblYjpc.Name = "lblYjpc";
             this.lblYjpc.Size = new System.Drawing.Size(49, 21);
             this.lblYjpc.TabIndex = 1;
+            this.lblYjpc.Text = "1000";
             // 
             // label1
             // 
@@ -638,20 +649,10 @@
             dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dgvGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGrid.RowTemplate.Height = 23;
-            this.dgvGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvGrid.Size = new System.Drawing.Size(459, 492);
             this.dgvGrid.TabIndex = 2;
             this.dgvGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvGrid_CellFormatting);
-            // 
-            // chkQt1
-            // 
-            this.chkQt1.AutoSize = true;
-            this.chkQt1.Location = new System.Drawing.Point(144, 34);
-            this.chkQt1.Name = "chkQt1";
-            this.chkQt1.Size = new System.Drawing.Size(66, 16);
-            this.chkQt1.TabIndex = 16;
-            this.chkQt1.Text = "固定QT1";
-            this.chkQt1.UseVisualStyleBackColor = true;
             // 
             // ViewHistory
             // 
