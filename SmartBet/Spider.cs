@@ -44,7 +44,7 @@ namespace EatZD
             set;
         }
 
-        public int Race
+        public string Race
         {
             get;
             set;
@@ -67,13 +67,13 @@ namespace EatZD
             }
         }
         DbHelperSQL SqlHelper = new DbHelperSQL();
-        public Spider(string url, int race)
+        public Spider(string url, string race)
         {
             MatchUrl = url;
             Race = race;
         }
 
-        public Spider(string url, int race, CCMember cm)
+        public Spider(string url, string race, CCMember cm)
         {
             MatchUrl = url;
             Race = race;

@@ -70,5 +70,11 @@ namespace EatZD
             chkHead.Checked = true;
             chkFoot.Checked = false;
         }
+
+        public void SelectFoot()
+        {
+            chkHead.Checked = false;
+            chkFoot.Checked = true;
+        }
     }
 }

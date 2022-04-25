@@ -163,7 +163,12 @@ namespace EatZD
                 btn.Enabled = bEnalbe;
             }
         }
+
         private string GetRace()
+        {
+            return chkAuto.Checked ? GetAutoRace() : GetManualRace();
+        }
+        private string GetManualRace()
         {
             string rc = "1";
             foreach(var c in gpRace.Controls)
@@ -177,6 +182,16 @@ namespace EatZD
                         break;
                     }
                 }
+            }
+            return rc;
+        }
+
+        private string GetAutoRace()
+        {
+            string rc = "1";
+            if(lstOpenedRace.Count>0)
+            {
+               rc = lstOpenedRace[0].ToString();
             }
             return rc;
         }
@@ -214,7 +229,7 @@ namespace EatZD
             Config.Accout = txtAccount.Text.Trim();
             Config.Pwd = txtPwd.Text.Trim();
             Config.Pin = txtPin.Text.Trim();
-            Config.Race = GetRace();
+            Config.Race = GetManualRace();
 
             Config.XMZK =Util.Text2Double(QbetSetting.XMZK.Text.Trim());
             Config.BXMPS = QbetSetting.BXMPS.Checked;
@@ -525,12 +540,15 @@ namespace EatZD
                 }
             }
         }
-
+        private bool bStart = false;
         private void btnStart_Click(object sender, EventArgs e)
         {
             if (btnStart.Text == "开始")
             {
+                bStart = true;
                 btnStart.Text = "停止";
+                chkAuto.Enabled = false;
+
                 SaveConfig();
                 CCmemberInstance.Config = Config;
                 
@@ -540,7 +558,10 @@ namespace EatZD
             }
             else if (btnStart.Text == "停止")
             {
+                bStart = false;
                 btnStart.Text = "开始";
+                chkAuto.Enabled = true;
+
                 CCmemberInstance.Stop();
                 StopGetData();
             }
@@ -644,11 +665,14 @@ namespace EatZD
         /// </summary>
         private void GetandDisplayRace()
         {
-            string url = cobMatch.SelectedValue.ToString();
-            BackgroundWorker bw = new BackgroundWorker();
-            bw.RunWorkerCompleted += Bw_RunWorkerCompleted;
-            bw.DoWork += Bw_DoWork;
-            bw.RunWorkerAsync(url);
+            if(cobMatch.SelectedValue!=null)
+            {
+                string url = cobMatch.SelectedValue.ToString();
+                BackgroundWorker bw = new BackgroundWorker();
+                bw.RunWorkerCompleted += Bw_RunWorkerCompleted;
+                bw.DoWork += Bw_DoWork;
+                bw.RunWorkerAsync(url);
+            }
         }
 
         private void Bw_DoWork(object sender, DoWorkEventArgs e)
@@ -666,7 +690,7 @@ namespace EatZD
                 cobRace.DataSource = lstOpenedRace;
                 //cobRace.Text = lstOpenedRace[0].ToString();
                 //Config.Race = lstOpenedRace[0].ToString();
-                CCmemberInstance.Config = Config;
+                //CCmemberInstance.Config = Config;
                 ShowInfoMsg($"获取了{lstOpenedRace.Count}场，首场{lstOpenedRace[0]}");
             }
         }
@@ -796,7 +820,7 @@ namespace EatZD
                 }
                 else
                 {
-                    CalStrategy cs = new CalStrategy(cobMatch.Text.Trim(), GetRace(), "Q");
+                    CalStrategy cs = new CalStrategy(cobMatch.Text.Trim(), GetManualRace(), "Q");
                     odds = cs.GetOddsArray();
                 }
                 QbetComposeCtrl1.CalcStrategy(smatSelection.se,PlayType.Q,betMoney.Money, odds);
@@ -810,7 +834,7 @@ namespace EatZD
                 }
                 else
                 {
-                    CalStrategy cs = new CalStrategy(cobMatch.Text.Trim(), GetRace(), "QP");
+                    CalStrategy cs = new CalStrategy(cobMatch.Text.Trim(), GetManualRace(), "QP");
                     odds = cs.GetOddsArray();
                 }
                 QPbetComposeCtrl2.CalcStrategy(smatSelection.se, PlayType.QP, betMoney.Money, odds);
@@ -860,25 +884,27 @@ namespace EatZD
             }
         }
 
+        Spider spider;
         private void GetAllData()
         {
-            foreach (var race in lstOpenedRace)
+            //foreach (var race in lstOpenedRace)
             {
-                Spider spider = new Spider(Config.MatchUrl, race);
+                spider = new Spider(Config.MatchUrl, GetRace());
                 spider.CCmemberInstance = CCmemberInstance;
                 spider.CurrentRace = lstOpenedRace[0];
                 spider.CurrentMatch = cobMatch.Text;
-                lstSpider.Add(spider);
+                //lstSpider.Add(spider);
                 Task.Run(() => spider.Start());
             }
         }
 
         private void StopGetData()
         {
-            foreach (Spider s in lstSpider)
-            {
-                s.Stop();
-            }
+            //foreach (Spider s in lstSpider)
+            //{
+            //    s.Stop();
+            //}
+            spider.Stop();
         }
 
         private void btnViewQ_Click(object sender, EventArgs e)
@@ -890,7 +916,7 @@ namespace EatZD
         private void ViewQ()
         {
             viewHistoryQ.Match = cobMatch.Text.Trim();
-            viewHistoryQ.Race = GetRace();
+            viewHistoryQ.Race = GetManualRace();
             viewHistoryQ.Qtype = "Q";
             if(!(string.IsNullOrEmpty(viewHistoryQ.Match) ||string.IsNullOrEmpty(viewHistoryQ.Race)))
             {
@@ -930,7 +956,7 @@ namespace EatZD
         private void ViewQp()
         {
             viewHistoryPq.Match = cobMatch.Text.Trim();
-            viewHistoryPq.Race = GetRace();
+            viewHistoryPq.Race = GetManualRace();
             viewHistoryPq.Qtype = "QP";
             if (!(string.IsNullOrEmpty(viewHistoryPq.Match) || string.IsNullOrEmpty(viewHistoryPq.Race)))
             {
@@ -953,7 +979,7 @@ namespace EatZD
         private void SetMinuteDatasource()
         {
             string match = cobMatch.Text;
-            string race = GetRace();
+            string race = GetManualRace();
             if (!(string.IsNullOrEmpty(match) || string.IsNullOrEmpty(race)))
             {
                 CalStrategy cs = new CalStrategy(match, race, "Q");
@@ -973,6 +999,21 @@ namespace EatZD
                 ViewQ();
                 ViewQp();
             }
+            if (bStart)
+            {
+                //自动换场
+                if (chkAuto.Checked)
+                {
+                    GetandDisplayRace();
+                }
+                ShowLastTime();
+            }
+        }
+
+        private void ShowLastTime()
+        {
+           int time = CCmemberInstance.GetRaceLastTime(GetRace());
+            lblLastTime.Text =time.ToString();
         }
 
         private void btnWeb2_Click(object sender, EventArgs e)
@@ -1282,6 +1323,33 @@ namespace EatZD
                 string msg = $"{cobMatch.Text}#{Config.Race}#{horses}/{qtype}";
                 SendMsg(msg);
                 SendLocal(msg);
+            }
+        }
+
+        private void chkAuto_CheckedChanged(object sender, EventArgs e)
+        {
+            cobRace.Visible = chkAuto.Checked;
+        }
+
+        private void btnFail_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvBetFail.Rows.Count; i++)
+            {
+                DataGridViewRow dr = dgvBetFail.Rows[i];
+                string match = dr.Cells["赛事"].Value.ToString().Trim();
+                string race = dr.Cells["场"].Value.ToString().Trim();
+                if (match.Equals(cobMatch.Text.Trim()) && race.Equals(GetRace()))
+                {
+                    BetFail bf = dr.Tag as BetFail;
+                    if (bf.playtype == PlayType.Q)
+                    {
+                        CCmemberInstance.DoBetQPiao(bf.horse, bf.odds, bf.piao);
+                    }
+                    else if (bf.playtype == PlayType.QP)
+                    {
+                        CCmemberInstance.DoBetQpPiao(bf.horse, bf.odds, bf.piao);
+                    }
+                }
             }
         }
     }

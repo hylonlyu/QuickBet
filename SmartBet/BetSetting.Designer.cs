@@ -51,6 +51,10 @@
             this.PL12 = new System.Windows.Forms.TextBox();
             this.PL11 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GDPS = new System.Windows.Forms.TextBox();
+            this.BGDPS = new System.Windows.Forms.CheckBox();
+            this.XDZK = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.XDJX = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.XMZK = new System.Windows.Forms.TextBox();
@@ -61,10 +65,6 @@
             this.XMPSMIN = new System.Windows.Forms.TextBox();
             this.BXMPS = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.XDZK = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.GDPS = new System.Windows.Forms.TextBox();
-            this.BGDPS = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -124,6 +124,7 @@
             this.BU5.Name = "BU5";
             this.BU5.Size = new System.Drawing.Size(70, 25);
             this.BU5.TabIndex = 18;
+            this.BU5.Text = "125";
             // 
             // PL52
             // 
@@ -131,6 +132,7 @@
             this.PL52.Name = "PL52";
             this.PL52.Size = new System.Drawing.Size(70, 25);
             this.PL52.TabIndex = 17;
+            this.PL52.Text = "100";
             // 
             // PL51
             // 
@@ -138,6 +140,7 @@
             this.PL51.Name = "PL51";
             this.PL51.Size = new System.Drawing.Size(70, 25);
             this.PL51.TabIndex = 16;
+            this.PL51.Text = "40.1";
             // 
             // label7
             // 
@@ -154,6 +157,7 @@
             this.BU4.Name = "BU4";
             this.BU4.Size = new System.Drawing.Size(70, 25);
             this.BU4.TabIndex = 14;
+            this.BU4.Text = "120";
             // 
             // PL42
             // 
@@ -161,6 +165,7 @@
             this.PL42.Name = "PL42";
             this.PL42.Size = new System.Drawing.Size(70, 25);
             this.PL42.TabIndex = 13;
+            this.PL42.Text = "40";
             // 
             // PL41
             // 
@@ -168,6 +173,7 @@
             this.PL41.Name = "PL41";
             this.PL41.Size = new System.Drawing.Size(70, 25);
             this.PL41.TabIndex = 12;
+            this.PL41.Text = "30.1";
             // 
             // label6
             // 
@@ -184,6 +190,7 @@
             this.BU3.Name = "BU3";
             this.BU3.Size = new System.Drawing.Size(70, 25);
             this.BU3.TabIndex = 10;
+            this.BU3.Text = "115";
             // 
             // PL32
             // 
@@ -191,6 +198,7 @@
             this.PL32.Name = "PL32";
             this.PL32.Size = new System.Drawing.Size(70, 25);
             this.PL32.TabIndex = 9;
+            this.PL32.Text = "30";
             // 
             // PL31
             // 
@@ -198,6 +206,7 @@
             this.PL31.Name = "PL31";
             this.PL31.Size = new System.Drawing.Size(70, 25);
             this.PL31.TabIndex = 8;
+            this.PL31.Text = "20.1";
             // 
             // label5
             // 
@@ -214,6 +223,7 @@
             this.BU2.Name = "BU2";
             this.BU2.Size = new System.Drawing.Size(70, 25);
             this.BU2.TabIndex = 6;
+            this.BU2.Text = "110";
             // 
             // PL22
             // 
@@ -221,6 +231,7 @@
             this.PL22.Name = "PL22";
             this.PL22.Size = new System.Drawing.Size(70, 25);
             this.PL22.TabIndex = 5;
+            this.PL22.Text = "20";
             // 
             // PL21
             // 
@@ -228,6 +239,7 @@
             this.PL21.Name = "PL21";
             this.PL21.Size = new System.Drawing.Size(70, 25);
             this.PL21.TabIndex = 4;
+            this.PL21.Text = "10.1";
             // 
             // label4
             // 
@@ -244,6 +256,7 @@
             this.BU1.Name = "BU1";
             this.BU1.Size = new System.Drawing.Size(70, 25);
             this.BU1.TabIndex = 2;
+            this.BU1.Text = "105";
             // 
             // PL12
             // 
@@ -251,6 +264,7 @@
             this.PL12.Name = "PL12";
             this.PL12.Size = new System.Drawing.Size(70, 25);
             this.PL12.TabIndex = 1;
+            this.PL12.Text = "10";
             // 
             // PL11
             // 
@@ -258,6 +272,7 @@
             this.PL11.Name = "PL11";
             this.PL11.Size = new System.Drawing.Size(70, 25);
             this.PL11.TabIndex = 0;
+            this.PL11.Text = "0";
             // 
             // groupBox2
             // 
@@ -282,12 +297,47 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "设置";
             // 
+            // GDPS
+            // 
+            this.GDPS.Location = new System.Drawing.Point(120, 210);
+            this.GDPS.Name = "GDPS";
+            this.GDPS.Size = new System.Drawing.Size(66, 25);
+            this.GDPS.TabIndex = 18;
+            // 
+            // BGDPS
+            // 
+            this.BGDPS.AutoSize = true;
+            this.BGDPS.Location = new System.Drawing.Point(9, 210);
+            this.BGDPS.Name = "BGDPS";
+            this.BGDPS.Size = new System.Drawing.Size(89, 19);
+            this.BGDPS.TabIndex = 17;
+            this.BGDPS.Text = "固定票数";
+            this.BGDPS.UseVisualStyleBackColor = true;
+            // 
+            // XDZK
+            // 
+            this.XDZK.Location = new System.Drawing.Point(120, 176);
+            this.XDZK.Name = "XDZK";
+            this.XDZK.Size = new System.Drawing.Size(66, 25);
+            this.XDZK.TabIndex = 16;
+            this.XDZK.Text = "81";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(0, 179);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 15);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "下单折扣";
+            // 
             // XDJX
             // 
             this.XDJX.Location = new System.Drawing.Point(120, 145);
             this.XDJX.Name = "XDJX";
             this.XDJX.Size = new System.Drawing.Size(66, 25);
             this.XDJX.TabIndex = 14;
+            this.XDJX.Text = "700";
             // 
             // label3
             // 
@@ -304,6 +354,7 @@
             this.XMZK.Name = "XMZK";
             this.XMZK.Size = new System.Drawing.Size(66, 25);
             this.XMZK.TabIndex = 10;
+            this.XMZK.Text = "81";
             // 
             // PLMAX
             // 
@@ -311,6 +362,7 @@
             this.PLMAX.Name = "PLMAX";
             this.PLMAX.Size = new System.Drawing.Size(66, 25);
             this.PLMAX.TabIndex = 7;
+            this.PLMAX.Text = "100";
             // 
             // PLMIN
             // 
@@ -318,6 +370,7 @@
             this.PLMIN.Name = "PLMIN";
             this.PLMIN.Size = new System.Drawing.Size(66, 25);
             this.PLMIN.TabIndex = 6;
+            this.PLMIN.Text = "0";
             // 
             // label2
             // 
@@ -334,6 +387,7 @@
             this.XMPSMAX.Name = "XMPSMAX";
             this.XMPSMAX.Size = new System.Drawing.Size(66, 25);
             this.XMPSMAX.TabIndex = 4;
+            this.XMPSMAX.Text = "10000000";
             // 
             // XMPSMIN
             // 
@@ -341,6 +395,7 @@
             this.XMPSMIN.Name = "XMPSMIN";
             this.XMPSMIN.Size = new System.Drawing.Size(66, 25);
             this.XMPSMIN.TabIndex = 3;
+            this.XMPSMIN.Text = "0";
             // 
             // BXMPS
             // 
@@ -360,39 +415,6 @@
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "扫描折扣";
-            // 
-            // XDZK
-            // 
-            this.XDZK.Location = new System.Drawing.Point(120, 176);
-            this.XDZK.Name = "XDZK";
-            this.XDZK.Size = new System.Drawing.Size(66, 25);
-            this.XDZK.TabIndex = 16;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(0, 179);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 15);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "下单折扣";
-            // 
-            // GDPS
-            // 
-            this.GDPS.Location = new System.Drawing.Point(120, 210);
-            this.GDPS.Name = "GDPS";
-            this.GDPS.Size = new System.Drawing.Size(66, 25);
-            this.GDPS.TabIndex = 18;
-            // 
-            // BGDPS
-            // 
-            this.BGDPS.AutoSize = true;
-            this.BGDPS.Location = new System.Drawing.Point(9, 210);
-            this.BGDPS.Name = "BGDPS";
-            this.BGDPS.Size = new System.Drawing.Size(89, 19);
-            this.BGDPS.TabIndex = 17;
-            this.BGDPS.Text = "固定票数";
-            this.BGDPS.UseVisualStyleBackColor = true;
             // 
             // BetSetting
             // 

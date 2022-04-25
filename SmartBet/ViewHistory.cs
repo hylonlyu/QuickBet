@@ -190,7 +190,7 @@ namespace EatZD
         private void dgvGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             //【相关】列
-            if(e.ColumnIndex==6)
+            if(e.ColumnIndex==7)
             {
                 if(e.Value!=null)
                 {
@@ -274,6 +274,18 @@ namespace EatZD
 
             }
 
+        }
+
+        private void btnFoot_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in tblHorse.Controls)
+            {
+                if (c is HeadfoodCtrl)
+                {
+                    HeadfoodCtrl hf = c as HeadfoodCtrl;
+                    hf.SelectFoot();
+                }
+            }
         }
     }
 }
