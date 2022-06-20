@@ -19,7 +19,7 @@ namespace EatZD
         public static bool IsTry = true;
         public static bool IsRepair = false;
 
-        private static string cServer = "https://reg789.top/";
+        private static string cServer = "https://a.reg889.top/";
         //private static string cServer = "http://localhost:60374/";
 
         private static string cSession = "";
@@ -75,7 +75,7 @@ namespace EatZD
             //处理“+”的情况
             encryData = encryData.Replace("+", "%2B");
             Int32 d = Util.ConvertDateTimeToInt32(DateTime.Now);
-            string url = cServer + "api/CheckStatus/login?code=" + encryData + "&d=" + d + "&r=" + new Random(DateTime.Now.Millisecond).Next(100, 99999);
+            string url = cServer + "api/CL8CheckStatus/login?code=" + encryData + "&d=" + d + "&r=" + new Random(DateTime.Now.Millisecond).Next(100, 99999);
             string str2 = Connect.getDocument(url, null, null, "utf-8");
             if (!string.IsNullOrEmpty(str2))
             {
@@ -119,7 +119,7 @@ namespace EatZD
             //处理“+”的情况
             encryData = encryData.Replace("+", "%2B");
             Int32 d = Util.ConvertDateTimeToInt32(DateTime.Now);
-            string url = cServer + "api/CheckStatus/online?code=" + encryData + "&d=" + d + "&r=" + new Random(DateTime.Now.Millisecond).Next(100, 99999);
+            string url = cServer + "api/CL8CheckStatus/online?code=" + encryData + "&d=" + d + "&r=" + new Random(DateTime.Now.Millisecond).Next(100, 99999);
             string str2 = Connect.getDocument(url, null, null, "utf-8");
             if (!string.IsNullOrEmpty(str2))
             {
@@ -163,7 +163,7 @@ namespace EatZD
             //处理“+”的情况
             encryData = encryData.Replace("+", "%2B");
             Int32 d = Util.ConvertDateTimeToInt32(DateTime.Now);
-            string url = cServer + "api/CheckStatus/ChangePwd?code=" + encryData + "&pwd2=" + pwd2 + "&d=" + d + "&r=" + new Random(DateTime.Now.Millisecond).Next(100, 99999);
+            string url = cServer + "api/CL8CheckStatus/ChangePwd?code=" + encryData + "&pwd2=" + pwd2 + "&d=" + d + "&r=" + new Random(DateTime.Now.Millisecond).Next(100, 99999);
             string str2 = Connect.getDocument(url, null, null, "utf-8");
             if (!string.IsNullOrEmpty(str2))
             {
