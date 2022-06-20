@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEatZd));
             this.timeReg = new System.Windows.Forms.Timer(this.components);
             this.timerMinuteDs = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -792,7 +793,7 @@
             this.panel2.Controls.Add(this.chkhcQ);
             this.panel2.Controls.Add(this.chkKanfei);
             this.panel2.Location = new System.Drawing.Point(5, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(253, 119);
             this.panel2.TabIndex = 9;
@@ -800,7 +801,7 @@
             // btnOk
             // 
             this.btnOk.Location = new System.Drawing.Point(203, 90);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(51, 25);
             this.btnOk.TabIndex = 8;
@@ -865,7 +866,7 @@
             // 
             this.chkhcPq.AutoSize = true;
             this.chkhcPq.Location = new System.Drawing.Point(4, 51);
-            this.chkhcPq.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkhcPq.Margin = new System.Windows.Forms.Padding(4);
             this.chkhcPq.Name = "chkhcPq";
             this.chkhcPq.Size = new System.Drawing.Size(61, 19);
             this.chkhcPq.TabIndex = 2;
@@ -876,7 +877,7 @@
             // 
             this.chkhcQ.AutoSize = true;
             this.chkhcQ.Location = new System.Drawing.Point(5, 28);
-            this.chkhcQ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkhcQ.Margin = new System.Windows.Forms.Padding(4);
             this.chkhcQ.Name = "chkhcQ";
             this.chkhcQ.Size = new System.Drawing.Size(53, 19);
             this.chkhcQ.TabIndex = 1;
@@ -887,7 +888,7 @@
             // 
             this.chkKanfei.AutoSize = true;
             this.chkKanfei.Location = new System.Drawing.Point(5, 4);
-            this.chkKanfei.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkKanfei.Margin = new System.Windows.Forms.Padding(4);
             this.chkKanfei.Name = "chkKanfei";
             this.chkKanfei.Size = new System.Drawing.Size(77, 19);
             this.chkKanfei.TabIndex = 0;
@@ -899,7 +900,7 @@
             this.viewHistoryPq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.viewHistoryPq.Location = new System.Drawing.Point(1665, 0);
-            this.viewHistoryPq.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.viewHistoryPq.Margin = new System.Windows.Forms.Padding(5);
             this.viewHistoryPq.Name = "viewHistoryPq";
             this.viewHistoryPq.Size = new System.Drawing.Size(635, 768);
             this.viewHistoryPq.TabIndex = 8;
@@ -909,7 +910,7 @@
             this.viewHistoryQ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.viewHistoryQ.Location = new System.Drawing.Point(1041, 0);
-            this.viewHistoryQ.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.viewHistoryQ.Margin = new System.Windows.Forms.Padding(5);
             this.viewHistoryQ.Name = "viewHistoryQ";
             this.viewHistoryQ.Size = new System.Drawing.Size(629, 768);
             this.viewHistoryQ.TabIndex = 7;
@@ -1011,7 +1012,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1916, 713);
+            this.tabPage1.Size = new System.Drawing.Size(1916, 770);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "进单情况";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1019,14 +1020,14 @@
             // dgvBetResult
             // 
             this.dgvBetResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvBetResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBetResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -1043,31 +1044,31 @@
             this.Column10,
             this.Column11,
             this.nnn});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBetResult.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBetResult.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvBetResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBetResult.Location = new System.Drawing.Point(3, 2);
             this.dgvBetResult.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvBetResult.Name = "dgvBetResult";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvBetResult.RowHeadersVisible = false;
             this.dgvBetResult.RowHeadersWidth = 51;
             this.dgvBetResult.RowTemplate.Height = 30;
             this.dgvBetResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBetResult.Size = new System.Drawing.Size(1910, 709);
+            this.dgvBetResult.Size = new System.Drawing.Size(1910, 766);
             this.dgvBetResult.TabIndex = 1;
             // 
             // Column1
@@ -1182,7 +1183,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1916, 713);
+            this.tabPage2.Size = new System.Drawing.Size(1916, 770);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "打单设置";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1213,7 +1214,7 @@
             this.txtReceivePort.Name = "txtReceivePort";
             this.txtReceivePort.Size = new System.Drawing.Size(55, 25);
             this.txtReceivePort.TabIndex = 98;
-            this.txtReceivePort.Text = "77";
+            this.txtReceivePort.Text = "66";
             // 
             // 接收端口
             // 
@@ -1246,7 +1247,7 @@
             this.chkRecive.Checked = true;
             this.chkRecive.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkRecive.Location = new System.Drawing.Point(196, 20);
-            this.chkRecive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkRecive.Margin = new System.Windows.Forms.Padding(4);
             this.chkRecive.Name = "chkRecive";
             this.chkRecive.Size = new System.Drawing.Size(59, 19);
             this.chkRecive.TabIndex = 4;
@@ -1296,7 +1297,7 @@
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(687, 350);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(72, 39);
             this.btnSave.TabIndex = 5;
@@ -1324,10 +1325,10 @@
             // 
             this.tabPage4.Controls.Add(this.dgvBetFail);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Size = new System.Drawing.Size(1916, 713);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Size = new System.Drawing.Size(1916, 770);
             this.tabPage4.TabIndex = 5;
             this.tabPage4.Text = "失败单";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1335,14 +1336,14 @@
             // dgvBetFail
             // 
             this.dgvBetFail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetFail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetFail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvBetFail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBetFail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1359,31 +1360,31 @@
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBetFail.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBetFail.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvBetFail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBetFail.Location = new System.Drawing.Point(4, 4);
             this.dgvBetFail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvBetFail.Name = "dgvBetFail";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBetFail.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBetFail.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvBetFail.RowHeadersVisible = false;
             this.dgvBetFail.RowHeadersWidth = 51;
             this.dgvBetFail.RowTemplate.Height = 30;
             this.dgvBetFail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBetFail.Size = new System.Drawing.Size(1908, 705);
+            this.dgvBetFail.Size = new System.Drawing.Size(1908, 762);
             this.dgvBetFail.TabIndex = 2;
             this.dgvBetFail.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvBetFail_MouseClick);
             // 
@@ -1491,6 +1492,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1029);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmEatZd";
             this.Text = "SmartBet";
