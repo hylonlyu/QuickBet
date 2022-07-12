@@ -2217,9 +2217,12 @@ namespace EatZD
             CheckLogout(str);
             Dictionary<string, string[,]> dicPei = new Dictionary<string, string[,]>();
             //如果超过14只马
-            if (!string.IsNullOrEmpty(str) && str.Contains("javascript:moreQ"))
+            if (!string.IsNullOrEmpty(str) )
             {
-                dicPei = GetPeiData24(item);
+                if(GetRunningMaxHorse(item)>0)
+                {
+                    dicPei = GetPeiData30(item);
+                }
             }
             else
             {
@@ -2231,11 +2234,11 @@ namespace EatZD
         }
 
         /// <summary>
-        /// 获取Q赔率，24只马以内
+        /// 获取Q赔率，30只马以内
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public Dictionary<string, string[,]> GetPeiData24(RaceInfoItem item)
+        public Dictionary<string, string[,]> GetPeiData30(RaceInfoItem item)
         {
             string _now = GetNow(item.Url);
             //http://data.ctb988.com/totedata?race_date=24-11-2019&oversea=hkoq&qMode=QQ&race_type=14H&rc=2&x=0.4270748651324312&rcs=2
@@ -2245,11 +2248,41 @@ namespace EatZD
             string str = Connect.getDocument(url, cc, refer, "utf-8");
             CheckLogout(str);
             Dictionary<string, string[,]> dicPei = new Dictionary<string, string[,]>();
-            dicPei.Add("Q", ParseQData24(str));
-            dicPei.Add("QP", ParseQPData24(str));
+            dicPei.Add("Q", ParseQData30(str));
+            dicPei.Add("QP", ParseQPData30(str));
             return dicPei;
         }
 
+        /// <summary>
+        /// 获取当前开跑的最大马号
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        private int GetRunningMaxHorse(RaceInfoItem item)
+        {
+            //http://cqfexhv.ctb988.net/totedata?race_date=15-02-2019&race_type=1S&rc=2&currRC=2&x=0.8111822838958027
+            string url = $"http://{DoMain}/totedata?race_date={item.Date}&race_type={item.Url}&rc={item.Race}&currRC={item.Race}&x={new Random().NextDouble()}";
+            string refer = url;
+            string str = Connect.getDocument(url, cc, refer, "utf-8");
+            CheckLogout(str);
+
+            int max = 0;
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                Regex re = new Regex(@">(?'horse'\d+)</div>", RegexOptions.None);
+                MatchCollection mc = re.Matches(str);
+
+                foreach (Match ma in mc)
+                {
+                    string hh2 = ma.Groups["horse"].ToString();
+                    int.TryParse(hh2, out int h3);
+                    max = h3 > max ? h3 : max;
+                }
+            }
+
+            return max;
+        }
 
         /// <summary>
         /// 获取WP的赔率表
@@ -2336,7 +2369,7 @@ namespace EatZD
 
         }
 
-        string[,] ParseQData24(string strData)
+        string[,] ParseQData30(string strData)
         {
             try
             {
@@ -2345,15 +2378,15 @@ namespace EatZD
                     string _tmp1 = strData.Substring(strData.IndexOf("#Quinella"));
                     string _tmp2 = _tmp1.Substring(0, _tmp1.IndexOf(@"</pre>"));
                     string[] _tmp3 = _tmp2.Split("@".ToCharArray());
-                    string[,] Qpei = new string[25, 25];
-                    for (int i = 1; i <= 12; i++)
+                    string[,] Qpei = new string[31, 31];
+                    for (int i = 1; i <= 15; i++)
                     {
                         string[] _tmp4 = _tmp3[i].Split("\t".ToCharArray());
                         for (int k = 1; k < i; k++)
                         {
-                            Qpei[13 + k - 1, 13 + i - 1] = RomoveChar(_tmp4[k]);
+                            Qpei[16 + k - 1, 16 + i - 1] = RomoveChar(_tmp4[k]);
                         }
-                        for (int j = i + 2; j <= 25; j++)
+                        for (int j = i + 2; j <= 31; j++)
                         {
                             Qpei[i, j - 1] = RomoveChar(_tmp4[j]);
                         }
@@ -2371,7 +2404,7 @@ namespace EatZD
             }
 
         }
-        string[,] ParseQPData24(string strData)
+        string[,] ParseQPData30(string strData)
         {
             try
             {
@@ -2380,15 +2413,15 @@ namespace EatZD
                     string _tmp1 = strData.Substring(strData.IndexOf("#Quinella Place"));
                     string _tmp2 = _tmp1.Substring(0, _tmp1.IndexOf(@"</pre>"));
                     string[] _tmp3 = _tmp2.Split("@".ToCharArray());
-                    string[,] Qpei = new string[25, 25];
-                    for (int i = 1; i <= 12; i++)
+                    string[,] Qpei = new string[31, 31];
+                    for (int i = 1; i <= 15; i++)
                     {
                         string[] _tmp4 = _tmp3[i].Split("\t".ToCharArray());
                         for (int k = 1; k < i; k++)
                         {
-                            Qpei[13 + k - 1, 13 + i - 1] = RomoveChar(_tmp4[k]);
+                            Qpei[16 + k - 1, 16 + i - 1] = RomoveChar(_tmp4[k]);
                         }
-                        for (int j = i + 2; j <= 25; j++)
+                        for (int j = i + 2; j <= 31; j++)
                         {
                             Qpei[i, j - 1] = RomoveChar(_tmp4[j]);
                         }

@@ -22,7 +22,7 @@ namespace EatZD
         private static string cServer = "https://a.reg889.top/";
         //private static string cServer = "http://localhost:60374/";
 
-        private static string cSession = "";
+        private static string cSession = new Random().Next(1, 9999).ToString();
 
         public static bool DoReg(string cServer2, string cMachineCode)
         {

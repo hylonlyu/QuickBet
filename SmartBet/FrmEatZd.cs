@@ -753,6 +753,7 @@ namespace EatZD
             }
             else if (result != null && !result.GetResult())
             {
+                bCheckOnline = false;
                 MessageBox.Show(result.GetMsg());
                 Environment.Exit(0);
             }
