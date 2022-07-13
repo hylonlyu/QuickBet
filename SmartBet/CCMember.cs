@@ -2216,20 +2216,20 @@ namespace EatZD
             string str = Connect.getDocument(url, cc, refer, "utf-8");
             CheckLogout(str);
             Dictionary<string, string[,]> dicPei = new Dictionary<string, string[,]>();
-            //如果超过14只马
+            
             if (!string.IsNullOrEmpty(str) )
             {
-                if(GetRunningMaxHorse(item)>0)
+                //如果超过14只马
+                if (GetRunningMaxHorse(item)>14)
                 {
                     dicPei = GetPeiData30(item);
                 }
+                else
+                {
+                    dicPei.Add("Q", ParseQData14(str));
+                    dicPei.Add("QP", ParseQPData14(str));
+                }
             }
-            else
-            {
-                dicPei.Add("Q", ParseQData14(str));
-                dicPei.Add("QP", ParseQPData14(str));
-            }
-
             return dicPei;
         }
 
@@ -2260,8 +2260,9 @@ namespace EatZD
         /// <returns></returns>
         private int GetRunningMaxHorse(RaceInfoItem item)
         {
+            string _now = GetNow(item.Url);
             //http://cqfexhv.ctb988.net/totedata?race_date=15-02-2019&race_type=1S&rc=2&currRC=2&x=0.8111822838958027
-            string url = $"http://{DoMain}/totedata?race_date={item.Date}&race_type={item.Url}&rc={item.Race}&currRC={item.Race}&x={new Random().NextDouble()}";
+            string url = $"http://{DoMain}/totedata?race_date={_now}&race_type={item.Url}&rc={item.Race}&currRC={item.Race}&x={new Random().NextDouble()}";
             string refer = url;
             string str = Connect.getDocument(url, cc, refer, "utf-8");
             CheckLogout(str);
