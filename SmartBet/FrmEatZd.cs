@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.IO;
+using System.Media;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
@@ -599,8 +600,17 @@ namespace EatZD
                 dgvBetFail.Rows.Insert(0, new object[] { bettime, match, race, horse, win, place, zhe, lwin, lplace, bettype, odds, total, result, reason });
                 BetFail bf = new BetFail {horse = item.Horse,odds = item.Odds,piao = item.TotalCount,playtype = item.PlayType };
                 dgvBetFail.Rows[0].Tag = bf;
+                PlayFailSound();
                
             }
+        }
+
+        private void PlayFailSound()
+        {
+            string file = @"GuaFail.wav";
+            string path = Path.Combine(Application.StartupPath, file);
+            SoundPlayer player = new SoundPlayer(path);
+            player.PlaySync();
         }
 
         private void ShowBetResult(BettedItem item)
@@ -652,13 +662,13 @@ namespace EatZD
 
         }
 
-        private void timerShowData_Tick(object sender, EventArgs e)
-        {
-            if(chkAuto.Checked)
-            {
-                GetandDisplayRace();
-            }
-        }
+        //private void timerShowData_Tick(object sender, EventArgs e)
+        //{
+        //    if(chkAuto.Checked)
+        //    {
+        //        GetandDisplayRace();
+        //    }
+        //}
 
         /// <summary>
         /// 获取当前比赛的场次，并在cobrace中显示
@@ -691,6 +701,7 @@ namespace EatZD
                 //cobRace.Text = lstOpenedRace[0].ToString();
                 //Config.Race = lstOpenedRace[0].ToString();
                 //CCmemberInstance.Config = Config;
+                spider.Race = GetRace();
                 ShowInfoMsg($"获取了{lstOpenedRace.Count}场，首场{lstOpenedRace[0]}");
             }
         }
