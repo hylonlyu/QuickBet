@@ -692,6 +692,7 @@ namespace EatZD
             e.Result = res;
         }
 
+        HashSet<string> hsTips = new HashSet<string>();
         private void Bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lstOpenedRace = e.Result as List<int>;
@@ -702,7 +703,13 @@ namespace EatZD
                 //Config.Race = lstOpenedRace[0].ToString();
                 //CCmemberInstance.Config = Config;
                 spider.Race = GetRace();
-                ShowInfoMsg($"获取了{lstOpenedRace.Count}场，首场{lstOpenedRace[0]}");
+                string tip = $"获取了{lstOpenedRace.Count}场，首场{lstOpenedRace[0]}";
+                string key = cobMatch.Text + tip;
+                if(!hsTips.Contains(key))
+                {
+                    hsTips.Add(key);
+                    ShowInfoMsg(tip);
+                }
             }
         }
 

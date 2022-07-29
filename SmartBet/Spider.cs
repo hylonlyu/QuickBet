@@ -162,7 +162,12 @@ namespace EatZD
                         }
                     }
                 }
-                SaveData(timetag);
+                //断线时获取到的_LastTime=9999，断线时的数据不保存
+                if (_LastTime<9990)
+                {
+                    SaveData(timetag);
+                }
+                
                 System.Diagnostics.Debug.WriteLine("GetAllData");
             }
         }
