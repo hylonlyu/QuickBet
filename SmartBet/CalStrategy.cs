@@ -120,15 +120,16 @@ namespace EatZD
 
         private int GetLatestTime()
         {
-            int dt1 = 0;
-            string sql = $"select min(timetag) from [qpOdds] where match = '{Match}' and race = {Race}";
+            //int dt1 = 0;
+            //string sql = $"select min(timetag) from [qpOdds] where match = '{Match}' and race = {Race}";
 
-            object obj = SqlHelper.GetSingle(sql);
-            if (obj != null)
-            {
-                int.TryParse(obj.ToString(), out dt1);
-            }
-            return dt1;
+            //object obj = SqlHelper.GetSingle(sql);
+            //if (obj != null)
+            //{
+            //    int.TryParse(obj.ToString(), out dt1);
+            //}
+            //return dt1;
+            return MatchLatestTime.GetLatestTime($"{Match}-{Race}");
         }
         private DataTable CreateDetailTable()
         {

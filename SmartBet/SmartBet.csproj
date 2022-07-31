@@ -171,6 +171,7 @@
     <Compile Include="LoadAccept2.designer.cs">
       <DependentUpon>LoadAccept2.cs</DependentUpon>
     </Compile>
+    <Compile Include="MatchLatestTime.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RaceInfoItem.cs" />

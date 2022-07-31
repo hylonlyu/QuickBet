@@ -908,7 +908,7 @@ namespace EatZD
         {
             //foreach (var race in lstOpenedRace)
             {
-                spider = new Spider(Config.MatchUrl, GetRace());
+                spider = new Spider(cobMatch.Text.Trim(), GetRace());
                 spider.CCmemberInstance = CCmemberInstance;
                 spider.CurrentRace = lstOpenedRace[0];
                 spider.CurrentMatch = cobMatch.Text;

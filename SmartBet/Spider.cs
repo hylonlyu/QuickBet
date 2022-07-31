@@ -27,7 +27,6 @@ namespace EatZD
             set
             {
                 cCmemberInstance = value;
-                //cCmemberInstance.Config = new ZdConfig { MatchUrl = this.MatchUrl, Race = this.Race.ToString() };
             }
         }
         //表明读取数据的线程是否为停止
@@ -73,15 +72,15 @@ namespace EatZD
             Race = race;
         }
 
-        public Spider(string url, string race, CCMember cm)
-        {
-            MatchUrl = url;
-            Race = race;
-            cCmemberInstance = cm;
-            //cm.Config = new ZdConfig { MatchUrl = this.MatchUrl, Race = this.Race.ToString() };
-            cm.Config = new ZdConfig { MatchUrl = this.MatchUrl };
+        //public Spider(string url, string race, CCMember cm)
+        //{
+        //    MatchUrl = url;
+        //    Race = race;
+        //    cCmemberInstance = cm;
+        //    //cm.Config = new ZdConfig { MatchUrl = this.MatchUrl, Race = this.Race.ToString() };
+        //    cm.Config = new ZdConfig { MatchUrl = this.MatchUrl };
 
-        }
+        //}
 
         private void GetQData()
         {
@@ -122,8 +121,8 @@ namespace EatZD
             while (!bStop)
             {
                 _LastTime = GetRaceLastTime();
+                MatchLatestTime.SetLatestTime($"{MatchUrl}-{Race}",_LastTime);
 
-                
                 //时间在30分钟内，5S读一次
                 if (_LastTime < 30)
                 {
