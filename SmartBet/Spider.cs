@@ -123,15 +123,18 @@ namespace EatZD
                 _LastTime = GetRaceLastTime();
                 MatchLatestTime.SetLatestTime($"{MatchUrl}-{Race}",_LastTime);
 
+
+                System.Diagnostics.Debug.WriteLine($"race=============: {Race.ToString()}");
                 //时间在30分钟内，5S读一次
-                if (_LastTime < 30)
-                {
-                    Thread.Sleep(5000);
-                }
-                else
-                {
-                    Thread.Sleep(20000);
-                }
+                //if (_LastTime < 30)
+                //{
+                //    Thread.Sleep(5000);
+                //}
+                //else
+                //{
+                //    Thread.Sleep(20000);
+                //}
+                Thread.Sleep(5000);
                 string timetag = "";
 
                 if (_LastTime <= 30)

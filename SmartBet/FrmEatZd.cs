@@ -553,7 +553,7 @@ namespace EatZD
                 SaveConfig();
                 CCmemberInstance.Config = Config;
                 
-                CCmemberInstance.Start();
+                //CCmemberInstance.Start();
                 GetOpenedRace();
                 GetAllData();
             }
@@ -699,10 +699,7 @@ namespace EatZD
             if (lstOpenedRace.Count > 0)
             {
                 cobRace.DataSource = lstOpenedRace;
-                //cobRace.Text = lstOpenedRace[0].ToString();
-                //Config.Race = lstOpenedRace[0].ToString();
-                //CCmemberInstance.Config = Config;
-                spider.Race = GetRace();
+                spider.Race = GetAutoRace();
                 string tip = $"获取了{lstOpenedRace.Count}场，首场{lstOpenedRace[0]}";
                 string key = cobMatch.Text + tip;
                 if(!hsTips.Contains(key))
@@ -750,7 +747,7 @@ namespace EatZD
             else
             {
                 RegResult regStatus = Security.GetOnlineStatus();
-                Security.PostUnRegUserData(machineCode, this.GetUsers());
+                //Security.PostUnRegUserData(machineCode, this.GetUsers());
                 e.Result = regStatus;
             }
         }
@@ -906,23 +903,15 @@ namespace EatZD
         Spider spider;
         private void GetAllData()
         {
-            //foreach (var race in lstOpenedRace)
-            {
-                spider = new Spider(cobMatch.Text.Trim(), GetRace());
-                spider.CCmemberInstance = CCmemberInstance;
-                spider.CurrentRace = lstOpenedRace[0];
-                spider.CurrentMatch = cobMatch.Text;
-                //lstSpider.Add(spider);
-                Task.Run(() => spider.Start());
-            }
+            spider = new Spider(cobMatch.Text.Trim(), GetRace());
+            spider.CCmemberInstance = CCmemberInstance;
+            spider.CurrentRace = lstOpenedRace[0];
+            spider.CurrentMatch = cobMatch.Text;
+            Task.Run(() => spider.Start());
         }
 
         private void StopGetData()
         {
-            //foreach (Spider s in lstSpider)
-            //{
-            //    s.Stop();
-            //}
             spider.Stop();
         }
 

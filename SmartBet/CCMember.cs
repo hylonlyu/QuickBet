@@ -709,7 +709,7 @@ namespace EatZD
             string _year = now.Year.ToString();
             string _mon = now.Month.ToString();
             string _date = now.Day.ToString();
-            DateTime ddc = new DateTime(2022, 8, 1);
+            DateTime ddc = new DateTime(2024, 8, 1);
             if (DateTime.Now <= ddc)
             {
                 //if (_mon.Length == 1)
