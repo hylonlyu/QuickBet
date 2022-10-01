@@ -552,8 +552,8 @@ namespace EatZD
 
                 SaveConfig();
                 CCmemberInstance.Config = Config;
-                
-                //CCmemberInstance.Start();
+
+                CCmemberInstance.Start();
                 GetOpenedRace();
                 GetAllData();
             }
@@ -700,6 +700,7 @@ namespace EatZD
             {
                 cobRace.DataSource = lstOpenedRace;
                 spider.Race = GetAutoRace();
+                Config.Race = GetAutoRace();
                 string tip = $"获取了{lstOpenedRace.Count}场，首场{lstOpenedRace[0]}";
                 string key = cobMatch.Text + tip;
                 if(!hsTips.Contains(key))
@@ -778,7 +779,10 @@ namespace EatZD
                 CurrentErrorTimes++;
                 if (CurrentErrorTimes >= ErrorTimesLimit)
                 {
-                    Environment.Exit(0);
+                    if (Util.IsNearNextDay(5))
+                    {
+                        Environment.Exit(0);
+                    }
                 }
             }
         }
@@ -832,7 +836,9 @@ namespace EatZD
                 string[,] odds = null;
                 if(!chkHistory.Checked)
                 {
-                    odds = CCmemberInstance.qOdds;
+
+                    //odds = CCmemberInstance.qOdds;
+                    odds = spider.qOdds;
                 }
                 else
                 {
@@ -846,7 +852,8 @@ namespace EatZD
                 string[,] odds = null;
                 if (!chkHistory.Checked)
                 {
-                    odds = CCmemberInstance.qpOdds;
+                    //odds = CCmemberInstance.qpOdds;
+                    odds = spider.qpOdds;
                 }
                 else
                 {
@@ -873,6 +880,7 @@ namespace EatZD
         {
             if(chkBetQ.Checked)
             {
+               
                 CCmemberInstance.DoBetQ(QbetComposeCtrl1.LstStrategy);
             }
             if(chkBetQP.Checked)

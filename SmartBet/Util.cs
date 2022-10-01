@@ -199,5 +199,19 @@ namespace EatZD
                 return binaryFormatter.Deserialize(memStream);
             }
         }
+        /// 
+        /// </summary>
+        /// <param name="minute">minute</param>
+        /// <returns></returns>
+        public static bool IsNearNextDay(int minute)
+        {
+            bool bRet = false;
+            DateTime dtNext = DateTime.Now.Date.AddDays(1);
+            if (DateTime.Now.AddMinutes(minute).CompareTo(dtNext) >= 0)
+            {
+                bRet = true;
+            }
+            return bRet;
+        }
     }
 }
