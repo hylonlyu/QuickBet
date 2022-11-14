@@ -105,8 +105,14 @@ namespace EatZD
             Dictionary<string, string[,]> dicData = CCmemberInstance.GetQPOddsByRace(Race.ToString());
             if (dicData != null)
             {
-                qpOdds = dicData["QP"];
-                qOdds = dicData["Q"];
+                if (!IsOddsEmpty(qpOdds))
+                {
+                    qpOdds = dicData["QP"];
+                }
+                if(!IsOddsEmpty(qOdds))
+                {
+                    qOdds = dicData["Q"];
+                }
             }
         }
 
@@ -125,18 +131,7 @@ namespace EatZD
 
 
                 System.Diagnostics.Debug.WriteLine($"race=============: {Race.ToString()}");
-                //时间在30分钟内，5S读一次
-                //if (_LastTime < 30)
-                //{
-                //    Thread.Sleep(5000);
-                //}
-                //else
-                //{
-                //    Thread.Sleep(20000);
-                //}
                 Thread.Sleep(5000);
-                string timetag = "";
-
                 if (_LastTime <= 30)
                 {
                     GetQData();
@@ -144,7 +139,7 @@ namespace EatZD
                     GetQPOdds();
                     #region
                     //timetag = $"{_LastTime}分";
-                    timetag = $"{_LastTime}";
+                    string timetag = $"{_LastTime}";
                     #endregion
                     if (_LastTime == 0)
                     {
@@ -163,12 +158,13 @@ namespace EatZD
                             timetag = "-10";
                         }
                     }
-                }
-                //断线时获取到的_LastTime=9999，断线时的数据不保存
-                if (_LastTime<9990)
-                {
                     SaveData(timetag);
                 }
+                //断线时获取到的_LastTime=9999，断线时的数据不保存
+                //if (_LastTime<9990)
+                //{
+                //    SaveData(timetag);
+                //}
                 
                 System.Diagnostics.Debug.WriteLine("GetAllData");
             }
