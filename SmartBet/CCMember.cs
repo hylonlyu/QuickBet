@@ -2271,7 +2271,7 @@ namespace EatZD
 
             if (!string.IsNullOrEmpty(str))
             {
-                Regex re = new Regex(@">(?'horse'\d+)</div>", RegexOptions.None);
+                Regex re = new Regex(@"class=""style21"">(?'horse'\d+)</div>", RegexOptions.None);
                 MatchCollection mc = re.Matches(str);
 
                 foreach (Match ma in mc)

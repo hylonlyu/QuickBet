@@ -878,14 +878,20 @@ namespace EatZD
 
         private void btnBet_Click(object sender, EventArgs e)
         {
-            if(chkBetQ.Checked)
+            if(!chkBetQ.Checked && !chkBetQP.Checked)
             {
-               
-                CCmemberInstance.DoBetQ(QbetComposeCtrl1.LstStrategy);
+                MessageBox.Show("选择打单项目");
             }
-            if(chkBetQP.Checked)
+            else
             {
-                CCmemberInstance.DoBetQP(QPbetComposeCtrl2.LstStrategy);
+                if (chkBetQ.Checked)
+                {
+                    CCmemberInstance.DoBetQ(QbetComposeCtrl1.LstStrategy);
+                }
+                if (chkBetQP.Checked)
+                {
+                    CCmemberInstance.DoBetQP(QPbetComposeCtrl2.LstStrategy);
+                }
             }
         }
 

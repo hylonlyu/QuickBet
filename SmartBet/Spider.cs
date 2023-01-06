@@ -105,11 +105,11 @@ namespace EatZD
             Dictionary<string, string[,]> dicData = CCmemberInstance.GetQPOddsByRace(Race.ToString());
             if (dicData != null)
             {
-                if (!IsOddsEmpty(qpOdds))
+                if (!IsOddsEmpty(dicData["QP"]))
                 {
                     qpOdds = dicData["QP"];
                 }
-                if(!IsOddsEmpty(qOdds))
+                if(!IsOddsEmpty(dicData["Q"]))
                 {
                     qOdds = dicData["Q"];
                 }
@@ -270,12 +270,15 @@ namespace EatZD
                 {
                     for (int j = 1; j <= odds.GetLength(1) - 1; j++)
                     {
-                        if (double.TryParse(qOdds[i, j], out double odd))
+                        if (odds[i, j] != null)
                         {
-                            if (odd > 0)
+                            if(double.TryParse(odds[i, j], out double odd))
                             {
-                                bRet = false;
-                                break;
+                                if (odd > 0)
+                                {
+                                    bRet = false;
+                                    break;
+                                }
                             }
                         }
                     }
