@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using CefSharp;
+using CefSharp.WinForms;
 
-namespace EatZD
+namespace GuaDan
 {
     public partial class FrmWebbrowser : Form
     {
-        [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern bool InternetSetCookie(string lpszUrlName, string lbszCookieName, string lpszCookieData);
-
         public string Url
         {
             get;
@@ -27,25 +18,27 @@ namespace EatZD
             get;
             set;
         }
+
+        ChromiumWebBrowser chromeBrowser;
         public FrmWebbrowser()
         {
             InitializeComponent();
         }
 
-        private void FrmWebbrowser_Load(object sender, EventArgs e)
+        private void FrmWeb_Load(object sender, EventArgs e)
         {
-            try
-            {
-                SetCookie();
-                webBrowser1.ScriptErrorsSuppressed = true;
-                webBrowser1.IsWebBrowserContextMenuEnabled = false;
-                webBrowser1.Navigate(Url);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            Init();
+        }
 
+        private void Init()
+        {
+            SetCookie();
+            chromeBrowser = new ChromiumWebBrowser(Url);
+            this.Controls.Add(this.chromeBrowser);
+            chromeBrowser.LifeSpanHandler = new OpenPageSelf();
+            chromeBrowser.Dock = DockStyle.Fill;
+            
+            
         }
 
         private void SetCookie()
@@ -54,41 +47,66 @@ namespace EatZD
             string cDomain = uri.Host;
             CookieContainer container = CC;
             CookieCollection cc = container.GetCookies(new Uri(Url));
-            foreach (Cookie c in cc)
+            var cookieManager = CefSharp.Cef.GetGlobalCookieManager();
+            foreach (System.Net.Cookie c in cc)
             {
-                InternetSetCookie("http://" + cDomain, c.Name.ToString(), c.Value.ToString());
-            }
-        }
+                //    InternetSetCookie("http://" + cDomain, c.Name.ToString(), c.Value.ToString());
 
-        private void webBrowser1_BeforeNewWindow(object sender, WebBrowserExtendedNavigatingEventArgs e)
-        {
-            e.Cancel = true;
-            SetCookie();
-            webBrowser1.Navigate(e.Url);
+                cookieManager.SetCookie("http://" + cDomain, new CefSharp.Cookie()
+                {
+                    Domain = cDomain,
+                    Name = c.Name.ToString(),
+                    Value = c.Value.ToString(),
+                    Expires = DateTime.MinValue
+                });
+            }
+
+
+
         }
 
         private void toolForward_Click(object sender, EventArgs e)
         {
-            SetCookie();
-            webBrowser1.GoForward();
+            this.chromeBrowser.Forward();
         }
 
         private void toolBack_Click(object sender, EventArgs e)
         {
-            SetCookie();
-            webBrowser1.GoBack();
+            this.chromeBrowser.Back();
         }
 
         private void toolRefresh_Click(object sender, EventArgs e)
         {
-            SetCookie();
-            webBrowser1.Refresh();
+            this.chromeBrowser.Reload();
+        }
+    }
+
+    /// <summary>
+    /// 在自己窗口打开链接
+    /// </summary>
+    internal class OpenPageSelf : ILifeSpanHandler
+    {
+        public bool DoClose(IWebBrowser browserControl, IBrowser browser)
+        {
+            return false;
         }
 
-        private void toolClear_Click(object sender, EventArgs e)
+        public void OnAfterCreated(IWebBrowser browserControl, IBrowser browser)
         {
-            int count = webBrowser1.Document.Cookie.Length;
-            webBrowser1.Document.Cookie.Remove(0, count);
+
+        }
+
+        public void OnBeforeClose(IWebBrowser browserControl, IBrowser browser)
+        {
+
+        }
+
+        public bool OnBeforePopup(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, string targetFrameName, WindowOpenDisposition targetDisposition, bool userGesture, IPopupFeatures popupFeatures, IWindowInfo windowInfo, IBrowserSettings browserSettings, ref bool noJavascriptAccess, out IWebBrowser newBrowser)
+        {
+            newBrowser = null;
+            var chromiumWebBrowser = (ChromiumWebBrowser)browserControl;
+            chromiumWebBrowser.Load(targetUrl);
+            return true; //Return true to cancel the popup creation copyright by codebye.com.
         }
     }
 }

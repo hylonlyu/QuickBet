@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using GuaDan;
 namespace EatZD
 {
     public partial class FrmEatZd : Form
@@ -648,11 +648,10 @@ namespace EatZD
 
         private void btnWeb_Click(object sender, EventArgs e)
         {
-            FrmWebbrowser frmMatch = new FrmWebbrowser();
+            FrmWeb frmMatch = new FrmWeb();
             frmMatch.Url = $"http://{CCmemberInstance.DoMain}/playerhk.jsp";
             frmMatch.CC = CCmemberInstance.cc;
             frmMatch.Show();
-
         }
 
 
@@ -1040,7 +1039,7 @@ namespace EatZD
 
         private void btnWeb2_Click(object sender, EventArgs e)
         {
-            FrmWeb frmMatch = new FrmWeb();
+            FrmWebbrowser frmMatch = new FrmWebbrowser();
             frmMatch.Url = $"http://{CCmemberInstance.DoMain}/playerhk.jsp";
             frmMatch.CC = CCmemberInstance.cc;
             frmMatch.Show();

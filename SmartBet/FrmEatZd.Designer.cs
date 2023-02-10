@@ -1495,7 +1495,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmEatZd";
-            this.Text = "SmartBet  V1.0";
+            this.Text = "SmartBet  V1.1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmEatZd_FormClosed);
             this.Load += new System.EventHandler(this.FrmEatZd_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
