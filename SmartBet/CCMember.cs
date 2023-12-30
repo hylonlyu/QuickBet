@@ -4,7 +4,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -163,6 +165,63 @@ namespace EatZD
                 return ht;
             }
         }
+
+
+        private string Request_www_ctbwp_com(string code,CookieContainer cc)
+        {
+
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.ctbwp.com/verifypin");
+
+                request.KeepAlive = true;
+                request.Headers.Set(HttpRequestHeader.CacheControl, "max-age=0");
+                request.Headers.Add("sec-ch-ua", @"""Google Chrome"";v=""119"", ""Chromium"";v=""119"", ""Not?A_Brand"";v=""24""");
+                request.Headers.Add("sec-ch-ua-mobile", @"?0");
+                request.Headers.Add("sec-ch-ua-platform", @"""Windows""");
+                request.Headers.Add("Upgrade-Insecure-Requests", @"1");
+                request.Headers.Add("Origin", @"https://www.ctbwp.com");
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36";
+                request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7";
+                request.Headers.Add("Sec-Fetch-Site", @"same-origin");
+                request.Headers.Add("Sec-Fetch-Mode", @"navigate");
+                request.Headers.Add("Sec-Fetch-User", @"?1");
+                request.Headers.Add("Sec-Fetch-Dest", @"document");
+                request.Referer = "https://www.ctbwp.com/validate_pin.jsp";
+                request.Headers.Set(HttpRequestHeader.AcceptEncoding, "gzip, deflate, br");
+                request.Headers.Set(HttpRequestHeader.AcceptLanguage, "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7");
+        
+                request.CookieContainer = cc;
+                request.Method = "POST";
+                request.ServicePoint.Expect100Continue = false;
+
+                string body = $"code={code}&trafficStatistics=3948524944&trafficStatisticsCanvas=2080537705&trafficStatisticsActivex=3948524944&trafficStatisticsResolution=2809515294&trafficStatistics2=87978939256ea25538911da4e0cc9113";
+                byte[] postBytes = System.Text.Encoding.UTF8.GetBytes(body);
+                request.ContentLength = postBytes.Length;
+                Stream stream = request.GetRequestStream();
+                stream.Write(postBytes, 0, postBytes.Length);
+                stream.Close();
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream responseStream = response.GetResponseStream();
+                string str = null;
+                StreamReader reader = new StreamReader(responseStream, Encoding.GetEncoding("gb2312"));
+                str = reader.ReadToEnd();
+                reader.Close();
+
+      
+                responseStream.Close();
+                response.Close();
+                return str;
+
+            }
+            catch (WebException e)
+            {
+                return null;
+            }
+        }
+
         public Hashtable DoLogin(CookieContainer cc, string cDoMain, UserInfo uInfo, string vCode, string cLoginData)
         {
             AccountInfo = uInfo;
@@ -180,10 +239,12 @@ namespace EatZD
                 string pwd = (string)Util.GetCitiPwd(cLoginData, vCode, uInfo.CUserName, uInfo.CPassword);
                 cLoginData = string.Format(cLoginData2, uInfo.CUserName, pwd, vCode, cLoginData);
                 //string cUrl = "https://secure.citibet.net/login";
-                string cUrl = string.Format("{0}/login", secureUrl);
+                string cUrl = string.Format("{0}/login?uid={1}&pass={2}&code={3}&lang=CH&ssl=https:", secureUrl,uInfo.CUserName,pwd,vCode);
                 string refer = "http://{0}/_index.jsp";
                 string refer2 = string.Format(refer, cDoMain);
-                string cDoc = Connect.postDocument(cUrl, cLoginData, cc, null, refer2, "utf-8");
+
+                //string cDoc = Connect.postDocument(cUrl, cLoginData, cc, null, refer2, "utf-8");
+                string cDoc = Connect.getDocument(cUrl, cc, refer2, "utf-8");
                 if (cDoc != null)
                 {
                     if (cDoc.Contains("login.jsp?e=5&s=true"))
@@ -196,93 +257,69 @@ namespace EatZD
                     }
                     else
                     {
-                        if (cDoc.IndexOf("location =") > 0)
+                        if (cDoc != null)
                         {
-                            refer = cUrl;
-                            string tmp = cDoc.Substring(cDoc.IndexOf("location =")).Replace("location =", "").Replace(";</script>", "").Replace("'", "").Replace("+", "").Replace(" ", "");
-                            Uri secureUri = new Uri(tmp);
-                            //cUrl = "https://secure.citibet.net/validate_pin.jsp";
-                            cUrl = tmp;
-                            //cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
+                            cUrl = string.Format("http://{0}/validate_pin.jsp?sml=m", cDoMain);
+                            cDoc = Connect.getDocument(cUrl, cc, cUrl, "utf-8");
                             if (cDoc != null)
                             {
-                                refer = cUrl;
-                                //cUrl = "https://securemx3.citibet.net/validate_pin.jsp?sml=m";
-                                cUrl = string.Format("http://{0}/validate_pin.jsp?sml=m", secureUri.Authority);
-                                cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
-                                if (cDoc != null)
+                                Regex re = new Regex(@"r1='(?'r1'[^']+)'", RegexOptions.None);
+                                Match mc = re.Match(cDoc);
+                                if (mc.Success)
                                 {
-                                    Regex re = new Regex(@"r1='(?'r1'[^']+)'", RegexOptions.None);
-                                    Match mc = re.Match(cDoc);
+                                    string r1 = mc.Groups["r1"].Value;
+                                    re = new Regex(@"r2='(?'r2'[^']+)'", RegexOptions.None);
+                                    mc = re.Match(cDoc);
                                     if (mc.Success)
                                     {
-                                        string r1 = mc.Groups["r1"].Value;
-                                        re = new Regex(@"r2='(?'r2'[^']+)'", RegexOptions.None);
-                                        mc = re.Match(cDoc);
-                                        if (mc.Success)
+                                        string r2 = mc.Groups["r2"].Value;
+                                        string pin = (string)Util.GetCitiPin(r1, r2, uInfo.CUserName, uInfo.CPin);
+                                        cUrl = string.Format("http://{0}/verifypin", cDoMain);
+                                       cDoc = Request_www_ctbwp_com(pin,cc);
+                                        if (cDoc != null)
                                         {
-                                            string r2 = mc.Groups["r2"].Value;
-                                            string pin = (string)Util.GetCitiPin(r1, r2, uInfo.CUserName, uInfo.CPin);
-                                            refer = cUrl;
-                                            //cUrl = "https://securemx3.citibet.net/verifypin";
-                                            cUrl = string.Format("http://{0}/verifypin", secureUri.Authority);
-                                            string code = "code={0}";
-                                            code = string.Format(code, pin);
-                                            cDoc = Connect.postDocument(cUrl, code, cc, null, refer, "utf-8");
-                                            if (cDoc != null)
+                                            if (cDoc.Contains("validate_pin.jsp"))
                                             {
-                                                if (cDoc.Contains("validate_pin.jsp"))
-                                                {
-                                                    OnShowMsg("二代密保错误");
-                                                }
-                                                else
-                                                {
+                                                OnShowMsg("二代密保错误");
+                                            }
+                                            else
+                                            {
+                                                    //cUrl = " http://racing.citibet.net/terms.jsp";
                                                     refer = cUrl;
-                                                    //"http://secure.ctb988.net/dispatch.jsp"
-                                                    cUrl = string.Format("http://{0}{1}/dispatch.jsp", securepre, tmpurl);
+                                                    cUrl = string.Format("http://{0}{1}/terms.jsp", securepre, tmpurl);
                                                     cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
+                                                    //if (cDoc != null && cDoc.Contains("639052209421"))
                                                     if (cDoc != null)
                                                     {
-                                                        //cUrl = " http://racing.citibet.net/terms.jsp";
+                                                        //http://kimercs.citibet.net/select.jsp?mode=hk
                                                         refer = cUrl;
-                                                        cUrl = string.Format("http://{0}{1}/terms.jsp", securepre, tmpurl);
+                                                        //cUrl = "http://{0}/select.jsp?mode=hk";
+                                                        cUrl = string.Format("http://{0}/playerhk.jsp", cDoMain);
                                                         cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
-                                                        //if (cDoc != null && cDoc.Contains("639052209421"))
-                                                        if (cDoc != null)
+                                                      
+                                                        if (cDoc != null && cDoc.Contains("即将开始"))
                                                         {
-                                                            //http://kimercs.citibet.net/select.jsp?mode=hk
+                                                            dtMatchList = ParseMatchList(cDoc);
                                                             refer = cUrl;
-                                                            //cUrl = "http://{0}/select.jsp?mode=hk";
-                                                            cUrl = string.Format("http://{0}{1}/playerhk.jsp", "web", tmpurl);
+                                                       
+                                                            cUrl = string.Format("http://{0}/imagecontroller?action=1&x=0.9125365756917745", cDoMain);
                                                             cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
-                                                            //cUrl = "http://racing.citibet.net/citibethk.jsp";
-                                                            //cUrl = string.Format("http://data{0}/citibethk.jsp", tmpurl);
-                                                            //cDoc = Connect.getDocument(cUrl, cc, null, "utf-8");
-                                                            if (cDoc != null && cDoc.Contains("即将开始"))
-                                                            {
-                                                                dtMatchList = ParseMatchList(cDoc);
-                                                                refer = cUrl;
-                                                                //http://{0}/imagecontroller?action=1&x=0.9125365756917745
-                                                                cUrl = string.Format("http://{0}{1}/imagecontroller?action=1&x=0.9125365756917745", securepre, tmpurl);
-                                                                cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
-                                                                string tmp3 = cDoc.Substring(cDoc.IndexOf("(["));
-                                                                tmp3 = tmp3.Substring(0, tmp3.IndexOf("])"));
-                                                                tmp3 = tmp3.Replace("([", "").Replace("])", "").Replace("\"", "");
+                                                            string tmp3 = cDoc.Substring(cDoc.IndexOf("(["));
+                                                            tmp3 = tmp3.Substring(0, tmp3.IndexOf("])"));
+                                                            tmp3 = tmp3.Replace("([", "").Replace("])", "").Replace("\"", "");
 
-                                                                Uri uri = new Uri(cUrl);
-                                                                string host = uri.Host;
-                                                                DoMain = host;
-                                                                Hashtable ht = new Hashtable();
-                                                                ht.Add(1, true);
-                                                                ht.Add(2, host);
-                                                                ht.Add(3, tmp3);
-                                                                ht.Add(4, dtMatchList);
+                                                            Uri uri = new Uri(cUrl);
+                                                            string host = uri.Host;
+                                                            DoMain = host;
+                                                            Hashtable ht = new Hashtable();
+                                                            ht.Add(1, true);
+                                                            ht.Add(2, host);
+                                                            ht.Add(3, tmp3);
+                                                            ht.Add(4, dtMatchList);
 
-                                                                return ht;
-                                                            }
+                                                            return ht;
                                                         }
                                                     }
-                                                }
                                             }
                                         }
                                     }
