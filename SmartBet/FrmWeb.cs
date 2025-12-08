@@ -34,7 +34,12 @@ namespace EatZD
 
         private void CoreWebView2_NewWindowRequested(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs e)
         {
-            e.NewWindow = (CoreWebView2)sender;
+            String url = e.Uri.ToString();
+            if (!url.Contains("oauth"))
+            {
+                webView21.Source = new Uri(url);
+                e.Handled = true;//禁止弹窗
+            }
         }
 
         private void Init()
@@ -59,17 +64,26 @@ namespace EatZD
 
         private void toolForward_Click(object sender, EventArgs e)
         {
-     
+            SetCookie();
+            webView21.GoForward();
         }
 
         private void toolBack_Click(object sender, EventArgs e)
         {
-
+            SetCookie();
+            webView21.GoBack();
         }
 
         private void toolRefresh_Click(object sender, EventArgs e)
         {
+            SetCookie();
+            webView21.CoreWebView2.Reload();
+        }
 
+        private void webView21_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+        {
+            this.toolBack.Enabled = webView21.CanGoBack ? true : false;
+            this.toolForward.Enabled = webView21.CanGoForward ? true : false;
         }
     }
 

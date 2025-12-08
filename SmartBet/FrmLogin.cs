@@ -23,7 +23,7 @@ namespace EatZD
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtAccount.Text.Trim()) && txtPwd.Text.Equals("qaz168@"))
+            if(string.IsNullOrEmpty(txtAccount.Text.Trim()) && txtPwd.Text.Equals("1379@"))
             {
                 FrmEatZd frmMain = new FrmEatZd();
                 frmMain.Show();

@@ -43,7 +43,7 @@
             // 
             this.toolForward.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolForward.Name = "toolForward";
-            this.toolForward.Size = new System.Drawing.Size(36, 19);
+            this.toolForward.Size = new System.Drawing.Size(43, 24);
             this.toolForward.Text = "前进";
             this.toolForward.Click += new System.EventHandler(this.toolForward_Click);
             // 
@@ -51,7 +51,7 @@
             // 
             this.toolBack.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolBack.Name = "toolBack";
-            this.toolBack.Size = new System.Drawing.Size(36, 19);
+            this.toolBack.Size = new System.Drawing.Size(43, 24);
             this.toolBack.Text = "后退";
             this.toolBack.Click += new System.EventHandler(this.toolBack_Click);
             // 
@@ -59,7 +59,7 @@
             // 
             this.toolRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolRefresh.Name = "toolRefresh";
-            this.toolRefresh.Size = new System.Drawing.Size(36, 19);
+            this.toolRefresh.Size = new System.Drawing.Size(43, 24);
             this.toolRefresh.Text = "刷新";
             this.toolRefresh.Click += new System.EventHandler(this.toolRefresh_Click);
             // 
@@ -69,7 +69,7 @@
             this.toolClear.Image = ((System.Drawing.Image)(resources.GetObject("toolClear.Image")));
             this.toolClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolClear.Name = "toolClear";
-            this.toolClear.Size = new System.Drawing.Size(36, 19);
+            this.toolClear.Size = new System.Drawing.Size(43, 24);
             this.toolClear.Text = "清除";
             // 
             // toolStrip1
@@ -84,7 +84,7 @@
             this.toolStrip1.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(1150, 22);
+            this.toolStrip1.Size = new System.Drawing.Size(1150, 27);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.Visible = false;

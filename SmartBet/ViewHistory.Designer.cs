@@ -28,35 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnFoot = new System.Windows.Forms.Button();
             this.btnAll = new System.Windows.Forms.Button();
             this.tblHorse = new System.Windows.Forms.TableLayoutPanel();
-            this.headfoodCtrl1 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl2 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl3 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl4 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl5 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl6 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl7 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl8 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl9 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl10 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl11 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl12 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl13 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl14 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl15 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl16 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl17 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl18 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl19 = new EatZD.HeadfoodCtrl();
-            this.headfoodCtrl20 = new EatZD.HeadfoodCtrl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkQt1 = new System.Windows.Forms.CheckBox();
             this.txtZhe = new System.Windows.Forms.TextBox();
@@ -77,6 +57,26 @@
             this.lblYjpc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvGrid = new System.Windows.Forms.DataGridView();
+            this.headfoodCtrl1 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl2 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl3 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl4 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl5 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl6 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl7 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl8 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl9 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl10 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl11 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl12 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl13 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl14 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl15 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl16 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl17 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl18 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl19 = new EatZD.HeadfoodCtrl();
+            this.headfoodCtrl20 = new EatZD.HeadfoodCtrl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -97,18 +97,20 @@
             this.tableLayoutPanel1.Controls.Add(this.dgvGrid, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(465, 627);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(620, 784);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -119,15 +121,17 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tblHorse);
-            this.splitContainer1.Size = new System.Drawing.Size(459, 53);
-            this.splitContainer1.SplitterDistance = 25;
+            this.splitContainer1.Size = new System.Drawing.Size(612, 66);
+            this.splitContainer1.SplitterDistance = 33;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // btnFoot
             // 
-            this.btnFoot.Location = new System.Drawing.Point(7, 31);
+            this.btnFoot.Location = new System.Drawing.Point(9, 39);
+            this.btnFoot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFoot.Name = "btnFoot";
-            this.btnFoot.Size = new System.Drawing.Size(26, 20);
+            this.btnFoot.Size = new System.Drawing.Size(35, 25);
             this.btnFoot.TabIndex = 16;
             this.btnFoot.Text = "脚";
             this.btnFoot.UseVisualStyleBackColor = true;
@@ -135,9 +139,10 @@
             // 
             // btnAll
             // 
-            this.btnAll.Location = new System.Drawing.Point(7, 10);
+            this.btnAll.Location = new System.Drawing.Point(9, 12);
+            this.btnAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(26, 20);
+            this.btnAll.Size = new System.Drawing.Size(35, 25);
             this.btnAll.TabIndex = 15;
             this.btnAll.Text = "胆";
             this.btnAll.UseVisualStyleBackColor = true;
@@ -188,252 +193,13 @@
             this.tblHorse.Controls.Add(this.headfoodCtrl20, 19, 0);
             this.tblHorse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblHorse.Location = new System.Drawing.Point(0, 0);
+            this.tblHorse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tblHorse.Name = "tblHorse";
             this.tblHorse.RowCount = 1;
             this.tblHorse.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblHorse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
-            this.tblHorse.Size = new System.Drawing.Size(430, 53);
+            this.tblHorse.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tblHorse.Size = new System.Drawing.Size(574, 66);
             this.tblHorse.TabIndex = 0;
-            // 
-            // headfoodCtrl1
-            // 
-            this.headfoodCtrl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl1.Foot = false;
-            this.headfoodCtrl1.Head = false;
-            this.headfoodCtrl1.Horse = "1";
-            this.headfoodCtrl1.Location = new System.Drawing.Point(0, 0);
-            this.headfoodCtrl1.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl1.Name = "headfoodCtrl1";
-            this.headfoodCtrl1.Size = new System.Drawing.Size(19, 66);
-            this.headfoodCtrl1.TabIndex = 0;
-            // 
-            // headfoodCtrl2
-            // 
-            this.headfoodCtrl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl2.Foot = false;
-            this.headfoodCtrl2.Head = false;
-            this.headfoodCtrl2.Horse = "2";
-            this.headfoodCtrl2.Location = new System.Drawing.Point(19, 0);
-            this.headfoodCtrl2.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl2.Name = "headfoodCtrl2";
-            this.headfoodCtrl2.Size = new System.Drawing.Size(19, 66);
-            this.headfoodCtrl2.TabIndex = 1;
-            // 
-            // headfoodCtrl3
-            // 
-            this.headfoodCtrl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl3.Foot = false;
-            this.headfoodCtrl3.Head = false;
-            this.headfoodCtrl3.Horse = "3";
-            this.headfoodCtrl3.Location = new System.Drawing.Point(38, 0);
-            this.headfoodCtrl3.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl3.Name = "headfoodCtrl3";
-            this.headfoodCtrl3.Size = new System.Drawing.Size(19, 66);
-            this.headfoodCtrl3.TabIndex = 2;
-            // 
-            // headfoodCtrl4
-            // 
-            this.headfoodCtrl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl4.Foot = false;
-            this.headfoodCtrl4.Head = false;
-            this.headfoodCtrl4.Horse = "4";
-            this.headfoodCtrl4.Location = new System.Drawing.Point(57, 0);
-            this.headfoodCtrl4.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl4.Name = "headfoodCtrl4";
-            this.headfoodCtrl4.Size = new System.Drawing.Size(20, 66);
-            this.headfoodCtrl4.TabIndex = 3;
-            // 
-            // headfoodCtrl5
-            // 
-            this.headfoodCtrl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl5.Foot = false;
-            this.headfoodCtrl5.Head = false;
-            this.headfoodCtrl5.Horse = "5";
-            this.headfoodCtrl5.Location = new System.Drawing.Point(77, 0);
-            this.headfoodCtrl5.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl5.Name = "headfoodCtrl5";
-            this.headfoodCtrl5.Size = new System.Drawing.Size(19, 66);
-            this.headfoodCtrl5.TabIndex = 4;
-            // 
-            // headfoodCtrl6
-            // 
-            this.headfoodCtrl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl6.Foot = false;
-            this.headfoodCtrl6.Head = false;
-            this.headfoodCtrl6.Horse = "6";
-            this.headfoodCtrl6.Location = new System.Drawing.Point(96, 0);
-            this.headfoodCtrl6.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl6.Name = "headfoodCtrl6";
-            this.headfoodCtrl6.Size = new System.Drawing.Size(19, 66);
-            this.headfoodCtrl6.TabIndex = 5;
-            // 
-            // headfoodCtrl7
-            // 
-            this.headfoodCtrl7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl7.Foot = false;
-            this.headfoodCtrl7.Head = false;
-            this.headfoodCtrl7.Horse = "7";
-            this.headfoodCtrl7.Location = new System.Drawing.Point(115, 0);
-            this.headfoodCtrl7.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl7.Name = "headfoodCtrl7";
-            this.headfoodCtrl7.Size = new System.Drawing.Size(20, 66);
-            this.headfoodCtrl7.TabIndex = 6;
-            // 
-            // headfoodCtrl8
-            // 
-            this.headfoodCtrl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl8.Foot = false;
-            this.headfoodCtrl8.Head = false;
-            this.headfoodCtrl8.Horse = "8";
-            this.headfoodCtrl8.Location = new System.Drawing.Point(135, 0);
-            this.headfoodCtrl8.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl8.Name = "headfoodCtrl8";
-            this.headfoodCtrl8.Size = new System.Drawing.Size(21, 66);
-            this.headfoodCtrl8.TabIndex = 7;
-            // 
-            // headfoodCtrl9
-            // 
-            this.headfoodCtrl9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl9.Foot = false;
-            this.headfoodCtrl9.Head = false;
-            this.headfoodCtrl9.Horse = "9";
-            this.headfoodCtrl9.Location = new System.Drawing.Point(156, 0);
-            this.headfoodCtrl9.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl9.Name = "headfoodCtrl9";
-            this.headfoodCtrl9.Size = new System.Drawing.Size(19, 66);
-            this.headfoodCtrl9.TabIndex = 8;
-            // 
-            // headfoodCtrl10
-            // 
-            this.headfoodCtrl10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl10.Foot = false;
-            this.headfoodCtrl10.Head = false;
-            this.headfoodCtrl10.Horse = "10";
-            this.headfoodCtrl10.Location = new System.Drawing.Point(175, 0);
-            this.headfoodCtrl10.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl10.Name = "headfoodCtrl10";
-            this.headfoodCtrl10.Size = new System.Drawing.Size(22, 66);
-            this.headfoodCtrl10.TabIndex = 9;
-            // 
-            // headfoodCtrl11
-            // 
-            this.headfoodCtrl11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl11.Foot = false;
-            this.headfoodCtrl11.Head = false;
-            this.headfoodCtrl11.Horse = "11";
-            this.headfoodCtrl11.Location = new System.Drawing.Point(197, 0);
-            this.headfoodCtrl11.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl11.Name = "headfoodCtrl11";
-            this.headfoodCtrl11.Size = new System.Drawing.Size(22, 66);
-            this.headfoodCtrl11.TabIndex = 10;
-            // 
-            // headfoodCtrl12
-            // 
-            this.headfoodCtrl12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl12.Foot = false;
-            this.headfoodCtrl12.Head = false;
-            this.headfoodCtrl12.Horse = "12";
-            this.headfoodCtrl12.Location = new System.Drawing.Point(219, 0);
-            this.headfoodCtrl12.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl12.Name = "headfoodCtrl12";
-            this.headfoodCtrl12.Size = new System.Drawing.Size(21, 66);
-            this.headfoodCtrl12.TabIndex = 11;
-            // 
-            // headfoodCtrl13
-            // 
-            this.headfoodCtrl13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl13.Foot = false;
-            this.headfoodCtrl13.Head = false;
-            this.headfoodCtrl13.Horse = "13";
-            this.headfoodCtrl13.Location = new System.Drawing.Point(240, 0);
-            this.headfoodCtrl13.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl13.Name = "headfoodCtrl13";
-            this.headfoodCtrl13.Size = new System.Drawing.Size(23, 66);
-            this.headfoodCtrl13.TabIndex = 12;
-            // 
-            // headfoodCtrl14
-            // 
-            this.headfoodCtrl14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl14.Foot = false;
-            this.headfoodCtrl14.Head = false;
-            this.headfoodCtrl14.Horse = "14";
-            this.headfoodCtrl14.Location = new System.Drawing.Point(263, 0);
-            this.headfoodCtrl14.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl14.Name = "headfoodCtrl14";
-            this.headfoodCtrl14.Size = new System.Drawing.Size(24, 66);
-            this.headfoodCtrl14.TabIndex = 13;
-            // 
-            // headfoodCtrl15
-            // 
-            this.headfoodCtrl15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl15.Foot = false;
-            this.headfoodCtrl15.Head = false;
-            this.headfoodCtrl15.Horse = "15";
-            this.headfoodCtrl15.Location = new System.Drawing.Point(287, 0);
-            this.headfoodCtrl15.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl15.Name = "headfoodCtrl15";
-            this.headfoodCtrl15.Size = new System.Drawing.Size(22, 66);
-            this.headfoodCtrl15.TabIndex = 14;
-            // 
-            // headfoodCtrl16
-            // 
-            this.headfoodCtrl16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl16.Foot = false;
-            this.headfoodCtrl16.Head = false;
-            this.headfoodCtrl16.Horse = "16";
-            this.headfoodCtrl16.Location = new System.Drawing.Point(309, 0);
-            this.headfoodCtrl16.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl16.Name = "headfoodCtrl16";
-            this.headfoodCtrl16.Size = new System.Drawing.Size(24, 66);
-            this.headfoodCtrl16.TabIndex = 15;
-            // 
-            // headfoodCtrl17
-            // 
-            this.headfoodCtrl17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl17.Foot = false;
-            this.headfoodCtrl17.Head = false;
-            this.headfoodCtrl17.Horse = "17";
-            this.headfoodCtrl17.Location = new System.Drawing.Point(333, 0);
-            this.headfoodCtrl17.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl17.Name = "headfoodCtrl17";
-            this.headfoodCtrl17.Size = new System.Drawing.Size(24, 66);
-            this.headfoodCtrl17.TabIndex = 16;
-            // 
-            // headfoodCtrl18
-            // 
-            this.headfoodCtrl18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl18.Foot = false;
-            this.headfoodCtrl18.Head = false;
-            this.headfoodCtrl18.Horse = "18";
-            this.headfoodCtrl18.Location = new System.Drawing.Point(357, 0);
-            this.headfoodCtrl18.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl18.Name = "headfoodCtrl18";
-            this.headfoodCtrl18.Size = new System.Drawing.Size(23, 66);
-            this.headfoodCtrl18.TabIndex = 17;
-            // 
-            // headfoodCtrl19
-            // 
-            this.headfoodCtrl19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl19.Foot = false;
-            this.headfoodCtrl19.Head = false;
-            this.headfoodCtrl19.Horse = "19";
-            this.headfoodCtrl19.Location = new System.Drawing.Point(380, 0);
-            this.headfoodCtrl19.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl19.Name = "headfoodCtrl19";
-            this.headfoodCtrl19.Size = new System.Drawing.Size(21, 66);
-            this.headfoodCtrl19.TabIndex = 18;
-            // 
-            // headfoodCtrl20
-            // 
-            this.headfoodCtrl20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.headfoodCtrl20.Foot = false;
-            this.headfoodCtrl20.Head = false;
-            this.headfoodCtrl20.Horse = "20";
-            this.headfoodCtrl20.Location = new System.Drawing.Point(401, 0);
-            this.headfoodCtrl20.Margin = new System.Windows.Forms.Padding(0);
-            this.headfoodCtrl20.Name = "headfoodCtrl20";
-            this.headfoodCtrl20.Size = new System.Drawing.Size(29, 66);
-            this.headfoodCtrl20.TabIndex = 19;
             // 
             // panel1
             // 
@@ -454,35 +220,39 @@
             this.panel1.Controls.Add(this.lblYjpc);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 62);
+            this.panel1.Location = new System.Drawing.Point(4, 78);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(459, 64);
+            this.panel1.Size = new System.Drawing.Size(612, 80);
             this.panel1.TabIndex = 1;
             // 
             // chkQt1
             // 
             this.chkQt1.AutoSize = true;
-            this.chkQt1.Location = new System.Drawing.Point(144, 34);
+            this.chkQt1.Location = new System.Drawing.Point(118, 38);
+            this.chkQt1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkQt1.Name = "chkQt1";
-            this.chkQt1.Size = new System.Drawing.Size(66, 16);
+            this.chkQt1.Size = new System.Drawing.Size(83, 19);
             this.chkQt1.TabIndex = 16;
             this.chkQt1.Text = "固定QT1";
             this.chkQt1.UseVisualStyleBackColor = true;
             // 
             // txtZhe
             // 
-            this.txtZhe.Location = new System.Drawing.Point(34, 28);
+            this.txtZhe.Location = new System.Drawing.Point(45, 35);
+            this.txtZhe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtZhe.Name = "txtZhe";
-            this.txtZhe.Size = new System.Drawing.Size(49, 21);
+            this.txtZhe.Size = new System.Drawing.Size(64, 25);
             this.txtZhe.TabIndex = 14;
             this.txtZhe.Text = "82";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 32);
+            this.label4.Location = new System.Drawing.Point(5, 40);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 12);
+            this.label4.Size = new System.Drawing.Size(46, 15);
             this.label4.TabIndex = 13;
             this.label4.Text = "折1>=";
             // 
@@ -490,18 +260,20 @@
             // 
             this.panel2.Controls.Add(this.radCha);
             this.panel2.Controls.Add(this.radZhe);
-            this.panel2.Location = new System.Drawing.Point(286, 27);
+            this.panel2.Location = new System.Drawing.Point(295, 33);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(100, 32);
+            this.panel2.Size = new System.Drawing.Size(133, 40);
             this.panel2.TabIndex = 12;
             // 
             // radCha
             // 
             this.radCha.AutoSize = true;
             this.radCha.Checked = true;
-            this.radCha.Location = new System.Drawing.Point(40, 3);
+            this.radCha.Location = new System.Drawing.Point(53, 4);
+            this.radCha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radCha.Name = "radCha";
-            this.radCha.Size = new System.Drawing.Size(47, 16);
+            this.radCha.Size = new System.Drawing.Size(58, 19);
             this.radCha.TabIndex = 13;
             this.radCha.TabStop = true;
             this.radCha.Text = "相差";
@@ -510,9 +282,10 @@
             // radZhe
             // 
             this.radZhe.AutoSize = true;
-            this.radZhe.Location = new System.Drawing.Point(4, 3);
+            this.radZhe.Location = new System.Drawing.Point(5, 4);
+            this.radZhe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radZhe.Name = "radZhe";
-            this.radZhe.Size = new System.Drawing.Size(41, 16);
+            this.radZhe.Size = new System.Drawing.Size(51, 19);
             this.radZhe.TabIndex = 12;
             this.radZhe.Text = "折1";
             this.radZhe.UseVisualStyleBackColor = true;
@@ -520,9 +293,10 @@
             // radDec
             // 
             this.radDec.AutoSize = true;
-            this.radDec.Location = new System.Drawing.Point(327, 5);
+            this.radDec.Location = new System.Drawing.Point(250, 37);
+            this.radDec.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radDec.Name = "radDec";
-            this.radDec.Size = new System.Drawing.Size(35, 16);
+            this.radDec.Size = new System.Drawing.Size(43, 19);
             this.radDec.TabIndex = 11;
             this.radDec.Text = "降";
             this.radDec.UseVisualStyleBackColor = true;
@@ -531,9 +305,10 @@
             // 
             this.radAsc.AutoSize = true;
             this.radAsc.Checked = true;
-            this.radAsc.Location = new System.Drawing.Point(292, 5);
+            this.radAsc.Location = new System.Drawing.Point(203, 37);
+            this.radAsc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radAsc.Name = "radAsc";
-            this.radAsc.Size = new System.Drawing.Size(35, 16);
+            this.radAsc.Size = new System.Drawing.Size(43, 19);
             this.radAsc.TabIndex = 10;
             this.radAsc.TabStop = true;
             this.radAsc.Text = "升";
@@ -541,17 +316,19 @@
             // 
             // txtMax
             // 
-            this.txtMax.Location = new System.Drawing.Point(254, 3);
+            this.txtMax.Location = new System.Drawing.Point(339, 4);
+            this.txtMax.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(32, 21);
+            this.txtMax.Size = new System.Drawing.Size(41, 25);
             this.txtMax.TabIndex = 9;
             this.txtMax.Text = "999";
             // 
             // txtMin
             // 
-            this.txtMin.Location = new System.Drawing.Point(216, 2);
+            this.txtMin.Location = new System.Drawing.Point(288, 2);
+            this.txtMin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(32, 21);
+            this.txtMin.Size = new System.Drawing.Size(41, 25);
             this.txtMin.TabIndex = 8;
             this.txtMin.Text = "0";
             // 
@@ -559,9 +336,10 @@
             // 
             this.btnClear.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnClear.ForeColor = System.Drawing.Color.Red;
-            this.btnClear.Location = new System.Drawing.Point(409, -2);
+            this.btnClear.Location = new System.Drawing.Point(462, -2);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(26, 28);
+            this.btnClear.Size = new System.Drawing.Size(35, 35);
             this.btnClear.TabIndex = 0;
             this.btnClear.Text = "X";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -569,9 +347,10 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(365, 1);
+            this.btnView.Location = new System.Drawing.Point(388, 0);
+            this.btnView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(38, 24);
+            this.btnView.Size = new System.Drawing.Size(51, 30);
             this.btnView.TabIndex = 7;
             this.btnView.Text = "查看";
             this.btnView.UseVisualStyleBackColor = true;
@@ -580,103 +359,351 @@
             // cobQt1
             // 
             this.cobQt1.FormattingEnabled = true;
-            this.cobQt1.Location = new System.Drawing.Point(164, 3);
+            this.cobQt1.Location = new System.Drawing.Point(219, 4);
+            this.cobQt1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cobQt1.Name = "cobQt1";
-            this.cobQt1.Size = new System.Drawing.Size(39, 20);
+            this.cobQt1.Size = new System.Drawing.Size(51, 23);
             this.cobQt1.TabIndex = 6;
             // 
             // cobQt
             // 
             this.cobQt.FormattingEnabled = true;
-            this.cobQt.Location = new System.Drawing.Point(104, 3);
+            this.cobQt.Location = new System.Drawing.Point(139, 4);
+            this.cobQt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cobQt.Name = "cobQt";
-            this.cobQt.Size = new System.Drawing.Size(37, 20);
+            this.cobQt.Size = new System.Drawing.Size(48, 23);
             this.cobQt.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(142, 9);
+            this.label3.Location = new System.Drawing.Point(189, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 12);
+            this.label3.Size = new System.Drawing.Size(31, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "QT1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 9);
+            this.label2.Location = new System.Drawing.Point(115, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.Size = new System.Drawing.Size(23, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "QT";
             // 
             // lblYjpc
             // 
-            this.lblYjpc.Location = new System.Drawing.Point(34, 5);
+            this.lblYjpc.Location = new System.Drawing.Point(45, 6);
+            this.lblYjpc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblYjpc.Name = "lblYjpc";
-            this.lblYjpc.Size = new System.Drawing.Size(49, 21);
+            this.lblYjpc.Size = new System.Drawing.Size(64, 25);
             this.lblYjpc.TabIndex = 1;
             this.lblYjpc.Text = "1000";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 9);
+            this.label1.Location = new System.Drawing.Point(5, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(37, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "派彩";
             // 
             // dgvGrid
             // 
             this.dgvGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGrid.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvGrid.Location = new System.Drawing.Point(3, 132);
+            this.dgvGrid.Location = new System.Drawing.Point(4, 166);
+            this.dgvGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvGrid.Name = "dgvGrid";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGrid.RowHeadersVisible = false;
             this.dgvGrid.RowHeadersWidth = 51;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvGrid.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGrid.RowTemplate.Height = 23;
             this.dgvGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvGrid.Size = new System.Drawing.Size(459, 492);
+            this.dgvGrid.Size = new System.Drawing.Size(612, 614);
             this.dgvGrid.TabIndex = 2;
             this.dgvGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvGrid_CellFormatting);
             // 
+            // headfoodCtrl1
+            // 
+            this.headfoodCtrl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl1.Foot = false;
+            this.headfoodCtrl1.Head = false;
+            this.headfoodCtrl1.Horse = "1";
+            this.headfoodCtrl1.Location = new System.Drawing.Point(0, 0);
+            this.headfoodCtrl1.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl1.Name = "headfoodCtrl1";
+            this.headfoodCtrl1.Size = new System.Drawing.Size(26, 82);
+            this.headfoodCtrl1.TabIndex = 0;
+            // 
+            // headfoodCtrl2
+            // 
+            this.headfoodCtrl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl2.Foot = false;
+            this.headfoodCtrl2.Head = false;
+            this.headfoodCtrl2.Horse = "2";
+            this.headfoodCtrl2.Location = new System.Drawing.Point(26, 0);
+            this.headfoodCtrl2.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl2.Name = "headfoodCtrl2";
+            this.headfoodCtrl2.Size = new System.Drawing.Size(26, 82);
+            this.headfoodCtrl2.TabIndex = 1;
+            // 
+            // headfoodCtrl3
+            // 
+            this.headfoodCtrl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl3.Foot = false;
+            this.headfoodCtrl3.Head = false;
+            this.headfoodCtrl3.Horse = "3";
+            this.headfoodCtrl3.Location = new System.Drawing.Point(52, 0);
+            this.headfoodCtrl3.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl3.Name = "headfoodCtrl3";
+            this.headfoodCtrl3.Size = new System.Drawing.Size(26, 82);
+            this.headfoodCtrl3.TabIndex = 2;
+            // 
+            // headfoodCtrl4
+            // 
+            this.headfoodCtrl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl4.Foot = false;
+            this.headfoodCtrl4.Head = false;
+            this.headfoodCtrl4.Horse = "4";
+            this.headfoodCtrl4.Location = new System.Drawing.Point(78, 0);
+            this.headfoodCtrl4.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl4.Name = "headfoodCtrl4";
+            this.headfoodCtrl4.Size = new System.Drawing.Size(27, 82);
+            this.headfoodCtrl4.TabIndex = 3;
+            // 
+            // headfoodCtrl5
+            // 
+            this.headfoodCtrl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl5.Foot = false;
+            this.headfoodCtrl5.Head = false;
+            this.headfoodCtrl5.Horse = "5";
+            this.headfoodCtrl5.Location = new System.Drawing.Point(105, 0);
+            this.headfoodCtrl5.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl5.Name = "headfoodCtrl5";
+            this.headfoodCtrl5.Size = new System.Drawing.Size(26, 82);
+            this.headfoodCtrl5.TabIndex = 4;
+            // 
+            // headfoodCtrl6
+            // 
+            this.headfoodCtrl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl6.Foot = false;
+            this.headfoodCtrl6.Head = false;
+            this.headfoodCtrl6.Horse = "6";
+            this.headfoodCtrl6.Location = new System.Drawing.Point(131, 0);
+            this.headfoodCtrl6.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl6.Name = "headfoodCtrl6";
+            this.headfoodCtrl6.Size = new System.Drawing.Size(26, 82);
+            this.headfoodCtrl6.TabIndex = 5;
+            // 
+            // headfoodCtrl7
+            // 
+            this.headfoodCtrl7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl7.Foot = false;
+            this.headfoodCtrl7.Head = false;
+            this.headfoodCtrl7.Horse = "7";
+            this.headfoodCtrl7.Location = new System.Drawing.Point(157, 0);
+            this.headfoodCtrl7.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl7.Name = "headfoodCtrl7";
+            this.headfoodCtrl7.Size = new System.Drawing.Size(27, 82);
+            this.headfoodCtrl7.TabIndex = 6;
+            // 
+            // headfoodCtrl8
+            // 
+            this.headfoodCtrl8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl8.Foot = false;
+            this.headfoodCtrl8.Head = false;
+            this.headfoodCtrl8.Horse = "8";
+            this.headfoodCtrl8.Location = new System.Drawing.Point(184, 0);
+            this.headfoodCtrl8.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl8.Name = "headfoodCtrl8";
+            this.headfoodCtrl8.Size = new System.Drawing.Size(28, 82);
+            this.headfoodCtrl8.TabIndex = 7;
+            // 
+            // headfoodCtrl9
+            // 
+            this.headfoodCtrl9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl9.Foot = false;
+            this.headfoodCtrl9.Head = false;
+            this.headfoodCtrl9.Horse = "9";
+            this.headfoodCtrl9.Location = new System.Drawing.Point(212, 0);
+            this.headfoodCtrl9.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl9.Name = "headfoodCtrl9";
+            this.headfoodCtrl9.Size = new System.Drawing.Size(26, 82);
+            this.headfoodCtrl9.TabIndex = 8;
+            // 
+            // headfoodCtrl10
+            // 
+            this.headfoodCtrl10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl10.Foot = false;
+            this.headfoodCtrl10.Head = false;
+            this.headfoodCtrl10.Horse = "10";
+            this.headfoodCtrl10.Location = new System.Drawing.Point(238, 0);
+            this.headfoodCtrl10.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl10.Name = "headfoodCtrl10";
+            this.headfoodCtrl10.Size = new System.Drawing.Size(30, 82);
+            this.headfoodCtrl10.TabIndex = 9;
+            // 
+            // headfoodCtrl11
+            // 
+            this.headfoodCtrl11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl11.Foot = false;
+            this.headfoodCtrl11.Head = false;
+            this.headfoodCtrl11.Horse = "11";
+            this.headfoodCtrl11.Location = new System.Drawing.Point(268, 0);
+            this.headfoodCtrl11.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl11.Name = "headfoodCtrl11";
+            this.headfoodCtrl11.Size = new System.Drawing.Size(30, 82);
+            this.headfoodCtrl11.TabIndex = 10;
+            // 
+            // headfoodCtrl12
+            // 
+            this.headfoodCtrl12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl12.Foot = false;
+            this.headfoodCtrl12.Head = false;
+            this.headfoodCtrl12.Horse = "12";
+            this.headfoodCtrl12.Location = new System.Drawing.Point(298, 0);
+            this.headfoodCtrl12.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl12.Name = "headfoodCtrl12";
+            this.headfoodCtrl12.Size = new System.Drawing.Size(29, 82);
+            this.headfoodCtrl12.TabIndex = 11;
+            // 
+            // headfoodCtrl13
+            // 
+            this.headfoodCtrl13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl13.Foot = false;
+            this.headfoodCtrl13.Head = false;
+            this.headfoodCtrl13.Horse = "13";
+            this.headfoodCtrl13.Location = new System.Drawing.Point(327, 0);
+            this.headfoodCtrl13.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl13.Name = "headfoodCtrl13";
+            this.headfoodCtrl13.Size = new System.Drawing.Size(31, 82);
+            this.headfoodCtrl13.TabIndex = 12;
+            // 
+            // headfoodCtrl14
+            // 
+            this.headfoodCtrl14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl14.Foot = false;
+            this.headfoodCtrl14.Head = false;
+            this.headfoodCtrl14.Horse = "14";
+            this.headfoodCtrl14.Location = new System.Drawing.Point(358, 0);
+            this.headfoodCtrl14.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl14.Name = "headfoodCtrl14";
+            this.headfoodCtrl14.Size = new System.Drawing.Size(32, 82);
+            this.headfoodCtrl14.TabIndex = 13;
+            // 
+            // headfoodCtrl15
+            // 
+            this.headfoodCtrl15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl15.Foot = false;
+            this.headfoodCtrl15.Head = false;
+            this.headfoodCtrl15.Horse = "15";
+            this.headfoodCtrl15.Location = new System.Drawing.Point(390, 0);
+            this.headfoodCtrl15.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl15.Name = "headfoodCtrl15";
+            this.headfoodCtrl15.Size = new System.Drawing.Size(30, 82);
+            this.headfoodCtrl15.TabIndex = 14;
+            // 
+            // headfoodCtrl16
+            // 
+            this.headfoodCtrl16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl16.Foot = false;
+            this.headfoodCtrl16.Head = false;
+            this.headfoodCtrl16.Horse = "16";
+            this.headfoodCtrl16.Location = new System.Drawing.Point(420, 0);
+            this.headfoodCtrl16.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl16.Name = "headfoodCtrl16";
+            this.headfoodCtrl16.Size = new System.Drawing.Size(32, 82);
+            this.headfoodCtrl16.TabIndex = 15;
+            // 
+            // headfoodCtrl17
+            // 
+            this.headfoodCtrl17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl17.Foot = false;
+            this.headfoodCtrl17.Head = false;
+            this.headfoodCtrl17.Horse = "17";
+            this.headfoodCtrl17.Location = new System.Drawing.Point(452, 0);
+            this.headfoodCtrl17.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl17.Name = "headfoodCtrl17";
+            this.headfoodCtrl17.Size = new System.Drawing.Size(32, 82);
+            this.headfoodCtrl17.TabIndex = 16;
+            // 
+            // headfoodCtrl18
+            // 
+            this.headfoodCtrl18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl18.Foot = false;
+            this.headfoodCtrl18.Head = false;
+            this.headfoodCtrl18.Horse = "18";
+            this.headfoodCtrl18.Location = new System.Drawing.Point(484, 0);
+            this.headfoodCtrl18.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl18.Name = "headfoodCtrl18";
+            this.headfoodCtrl18.Size = new System.Drawing.Size(31, 82);
+            this.headfoodCtrl18.TabIndex = 17;
+            // 
+            // headfoodCtrl19
+            // 
+            this.headfoodCtrl19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl19.Foot = false;
+            this.headfoodCtrl19.Head = false;
+            this.headfoodCtrl19.Horse = "19";
+            this.headfoodCtrl19.Location = new System.Drawing.Point(515, 0);
+            this.headfoodCtrl19.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl19.Name = "headfoodCtrl19";
+            this.headfoodCtrl19.Size = new System.Drawing.Size(29, 82);
+            this.headfoodCtrl19.TabIndex = 18;
+            // 
+            // headfoodCtrl20
+            // 
+            this.headfoodCtrl20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headfoodCtrl20.Foot = false;
+            this.headfoodCtrl20.Head = false;
+            this.headfoodCtrl20.Horse = "20";
+            this.headfoodCtrl20.Location = new System.Drawing.Point(544, 0);
+            this.headfoodCtrl20.Margin = new System.Windows.Forms.Padding(0);
+            this.headfoodCtrl20.Name = "headfoodCtrl20";
+            this.headfoodCtrl20.Size = new System.Drawing.Size(30, 82);
+            this.headfoodCtrl20.TabIndex = 19;
+            // 
             // ViewHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ViewHistory";
-            this.Size = new System.Drawing.Size(465, 627);
+            this.Size = new System.Drawing.Size(620, 784);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

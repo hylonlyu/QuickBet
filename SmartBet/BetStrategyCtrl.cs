@@ -96,10 +96,10 @@ namespace EatZD
                 zs = (int)zs;
                 tzzs += zs;
                 DataRow dr = dtDetail.NewRow();
-                dr["投注组合"] = horses;
+                dr["投组"] = horses;
                 dr["赔率"] = odds;
-                dr["投注总数"] = zs;
-                dr["预计派彩"] = yjpc;
+                dr["投总"] = zs;
+                dr["预派"] = yjpc;
                 dtDetail.Rows.Add(dr);
             }
             zbl = Math.Round(zbl, 5);
@@ -111,10 +111,10 @@ namespace EatZD
         private DataTable CreateDetailTable()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("投注组合");
+            dt.Columns.Add("投组");
             dt.Columns.Add("赔率");
-            dt.Columns.Add("投注总数");
-            dt.Columns.Add("预计派彩");
+            dt.Columns.Add("投总");
+            dt.Columns.Add("预派");
             return dt;
         }
         /// <summary>
@@ -143,7 +143,7 @@ namespace EatZD
             return zbl;
         }
         /// <summary>
-        ///计算预计派彩
+        ///计算预派
         /// </summary>
         /// <returns></returns>
         private double GetYjpc(int money,double zb)
