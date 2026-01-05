@@ -94,11 +94,17 @@
             this.chkhcPq = new System.Windows.Forms.CheckBox();
             this.chkhcQ = new System.Windows.Forms.CheckBox();
             this.chkKanfei = new System.Windows.Forms.CheckBox();
+            this.viewHistoryPq = new EatZD.ViewHistory();
+            this.viewHistoryQ = new EatZD.ViewHistory();
+            this.QPbetComposeCtrl2 = new EatZD.BetComposeCtrl();
+            this.QbetComposeCtrl1 = new EatZD.BetComposeCtrl();
             this.btnSaveCal = new System.Windows.Forms.Button();
             this.btnCal = new System.Windows.Forms.Button();
+            this.betMoney = new EatZD.BetMoney();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkQP = new System.Windows.Forms.CheckBox();
             this.chkQ = new System.Windows.Forms.CheckBox();
+            this.smatSelection = new EatZD.SmatSelection();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvBetResult = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,6 +133,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtLocalPort = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.QpbetSetting = new EatZD.BetSetting();
+            this.QbetSetting = new EatZD.BetSetting();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvBetFail = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -143,14 +151,8 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.viewHistoryPq = new EatZD.ViewHistory();
-            this.viewHistoryQ = new EatZD.ViewHistory();
-            this.QPbetComposeCtrl2 = new EatZD.BetComposeCtrl();
-            this.QbetComposeCtrl1 = new EatZD.BetComposeCtrl();
-            this.betMoney = new EatZD.BetMoney();
-            this.smatSelection = new EatZD.SmatSelection();
-            this.QpbetSetting = new EatZD.BetSetting();
-            this.QbetSetting = new EatZD.BetSetting();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.smatSelection1 = new EatZD.SmatSelection();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -170,6 +172,7 @@
             this.groupBox2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBetFail)).BeginInit();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // timeReg
@@ -749,6 +752,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
@@ -895,6 +899,46 @@
             this.chkKanfei.Text = "KF:";
             this.chkKanfei.UseVisualStyleBackColor = true;
             // 
+            // viewHistoryPq
+            // 
+            this.viewHistoryPq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.viewHistoryPq.Location = new System.Drawing.Point(1390, 5);
+            this.viewHistoryPq.Margin = new System.Windows.Forms.Padding(5);
+            this.viewHistoryPq.Name = "viewHistoryPq";
+            this.viewHistoryPq.Size = new System.Drawing.Size(634, 776);
+            this.viewHistoryPq.TabIndex = 8;
+            // 
+            // viewHistoryQ
+            // 
+            this.viewHistoryQ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.viewHistoryQ.Location = new System.Drawing.Point(759, 4);
+            this.viewHistoryQ.Margin = new System.Windows.Forms.Padding(5);
+            this.viewHistoryQ.Name = "viewHistoryQ";
+            this.viewHistoryQ.Size = new System.Drawing.Size(629, 775);
+            this.viewHistoryQ.TabIndex = 7;
+            // 
+            // QPbetComposeCtrl2
+            // 
+            this.QPbetComposeCtrl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.QPbetComposeCtrl2.Location = new System.Drawing.Point(467, 0);
+            this.QPbetComposeCtrl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QPbetComposeCtrl2.Name = "QPbetComposeCtrl2";
+            this.QPbetComposeCtrl2.Size = new System.Drawing.Size(290, 770);
+            this.QPbetComposeCtrl2.TabIndex = 6;
+            // 
+            // QbetComposeCtrl1
+            // 
+            this.QbetComposeCtrl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.QbetComposeCtrl1.Location = new System.Drawing.Point(177, 0);
+            this.QbetComposeCtrl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QbetComposeCtrl1.Name = "QbetComposeCtrl1";
+            this.QbetComposeCtrl1.Size = new System.Drawing.Size(290, 770);
+            this.QbetComposeCtrl1.TabIndex = 5;
+            // 
             // btnSaveCal
             // 
             this.btnSaveCal.Location = new System.Drawing.Point(78, 599);
@@ -916,6 +960,14 @@
             this.btnCal.Text = "计算";
             this.btnCal.UseVisualStyleBackColor = true;
             this.btnCal.Click += new System.EventHandler(this.btnCal_Click);
+            // 
+            // betMoney
+            // 
+            this.betMoney.Location = new System.Drawing.Point(5, 462);
+            this.betMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.betMoney.Name = "betMoney";
+            this.betMoney.Size = new System.Drawing.Size(128, 145);
+            this.betMoney.TabIndex = 2;
             // 
             // panel1
             // 
@@ -948,6 +1000,14 @@
             this.chkQ.TabIndex = 0;
             this.chkQ.Text = "Q";
             this.chkQ.UseVisualStyleBackColor = true;
+            // 
+            // smatSelection
+            // 
+            this.smatSelection.Location = new System.Drawing.Point(3, 103);
+            this.smatSelection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.smatSelection.Name = "smatSelection";
+            this.smatSelection.Size = new System.Drawing.Size(170, 339);
+            this.smatSelection.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -1249,6 +1309,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // QpbetSetting
+            // 
+            this.QpbetSetting.Location = new System.Drawing.Point(3, 326);
+            this.QpbetSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QpbetSetting.Name = "QpbetSetting";
+            this.QpbetSetting.Size = new System.Drawing.Size(699, 326);
+            this.QpbetSetting.TabIndex = 4;
+            // 
+            // QbetSetting
+            // 
+            this.QbetSetting.Location = new System.Drawing.Point(5, 5);
+            this.QbetSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QbetSetting.Name = "QbetSetting";
+            this.QbetSetting.Size = new System.Drawing.Size(649, 326);
+            this.QbetSetting.TabIndex = 3;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dgvBetFail);
@@ -1414,77 +1490,23 @@
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.Width = 66;
             // 
-            // viewHistoryPq
+            // tabPage5
             // 
-            this.viewHistoryPq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.viewHistoryPq.Location = new System.Drawing.Point(1390, 5);
-            this.viewHistoryPq.Margin = new System.Windows.Forms.Padding(5);
-            this.viewHistoryPq.Name = "viewHistoryPq";
-            this.viewHistoryPq.Size = new System.Drawing.Size(634, 776);
-            this.viewHistoryPq.TabIndex = 8;
+            this.tabPage5.Controls.Add(this.smatSelection1);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1916, 777);
+            this.tabPage5.TabIndex = 6;
+            this.tabPage5.Text = "快速投注";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // viewHistoryQ
+            // smatSelection1
             // 
-            this.viewHistoryQ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.viewHistoryQ.Location = new System.Drawing.Point(759, 4);
-            this.viewHistoryQ.Margin = new System.Windows.Forms.Padding(5);
-            this.viewHistoryQ.Name = "viewHistoryQ";
-            this.viewHistoryQ.Size = new System.Drawing.Size(629, 775);
-            this.viewHistoryQ.TabIndex = 7;
-            // 
-            // QPbetComposeCtrl2
-            // 
-            this.QPbetComposeCtrl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.QPbetComposeCtrl2.Location = new System.Drawing.Point(467, 0);
-            this.QPbetComposeCtrl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.QPbetComposeCtrl2.Name = "QPbetComposeCtrl2";
-            this.QPbetComposeCtrl2.Size = new System.Drawing.Size(290, 770);
-            this.QPbetComposeCtrl2.TabIndex = 6;
-            // 
-            // QbetComposeCtrl1
-            // 
-            this.QbetComposeCtrl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.QbetComposeCtrl1.Location = new System.Drawing.Point(177, 0);
-            this.QbetComposeCtrl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.QbetComposeCtrl1.Name = "QbetComposeCtrl1";
-            this.QbetComposeCtrl1.Size = new System.Drawing.Size(290, 770);
-            this.QbetComposeCtrl1.TabIndex = 5;
-            // 
-            // betMoney
-            // 
-            this.betMoney.Location = new System.Drawing.Point(5, 462);
-            this.betMoney.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.betMoney.Name = "betMoney";
-            this.betMoney.Size = new System.Drawing.Size(128, 145);
-            this.betMoney.TabIndex = 2;
-            // 
-            // smatSelection
-            // 
-            this.smatSelection.Location = new System.Drawing.Point(3, 103);
-            this.smatSelection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.smatSelection.Name = "smatSelection";
-            this.smatSelection.Size = new System.Drawing.Size(170, 339);
-            this.smatSelection.TabIndex = 0;
-            // 
-            // QpbetSetting
-            // 
-            this.QpbetSetting.Location = new System.Drawing.Point(3, 326);
-            this.QpbetSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.QpbetSetting.Name = "QpbetSetting";
-            this.QpbetSetting.Size = new System.Drawing.Size(699, 326);
-            this.QpbetSetting.TabIndex = 4;
-            // 
-            // QbetSetting
-            // 
-            this.QbetSetting.Location = new System.Drawing.Point(5, 5);
-            this.QbetSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.QbetSetting.Name = "QbetSetting";
-            this.QbetSetting.Size = new System.Drawing.Size(649, 326);
-            this.QbetSetting.TabIndex = 3;
+            this.smatSelection1.Location = new System.Drawing.Point(8, 16);
+            this.smatSelection1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.smatSelection1.Name = "smatSelection1";
+            this.smatSelection1.Size = new System.Drawing.Size(170, 339);
+            this.smatSelection1.TabIndex = 1;
             // 
             // FrmEatZd
             // 
@@ -1495,7 +1517,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmEatZd";
-            this.Text = "SmartBet  V1.1";
+            this.Text = "QuickBet";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmEatZd_FormClosed);
             this.Load += new System.EventHandler(this.FrmEatZd_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1523,6 +1545,7 @@
             this.groupBox2.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBetFail)).EndInit();
+            this.tabPage5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1644,5 +1667,7 @@
         private System.Windows.Forms.TextBox txtHorseCount;
         private System.Windows.Forms.Button btnFail;
         private System.Windows.Forms.Label lblLastTime;
+        private System.Windows.Forms.TabPage tabPage5;
+        private SmatSelection smatSelection1;
     }
 }
