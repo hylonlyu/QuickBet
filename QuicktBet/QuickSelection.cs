@@ -139,9 +139,18 @@ namespace EatZD
             return result;
         }
 
-        public string GetWPExpression()
+        public List<string> GetWPExpression()
         {
-            return string.Join(",", heads.OrderBy(x => x));
+            var result = new List<string>();
+            var sortedHeads = heads.OrderBy(x => x);
+
+            foreach (var head in sortedHeads)
+            {
+                result.Add($"{head}");
+            }
+
+
+            return result;
         }
     }
 }
