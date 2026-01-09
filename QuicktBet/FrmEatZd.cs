@@ -727,7 +727,7 @@ namespace EatZD
 
         private void btnTrade_Click(object sender, EventArgs e)
         {
-            FrmWebbrowser frmBrowser = new FrmWebbrowser();
+            FrmWeb frmBrowser = new FrmWeb();
             frmBrowser.Url = $"http://{CCmemberInstance.DoMain}/new_history_live.jsp";
             frmBrowser.CC = CCmemberInstance.cc;
             frmBrowser.Show();
