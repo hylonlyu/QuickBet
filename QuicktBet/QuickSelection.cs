@@ -129,11 +129,11 @@ namespace EatZD
             var result = new List<string>();
             var sortedHeads = heads.OrderBy(x => x);
             var sortedFeet = feet.OrderBy(x => x);
-            var feetStr = string.Join("+", sortedFeet);
+            var feetStr = string.Join("_", sortedFeet);
 
             foreach (var head in sortedHeads)
             {
-                result.Add($"{head}>{feetStr}");
+                result.Add($"{head}_{feetStr}");
             }
 
             return result;

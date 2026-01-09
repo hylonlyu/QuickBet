@@ -923,7 +923,29 @@ namespace EatZD
 
         private void DoBetWP()
         {
-            System.Diagnostics.Debug.WriteLine(quickSelection1.GetWPExpression());
+            string horse = quickSelection1.GetWPExpression();
+            if(!string.IsNullOrEmpty(horse))
+            {
+                RaceInfoItem item = new RaceInfoItem();
+                item.Url = Config.MatchUrl;
+                item.Horse = horse;
+                item.Race = Config.Race;
+                item.Place = Config.WPPiao;
+                item.Win =Config.WPPiao ;
+
+                item.Zhe = Config.WPZhe;
+
+                item.LWin = 300;
+                item.LPlace = 100;
+                item.Playtype = PlayType.WP;
+                item.Bettype = BetType.EAT;
+
+                item.Date = CCmemberInstance.GetNow(Config.MatchUrl);
+
+                bool b = CCmemberInstance.QiPiaoGua(item, out BetResultInfo info);
+                ShowInfoMsg($"会员1{b}# {item.ToString()}#赔率{item.Odds}");
+            }
+          
         }
         private void DoBetQ()
         {
@@ -932,7 +954,7 @@ namespace EatZD
             {
                 RaceInfoItem item = new RaceInfoItem();
                 item.Url = Config.MatchUrl;
-                item.Horse = quickSelection1.GetQExpression()[0];
+                item.Horse = horse;
                 item.Race = Config.Race;
                 item.Win = Config.QPiao;
                 item.Place = 0;
@@ -965,7 +987,27 @@ namespace EatZD
         }
         private void DoBetQP()
         {
+            foreach (var horse in quickSelection1.GetQExpression())
+            {
+                RaceInfoItem item = new RaceInfoItem();
+                item.Url = Config.MatchUrl;
+                item.Horse = horse;
+                item.Race = Config.Race;
+                item.Place = Config.QPiao;
+                item.Win = 0;
 
+                item.Zhe = Config.QZhe;
+
+                item.LWin = 0;
+                item.LPlace = 400;
+                item.Playtype = PlayType.QP;
+                item.Bettype = BetType.EAT;
+
+                item.Date = CCmemberInstance.GetNow(Config.MatchUrl);
+
+                bool b = CCmemberInstance.QiPiaoGuaQ(item, out BetResultInfo info);
+                ShowInfoMsg($"会员1{b}# {item.ToString()}#赔率{item.Odds}");
+            }
         }
         private void rc12_CheckedChanged(object sender, EventArgs e)
         {
