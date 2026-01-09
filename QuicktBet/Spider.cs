@@ -84,42 +84,44 @@ namespace EatZD
 
         private void GetQData()
         {
-            Dictionary<string, Tuple<double, double>> dicQData2 = CCmemberInstance.GetQData(Race.ToString());
-            if (dicQData2.Count > 0)
-            {
-                dicQData = dicQData2;
-            }
+            //Dictionary<string, Tuple<double, double>> dicQData2 = CCmemberInstance.GetQData(Race.ToString());
+            //if (dicQData2.Count > 0)
+            //{
+            //    dicQData = dicQData2;
+            //}
         }
 
         private void GetQPData()
         {
-            Dictionary<string, Tuple<double, double>> dicQPData2 = CCmemberInstance.GetQPData(Race.ToString());
-            if (dicQPData2.Count > 0)
-            {
-                dicQPData = dicQPData2;
-            }
+            //Dictionary<string, Tuple<double, double>> dicQPData2 = CCmemberInstance.GetQPData(Race.ToString());
+            //if (dicQPData2.Count > 0)
+            //{
+            //    dicQPData = dicQPData2;
+            //}
         }
 
         private void GetQPOdds()
         {
-            Dictionary<string, string[,]> dicData = CCmemberInstance.GetQPOddsByRace(Race.ToString());
-            if (dicData != null)
-            {
-                if (!IsOddsEmpty(dicData["QP"]))
-                {
-                    qpOdds = dicData["QP"];
-                }
-                if(!IsOddsEmpty(dicData["Q"]))
-                {
-                    qOdds = dicData["Q"];
-                }
-            }
+            //Dictionary<string, string[,]> dicData = CCmemberInstance.GetQPOddsByRace(Race.ToString());
+            //if (dicData != null)
+            //{
+            //    if (!IsOddsEmpty(dicData["QP"]))
+            //    {
+            //        qpOdds = dicData["QP"];
+            //    }
+            //    if(!IsOddsEmpty(dicData["Q"]))
+            //    {
+            //        qOdds = dicData["Q"];
+            //    }
+            //}
         }
 
 
         public int GetRaceLastTime()
         {
-            return CCmemberInstance.GetRaceLastTime(Race.ToString());
+            return 0;
+            //return CCmemberInstance.GetRaceLastTime(Race.ToString());
+            
         }
         private void GetAllData()
         {

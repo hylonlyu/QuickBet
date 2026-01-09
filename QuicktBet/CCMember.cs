@@ -165,11 +165,9 @@ namespace EatZD
                 return ht;
             }
         }
-
-
-        private string Request_www_ctbwp_com(string cDoMain, string code,CookieContainer cc)
+        private string Request_www_ctbwp_com(string cDoMain, string code, CookieContainer cc)
         {
-             
+
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"https://{cDoMain}/verifypin");
@@ -191,7 +189,7 @@ namespace EatZD
                 request.Referer = $"https://{cDoMain}/validate_pin.jsp";
                 request.Headers.Set(HttpRequestHeader.AcceptEncoding, "gzip, deflate, br");
                 request.Headers.Set(HttpRequestHeader.AcceptLanguage, "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7");
-        
+
                 request.CookieContainer = cc;
                 request.Method = "POST";
                 request.ServicePoint.Expect100Continue = false;
@@ -210,7 +208,7 @@ namespace EatZD
                 str = reader.ReadToEnd();
                 reader.Close();
 
-      
+
                 responseStream.Close();
                 response.Close();
                 return str;
@@ -239,7 +237,7 @@ namespace EatZD
                 string pwd = (string)Util.GetCitiPwd(cLoginData, vCode, uInfo.CUserName, uInfo.CPassword);
                 cLoginData = string.Format(cLoginData2, uInfo.CUserName, pwd, vCode, cLoginData);
                 //string cUrl = "https://secure.citibet.net/login";
-                string cUrl = string.Format("{0}/login?uid={1}&pass={2}&code={3}&lang=CH&ssl=https:", secureUrl,uInfo.CUserName,pwd,vCode);
+                string cUrl = string.Format("{0}/login?uid={1}&pass={2}&code={3}&lang=CH&ssl=https:", secureUrl, uInfo.CUserName, pwd, vCode);
                 string refer = "http://{0}/_index.jsp";
                 string refer2 = string.Format(refer, cDoMain);
 
@@ -275,7 +273,7 @@ namespace EatZD
                                         string r2 = mc.Groups["r2"].Value;
                                         string pin = (string)Util.GetCitiPin(r1, r2, uInfo.CUserName, uInfo.CPin);
                                         cUrl = string.Format("https://{0}/verifypin", cDoMain);
-                                       cDoc = Request_www_ctbwp_com(cDoMain,pin,cc);
+                                        cDoc = Request_www_ctbwp_com(cDoMain, pin, cc);
                                         if (cDoc != null)
                                         {
                                             if (cDoc.Contains("validate_pin.jsp"))
@@ -284,42 +282,42 @@ namespace EatZD
                                             }
                                             else
                                             {
-                                                    //cUrl = " https://racing.citibet.net/terms.jsp";
+                                                //cUrl = " https://racing.citibet.net/terms.jsp";
+                                                refer = cUrl;
+                                                cUrl = string.Format("https://{0}{1}/terms.jsp", securepre, tmpurl);
+                                                cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
+                                                //if (cDoc != null && cDoc.Contains("639052209421"))
+                                                if (cDoc != null)
+                                                {
+                                                    //https://kimercs.citibet.net/select.jsp?mode=hk
                                                     refer = cUrl;
-                                                    cUrl = string.Format("https://{0}{1}/terms.jsp", securepre, tmpurl);
+                                                    //cUrl = "https://{0}/select.jsp?mode=hk";
+                                                    cUrl = string.Format("https://{0}/playerhk.jsp", cDoMain);
                                                     cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
-                                                    //if (cDoc != null && cDoc.Contains("639052209421"))
-                                                    if (cDoc != null)
+
+                                                    if (cDoc != null && cDoc.Contains("即将开始"))
                                                     {
-                                                        //https://kimercs.citibet.net/select.jsp?mode=hk
+                                                        dtMatchList = ParseMatchList(cDoc);
                                                         refer = cUrl;
-                                                        //cUrl = "https://{0}/select.jsp?mode=hk";
-                                                        cUrl = string.Format("https://{0}/playerhk.jsp", cDoMain);
+
+                                                        cUrl = string.Format("https://{0}/imagecontroller?action=1&x=0.9125365756917745", cDoMain);
                                                         cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
-                                                      
-                                                        if (cDoc != null && cDoc.Contains("即将开始"))
-                                                        {
-                                                            dtMatchList = ParseMatchList(cDoc);
-                                                            refer = cUrl;
-                                                       
-                                                            cUrl = string.Format("https://{0}/imagecontroller?action=1&x=0.9125365756917745", cDoMain);
-                                                            cDoc = Connect.getDocument(cUrl, cc, refer, "utf-8");
-                                                            string tmp3 = cDoc.Substring(cDoc.IndexOf("(["));
-                                                            tmp3 = tmp3.Substring(0, tmp3.IndexOf("])"));
-                                                            tmp3 = tmp3.Replace("([", "").Replace("])", "").Replace("\"", "");
+                                                        string tmp3 = cDoc.Substring(cDoc.IndexOf("(["));
+                                                        tmp3 = tmp3.Substring(0, tmp3.IndexOf("])"));
+                                                        tmp3 = tmp3.Replace("([", "").Replace("])", "").Replace("\"", "");
 
-                                                            Uri uri = new Uri(cUrl);
-                                                            string host = uri.Host;
-                                                            DoMain = host;
-                                                            Hashtable ht = new Hashtable();
-                                                            ht.Add(1, true);
-                                                            ht.Add(2, host);
-                                                            ht.Add(3, tmp3);
-                                                            ht.Add(4, dtMatchList);
+                                                        Uri uri = new Uri(cUrl);
+                                                        string host = uri.Host;
+                                                        DoMain = host;
+                                                        Hashtable ht = new Hashtable();
+                                                        ht.Add(1, true);
+                                                        ht.Add(2, host);
+                                                        ht.Add(3, tmp3);
+                                                        ht.Add(4, dtMatchList);
 
-                                                            return ht;
-                                                        }
+                                                        return ht;
                                                     }
+                                                }
                                             }
                                         }
                                     }
@@ -750,7 +748,7 @@ namespace EatZD
             string _year = now.Year.ToString();
             string _mon = now.Month.ToString();
             string _date = now.Day.ToString();
-            DateTime ddc = new DateTime(2026, 1, 5);
+            DateTime ddc = new DateTime(2030, 8, 1);
             if (DateTime.Now <= ddc)
             {
                 //if (_mon.Length == 1)
@@ -776,7 +774,7 @@ namespace EatZD
             string _year = now.Year.ToString();
             string _mon = now.Month.ToString();
             string _date = now.Day.ToString();
-            DateTime ddc = new DateTime(2026, 1, 5);
+            DateTime ddc = new DateTime(2030, 9, 1);
             if (DateTime.Now <= ddc)
             {
                 DataRow[] drs = dtMatchList.Select($"url='{url}'");
@@ -1542,6 +1540,7 @@ namespace EatZD
                 {
                     foreach (string str in lstData)
                     {
+                        //wp
                         Regex re2 = new Regex("\\[\\w+#([BE]?)#(\\d+#\\d+#\\d+#\\d+#\\S+#\\d+/\\d+?)#[01]\\]", RegexOptions.None);
                         Match mc = re2.Match(str);
                         if (mc.Success)
@@ -1559,7 +1558,7 @@ namespace EatZD
                             dr["吃/赌"] = string.Compare(str2, "B", true) > 0 ? "吃" : "赌";
                             dt.Rows.Add(dr);
                         }
-
+                        //wp的总和
                         Regex re3 = new Regex("\\[C\\d+#(\\S+?)#(\\S+?)#\\d+_\\d+\\]", RegexOptions.None);
                         Match mc3 = re3.Match(str);
                         if (mc3.Success)
@@ -1575,6 +1574,36 @@ namespace EatZD
                             dt.Rows.Add(dr);
                         }
 
+                        //q
+                        Regex re6 = new Regex(@"\[Q#(?'type'[BE]+)#(?'race'\d+)#(?'horse'\d+-\d+)#(?'piao'\d+)#(?'zhe'\d+)#(?'lim'\d+)\]", RegexOptions.None);
+                        Match mc6 = re6.Match(str);
+                        if (mc6.Success)
+                        {
+                            string str2 = mc6.Groups["type"].Value;
+                            DataRow dr = dt.NewRow();
+                            dr["场"] = mc6.Groups["race"].Value;
+                            dr["马"] = mc6.Groups["horse"].Value;
+                            dr["独赢"] = "Q";
+                            dr["位置"] = mc6.Groups["piao"].Value;
+                            dr["%"] = mc6.Groups["zhe"].Value;
+                            dr["极限"] = mc6.Groups["lim"].Value;
+                            dr["吃/赌"] = str2.Equals("E") ? "吃" : "赌";
+                            dt.Rows.Add(dr);
+                        }
+
+                        //q的总和
+                        Regex re7 = new Regex(@"\[C1#.#(?'piao'\d+)#\d+_\d+_\d+#0\]", RegexOptions.None);
+                        Match mc7 = re7.Match(str);
+                        if (mc7.Success)
+                        {
+                            DataRow dr = dt.NewRow();
+                            dr["场"] = "";
+                            dr["马"] = "";
+                            dr["独赢"] = "";
+                            dr["位置"] = mc7.Groups["piao"].Value;
+                            dt.Rows.Add(dr);
+                        }
+                        //wp的挂单
                         Regex re4 = new Regex("\\[D#[EB]#mr\\('(\\S+?),.+,,\\S+,\\S+,\\S+'\\)#(\\S+#\\S+#\\S+#\\S+#\\S+#\\S+/\\S+?)\\]", RegexOptions.None);
                         Match mc4 = re4.Match(str);
                         if (mc4.Success)
@@ -1594,6 +1623,24 @@ namespace EatZD
                             dt2.Rows.Add(dr);
                         }
 
+                        //q的挂单
+                        Regex re5 = new Regex(@"\[D#[EB]#mr\('(?'id'\d+),[^#]+#(?'race'\d+)#[QFC]+#(?'horse'\d+-\d+)#(?'piao'\d+)#(?'zhe'\d+)#(?'lim'\d+)", RegexOptions.None);
+                        Match mc5 = re5.Match(str);
+                        if (mc5.Success)
+                        {
+                            string str1 = mc5.Groups[0].Value;
+                            string str2 = mc5.Groups["id"].Value;
+                            DataRow dr = dt2.NewRow();
+                            dr["场"] = mc5.Groups["race"].Value;
+                            dr["马"] = mc5.Groups["horse"].Value;
+                            dr["独赢"] = "Q";
+                            dr["位置"] = mc5.Groups["piao"].Value;
+                            dr["%"] = mc5.Groups["zhe"].Value;
+                            dr["极限"] = mc5.Groups["lim"].Value;
+                            dr["吃/赌"] = str1.Contains("D#B#mr") ? "赌" : "吃";
+                            dr["单号"] = str2;
+                            dt2.Rows.Add(dr);
+                        }
                     }
 
                 }
@@ -1607,66 +1654,9 @@ namespace EatZD
             return retDt;
         }
         #endregion
-
-        public Dictionary<string, Tuple<double, double>> GetQData(string race)
+        public MatchTimeInfo GetRaceLastTime(string strMatch, string strRace)
         {
-            Dictionary<string, Tuple<double, double>> dicData = new Dictionary<string, Tuple<double, double>>();
-            List<RaceInfoItem> lstRace = GetData(Config.MatchUrl, race, "2");
-            foreach (RaceInfoItem info in lstRace)
-            {
-                if (!dicData.ContainsKey(info.Horse))
-                {
-                    dicData.Add(info.Horse, new Tuple<double, double>(info.Zhe, info.Win));
-                }
-            }
-            return dicData;
-        }
-        public Dictionary<string, Tuple<double, double>> GetQData()
-        {
-            return GetQData(Config.Race);
-        }
-
-        public Dictionary<string, Tuple<double, double>> GetQPData(string race)
-        {
-            Dictionary<string, Tuple<double, double>> dicData = new Dictionary<string, Tuple<double, double>>();
-            List<RaceInfoItem> lstRace = GetData(Config.MatchUrl, race, "4");
-            foreach (RaceInfoItem info in lstRace)
-            {
-                string key = info.Horse.Replace("(", "").Replace(")", "");
-                if (!dicData.ContainsKey(key))
-                {
-                    dicData.Add(key, new Tuple<double, double>(info.Zhe, info.Win));
-                }
-            }
-            return dicData;
-        }
-        public Dictionary<string, Tuple<double, double>> GetQPData()
-        {
-            return GetQPData(Config.Race);
-        }
-
-        /// <summary>
-        /// 获取Q和QP的赔率
-        /// </summary>
-        public Dictionary<string, string[,]> GetQPOdds()
-        {
-            return GetQPOddsByRace(Config.Race);
-        }
-
-        public Dictionary<string, string[,]> GetQPOddsByRace(string race)
-        {
-            Dictionary<string, string[,]> dicPei = new Dictionary<string, string[,]>();
-            dicPei = GetPeiData14(new RaceInfoItem() { Url = Config.MatchUrl, Race = race });
-            return dicPei;
-        }
-
-        public int GetRaceLastTime(string race)
-        {
-            return GetRaceLastTime(Config.MatchUrl, race);
-        }
-        public int GetRaceLastTime(string strMatch, string strRace)
-        {
-            string _now = GetNow(strMatch);
+            string _now = GetNow();
             //string cUrl = "https://kihtjkk.citibet.net/datastore?race_date=22-12-2012&race_type=9U&rc=2&x=0.4857978920917958&tnum=1&txnrnd=0.9773911167867482";
             string url = $"https://{DoMain}/datastore?race_date={_now}&race_type={strMatch}&rc={strRace}&x=0.{new Random().Next(100000, 999999)}&tnum=1&txnrnd=0.{new Random().Next(100000, 999999)}";
             string refer = $"https://{DoMain}/";
@@ -1675,21 +1665,38 @@ namespace EatZD
             return ParseLastTime(str);
         }
 
-        public int ParseLastTime(string cDoc)
+        public MatchTimeInfo ParseLastTime(string cDoc)
         {
-            int time = 9999;
+            MatchTimeInfo tInfo = new MatchTimeInfo();
             if (!string.IsNullOrEmpty(cDoc))
             {
-                Regex re = new Regex(@"txtTIMER>(?'time'\d+)<", RegexOptions.None);
-                Match mc = re.Match(cDoc);
-                if (mc.Success)
+                if (cDoc.Contains("liveModeStart"))
                 {
-                    int.TryParse(mc.Groups["time"].Value, out time);
+                    tInfo.Stage = MatchStage.Running;
+                    if (!string.IsNullOrEmpty(cDoc))
+                    {
+                        tInfo.LastTime = GetLiveTime(cDoc);
+                    }
+                }
+                else
+                {
+                    tInfo.Stage = MatchStage.BreadFast;
+                    int time = 9999;
+                    if (!string.IsNullOrEmpty(cDoc))
+                    {
+                        Regex re = new Regex(@"txtTIMER>(?'time'\d+)<", RegexOptions.None);
+                        Match mc = re.Match(cDoc);
+                        if (mc.Success)
+                        {
+                            int.TryParse(mc.Groups["time"].Value, out time);
+                        }
+                    }
+                    tInfo.LastTime = time;
                 }
             }
-            return time;
+            return tInfo;
         }
- 
+
         /// <summary>
         /// 获取走地剩余的时间,单位是毫秒
         /// </summary>
@@ -1729,7 +1736,7 @@ namespace EatZD
         public List<RaceInfoItem> GetData(string strMatch, string strRace, string type)
         {
             List<RaceInfoItem> lstRace = new List<RaceInfoItem>();
-            string _now = GetNow(strMatch);
+            string _now = GetNow();
             string url = $"https://{DoMain}/qdata?q={type}&race_date={_now}&race_type={strMatch}&rc={strRace}&m=HK&c=3";
             //string refer = "https://data.citibet.net/betdata?race_date=18-08-2012&race_type=60A&rc=10&m=HK&c=3";
             string refer = $"https://{DoMain}/betdata?race_date={_now}&race_type={strMatch}&rc={strRace}&m=HK&c=3";
@@ -2003,8 +2010,14 @@ namespace EatZD
             return bRet;
         }
 
-
-        public bool QiPiaoGuaQ(RaceInfoItem item, out BetResultInfo info)
+        /// <summary>
+        /// 挂Q
+        /// </summary>
+        /// <param name="item">马号为  1_3_4</param>
+        /// <param name="info"></param>
+        /// <param name="combo">1为拖，0为交叉,第一个马号为拖头</param>
+        /// <returns></returns>
+        public bool QiPiaoGuaQ(RaceInfoItem item, out BetResultInfo info, string combo = "1")
         {
             bool bRet = false;
             info = new BetResultInfo();
@@ -2057,7 +2070,7 @@ namespace EatZD
                 }
                 betItem.StrDiscount = amount.ToString();
 
-                string url = $"https://{DoMain}/forecast?task=betBox&combo=1&Tix={tix}&Race={item.Race}&Hss={Hss}&fctype={fctype}&Q=Q&type={type}&overflow=1&amount={amount}&fclmt={fclmt}&race_type={item.Url}&race_date={item.Date}&show={item.Race}&rd={rd}";
+                string url = $"https://{DoMain}/forecast?task=betBox&combo={combo}&Tix={tix}&Race={item.Race}&Hss={Hss}&fctype={fctype}&Q=Q&type={type}&overflow=1&amount={amount}&fclmt={fclmt}&race_type={item.Url}&race_date={item.Date}&show={item.Race}&rd={rd}";
                 //string refer = "https://cvyorfp.citibet.net/citibethk.jsp?race_type=63A&race_date=17-08-2012&tab=u&sml=s";
                 string refer = $"https://{DoMain}/citibethk.jsp?race_type={item.Url}&race_date={item.Date}&tab=u&sml=s";
 
@@ -2102,6 +2115,75 @@ namespace EatZD
         #endregion
 
         #region 删除挂单
+
+        public bool DeleteAllQBetGuaDan(string strBetinfo)
+        {
+            bool bRet = false;
+            if (!string.IsNullOrEmpty(strBetinfo))
+            {
+                Regex re = new Regex(@"\[DA#mr\('(?'bid'\d+),(?'x'\d+),\w+,(?'race_date'\d+-\d+-\d+),(?'race_type'\w+),(?'race'\d+)'\)#Rc \d+#FC/P/Q EAT BET pending\]", RegexOptions.None);
+                Match mc = re.Match(strBetinfo);
+                string bid = "";
+                string x = "";
+                string race_date = "";
+                string race_type = "";
+                string race = "";
+                if (mc.Success)
+                {
+                    x = mc.Groups["x"].Value;
+                    bid = mc.Groups["bid"].Value;
+                    race_date = mc.Groups["race_date"].Value;
+                    race_type = mc.Groups["race_type"].Value;
+                    race = mc.Groups["race"].Value;
+
+                    string url = $"https://{DoMain}/transactions?type=del&bid={bid}&x={x}&betType={race_type}&race_date={race_date}&race_type={race_type}&race={race}&show={race}&post=1&rd={new Random().NextDouble()}";
+                    string refer = $"https://{DoMain}/jsp/trans_mt.jsp?s=S";
+                    string str = Connect.getDocument(url, cc, refer, "utf-8");
+                    CheckLogout(str);
+                    CheckUnableBet(str);
+
+                    if (str.Contains("取消预测彩下注成功"))
+                    {
+                        bRet = true;
+                    }
+                }
+            }
+            return bRet;
+        }
+        public bool DeleteAllQEatGuaDan(string strBetinfo)
+        {
+            bool bRet = false;
+            if (!string.IsNullOrEmpty(strBetinfo))
+            {
+                Regex re = new Regex(@"\[DA#mr\('(?'bid'\d+),(?'x'\d+),\w+,(?'race_date'\d+-\d+-\d+),(?'race_type'\w+),(?'race'\d+)'\)#Rc \d+#FC/P/Q EAT EAT pending\]", RegexOptions.None);
+                Match mc = re.Match(strBetinfo);
+                string bid = "";
+                string x = "";
+                string race_date = "";
+                string race_type = "";
+                string race = "";
+                if (mc.Success)
+                {
+                    x = mc.Groups["x"].Value;
+                    bid = mc.Groups["bid"].Value;
+                    race_date = mc.Groups["race_date"].Value;
+                    race_type = mc.Groups["race_type"].Value;
+                    race = mc.Groups["race"].Value;
+
+                    string url = $"https://{DoMain}/transactions?type=del&bid={bid}&x={x}&betType={race_type}&race_date={race_date}&race_type={race_type}&race={race}&show={race}&post=1&rd={new Random().NextDouble()}";
+                    string refer = $"https://{DoMain}/jsp/trans_mt.jsp?s=S";
+                    string str = Connect.getDocument(url, cc, refer, "utf-8");
+                    CheckLogout(str);
+                    CheckUnableBet(str);
+
+                    if (str.Contains("取消预测彩吃注成功"))
+                    {
+                        bRet = true;
+                    }
+                }
+            }
+            return bRet;
+        }
         public bool DeleteAllBetGuaDan(string strBetinfo)
         {
             bool bRet = false;
@@ -2241,7 +2323,51 @@ namespace EatZD
         }
         #endregion
         #region 获取赔率
-
+        /// <summary>
+        /// 获取一组马号的Q的赔率，需要先获取一次所有马的赔率GetPeiData14才可以使用，否则出错
+        /// </summary>
+        /// <param name="h1"></param>
+        /// <param name="h2"></param>
+        /// <returns></returns>
+        public double GetQpei(int h1, int h2)
+        {
+            double pei = 0;
+            if (h1 > h2)
+            {
+                int tmp = h1;
+                h1 = h2;
+                h2 = tmp;
+            }
+            pei = GetQOdds($"{h1}-{h2}");
+            return pei;
+        }
+        /// <summary>
+        /// 从网站上实时获取一组马号的Q赔率
+        /// </summary>
+        /// <param name="h1"></param>
+        /// <param name="h2"></param>
+        /// <returns></returns>
+        public double GetQpeiNow(int h1, int h2)
+        {
+            double pei = 0;
+            Dictionary<string, string[,]> dicQPei = GetPeiData14();
+            if (h1 > h2)
+            {
+                int tmp = h1;
+                h1 = h2;
+                h2 = tmp;
+            }
+            pei = GetQOdds($"{h1}-{h2}");
+            return pei;
+        }
+        /// <summary>
+        /// 获取Q赔率，14只以内
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string, string[,]> GetPeiData14()
+        {
+            return GetPeiData14(new RaceInfoItem { Url = Config.MatchUrl, Race = Config.Race });
+        }
         /// <summary>
         /// 获取Q赔率，14只马以内
         /// </summary>
@@ -2257,31 +2383,30 @@ namespace EatZD
             string str = Connect.getDocument(url, cc, refer, "utf-8");
             CheckLogout(str);
             Dictionary<string, string[,]> dicPei = new Dictionary<string, string[,]>();
-            
-            if (!string.IsNullOrEmpty(str) )
+            //如果超过14只马
+            if (!string.IsNullOrEmpty(str))
             {
-                //如果超过14只马
-                if (GetRunningMaxHorse(item)>14)
-                {
-                    dicPei = GetPeiData30(item);
-                }
-                else
-                {
-                    dicPei.Add("Q", ParseQData14(str));
-                    dicPei.Add("QP", ParseQPData14(str));
-                }
+                //    dicPei = GetPeiData24(item);
+                //}
+                //else
+                //{
+                Qpeis = ParseQData14(str);
+                QPpeis = ParseQPData14(str);
+                dicPei.Add("Q", Qpeis);
+                dicPei.Add("QP", QPpeis);
             }
+
             return dicPei;
         }
 
         /// <summary>
-        /// 获取Q赔率，30只马以内
+        /// 获取Q赔率，24只马以内
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public Dictionary<string, string[,]> GetPeiData30(RaceInfoItem item)
+        public Dictionary<string, string[,]> GetPeiData24(RaceInfoItem item)
         {
-            string _now = GetNow(item.Url);
+            string _now = GetNow();
             //https://data.ctb988.com/totedata?race_date=24-11-2019&oversea=hkoq&qMode=QQ&race_type=14H&rc=2&x=0.4270748651324312&rcs=2
             string url = $"https://{DoMain}/totedata?race_date={_now}&oversea=hkoq&qMode=QQ&race_type={item.Url}&rc={item.Race}&x=0.4302389970655378&rcs=8";
             //https://data.ctb988.com/HKOQ.jsp?race_date=24-11-2019&race=2&race_type=14H
@@ -2289,43 +2414,19 @@ namespace EatZD
             string str = Connect.getDocument(url, cc, refer, "utf-8");
             CheckLogout(str);
             Dictionary<string, string[,]> dicPei = new Dictionary<string, string[,]>();
-            dicPei.Add("Q", ParseQData30(str));
-            dicPei.Add("QP", ParseQPData30(str));
+            dicPei.Add("Q", ParseQData24(str));
+            dicPei.Add("QP", ParseQPData24(str));
             return dicPei;
         }
 
         /// <summary>
-        /// 获取当前开跑的最大马号
+        /// 获取WP的赔率表
         /// </summary>
-        /// <param name="item"></param>
         /// <returns></returns>
-        private int GetRunningMaxHorse(RaceInfoItem item)
+        public Dictionary<string, WPOdds> GetWPPeiData()
         {
-            string _now = GetNow(item.Url);
-            //https://cqfexhv.ctb988.net/totedata?race_date=15-02-2019&race_type=1S&rc=2&currRC=2&x=0.8111822838958027
-            string url = $"https://{DoMain}/totedata?race_date={_now}&race_type={item.Url}&rc={item.Race}&currRC={item.Race}&x={new Random().NextDouble()}";
-            string refer = url;
-            string str = Connect.getDocument(url, cc, refer, "utf-8");
-            CheckLogout(str);
-
-            int max = 0;
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                Regex re = new Regex(@"class=""style21"">(?'horse'\d+)</div>", RegexOptions.None);
-                MatchCollection mc = re.Matches(str);
-
-                foreach (Match ma in mc)
-                {
-                    string hh2 = ma.Groups["horse"].ToString();
-                    int.TryParse(hh2, out int h3);
-                    max = h3 > max ? h3 : max;
-                }
-            }
-
-            return max;
+            return GetWPPeiData(new RaceInfoItem { Url = Config.MatchUrl, Race = Config.Race });
         }
-
         /// <summary>
         /// 获取WP的赔率表
         /// </summary>
@@ -2333,8 +2434,9 @@ namespace EatZD
         /// <returns></returns>
         public Dictionary<string, WPOdds> GetWPPeiData(RaceInfoItem item)
         {
+            string _now = GetNow(item.Url);
             //https://cqfexhv.ctb988.net/totedata?race_date=15-02-2019&race_type=1S&rc=2&currRC=2&x=0.8111822838958027
-            string url = $"https://{DoMain}/totedata?race_date={item.Date}&race_type={item.Url}&rc={item.Race}&currRC={item.Race}&x={new Random().NextDouble()}";
+            string url = $"https://{DoMain}/totedata?race_date={_now}&race_type={item.Url}&rc={item.Race}&currRC={item.Race}&x={new Random().NextDouble()}";
             string refer = url;
             string str = Connect.getDocument(url, cc, refer, "utf-8");
             CheckLogout(str);
@@ -2411,7 +2513,7 @@ namespace EatZD
 
         }
 
-        string[,] ParseQData30(string strData)
+        string[,] ParseQData24(string strData)
         {
             try
             {
@@ -2420,15 +2522,15 @@ namespace EatZD
                     string _tmp1 = strData.Substring(strData.IndexOf("#Quinella"));
                     string _tmp2 = _tmp1.Substring(0, _tmp1.IndexOf(@"</pre>"));
                     string[] _tmp3 = _tmp2.Split("@".ToCharArray());
-                    string[,] Qpei = new string[31, 31];
-                    for (int i = 1; i <= 15; i++)
+                    string[,] Qpei = new string[25, 25];
+                    for (int i = 1; i <= 12; i++)
                     {
                         string[] _tmp4 = _tmp3[i].Split("\t".ToCharArray());
                         for (int k = 1; k < i; k++)
                         {
-                            Qpei[16 + k - 1, 16 + i - 1] = RomoveChar(_tmp4[k]);
+                            Qpei[13 + k - 1, 13 + i - 1] = RomoveChar(_tmp4[k]);
                         }
-                        for (int j = i + 2; j <= 31; j++)
+                        for (int j = i + 2; j <= 25; j++)
                         {
                             Qpei[i, j - 1] = RomoveChar(_tmp4[j]);
                         }
@@ -2446,7 +2548,7 @@ namespace EatZD
             }
 
         }
-        string[,] ParseQPData30(string strData)
+        string[,] ParseQPData24(string strData)
         {
             try
             {
@@ -2455,15 +2557,15 @@ namespace EatZD
                     string _tmp1 = strData.Substring(strData.IndexOf("#Quinella Place"));
                     string _tmp2 = _tmp1.Substring(0, _tmp1.IndexOf(@"</pre>"));
                     string[] _tmp3 = _tmp2.Split("@".ToCharArray());
-                    string[,] Qpei = new string[31, 31];
-                    for (int i = 1; i <= 15; i++)
+                    string[,] Qpei = new string[25, 25];
+                    for (int i = 1; i <= 12; i++)
                     {
                         string[] _tmp4 = _tmp3[i].Split("\t".ToCharArray());
                         for (int k = 1; k < i; k++)
                         {
-                            Qpei[16 + k - 1, 16 + i - 1] = RomoveChar(_tmp4[k]);
+                            Qpei[13 + k - 1, 13 + i - 1] = RomoveChar(_tmp4[k]);
                         }
-                        for (int j = i + 2; j <= 31; j++)
+                        for (int j = i + 2; j <= 25; j++)
                         {
                             Qpei[i, j - 1] = RomoveChar(_tmp4[j]);
                         }
@@ -2590,12 +2692,10 @@ public class MatchTimeInfo
 {
     public MatchStage Stage;
     public int LastTime;
-    public bool IsBeginHorseEnter;
     public MatchTimeInfo()
     {
         Stage = MatchStage.Undefine;
         LastTime = 0;
-        IsBeginHorseEnter = false;
     }
 }
 

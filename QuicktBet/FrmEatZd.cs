@@ -285,6 +285,14 @@ namespace EatZD
             Config.BU32 = Util.Text2Double(QpbetSetting.BU3.Text.Trim());
             Config.BU42 = Util.Text2Double(QpbetSetting.BU4.Text.Trim());
             Config.BU52 = Util.Text2Double(QpbetSetting.BU5.Text.Trim());
+
+            Config.WPZhe = Util.Text2Double(txtWPZhe.Text.Trim());
+            Config.WPPiao = Util.Text2Int(txtWPPiao.Text.Trim());
+            Config.QZhe = Util.Text2Double(txtQZhe.Text.Trim());
+            Config.QPiao = Util.Text2Int(txtQPiao.Text.Trim());
+            Config.QPZhe = Util.Text2Double(txtQPZhe.Text.Trim());
+            Config.QPPiao = Util.Text2Int(txtQPPiao.Text.Trim());
+
             string file = string.Format(@"setting\{0}.jpg", "FrmEatZd");
 
             using (FileStream fs = new FileStream(file, FileMode.Create))
@@ -384,6 +392,13 @@ namespace EatZD
                 QpbetSetting.BU3.Text = Config.BU32.ToString();
                 QpbetSetting.BU4.Text = Config.BU42.ToString();
                 QpbetSetting.BU5.Text = Config.BU52.ToString();
+
+                txtWPZhe.Text = Config.WPZhe.ToString();
+                txtWPPiao.Text = Config.WPPiao.ToString();
+                txtQZhe.Text = Config.QZhe.ToString();
+                txtQPiao.Text = Config.QPiao.ToString();
+                txtQPZhe.Text = Config.QPZhe.ToString();
+                txtQPPiao.Text = Config.QPPiao.ToString();
             }
             catch (Exception ex)
             {
@@ -877,23 +892,81 @@ namespace EatZD
 
         private void btnBet_Click(object sender, EventArgs e)
         {
-            if(!chkBetQ.Checked && !chkBetQP.Checked)
+            //if (!chkBetQ.Checked && !chkBetQP.Checked)
+            //{
+            //    MessageBox.Show("选择打单项目");
+            //}
+            //else
+            //{
+            //    if (chkBetQ.Checked)
+            //    {
+            //        CCmemberInstance.DoBetQ(QbetComposeCtrl1.LstStrategy);
+            //    }
+            //    if (chkBetQP.Checked)
+            //    {
+            //        CCmemberInstance.DoBetQP(QPbetComposeCtrl2.LstStrategy);
+            //    }
+            //}
+            if (chkWP.Checked)
             {
-                MessageBox.Show("选择打单项目");
+                DoBetWP();
             }
-            else
+            if (chkQ1.Checked)
             {
-                if (chkBetQ.Checked)
-                {
-                    CCmemberInstance.DoBetQ(QbetComposeCtrl1.LstStrategy);
-                }
-                if (chkBetQP.Checked)
-                {
-                    CCmemberInstance.DoBetQP(QPbetComposeCtrl2.LstStrategy);
-                }
+                DoBetQ();
+            }
+            if (chkQP1.Checked)
+            {
+                DoBetQP();
             }
         }
 
+        private void DoBetWP()
+        {
+            System.Diagnostics.Debug.WriteLine(quickSelection1.GetWPExpression());
+        }
+        private void DoBetQ()
+        {
+
+            foreach(var horse in quickSelection1.GetQExpression())
+            {
+                RaceInfoItem item = new RaceInfoItem();
+                item.Url = Config.MatchUrl;
+                item.Horse = quickSelection1.GetQExpression()[0];
+                item.Race = Config.Race;
+                item.Win = Config.QPiao;
+                item.Place = 0;
+
+                item.Zhe = Config.QZhe;
+
+                item.LWin = 700;
+                item.LPlace = 0;
+                item.Playtype = PlayType.Q;
+                item.Bettype = BetType.EAT;
+
+                item.Date = CCmemberInstance.GetNow(Config.MatchUrl);
+
+                bool b = CCmemberInstance.QiPiaoGuaQ(item, out BetResultInfo info);
+                ShowInfoMsg($"会员1{b}# {item.ToString()}#赔率{item.Odds}");
+            }
+   
+            //if (!b)
+            //{
+            //    BetInfo binfo = new BetInfo
+            //    {
+            //        horse = $"{item.Horse}",
+            //        bettype = "Q",
+            //        playtype = item.Bettype.ToString()
+            //    };
+            //    AddBetFail(binfo, info.StrAnswer);
+            //};
+            //return b;
+
+        }
+        private void DoBetQP()
+        {
+
+        }
         private void rc12_CheckedChanged(object sender, EventArgs e)
         {
             QbetComposeCtrl1.ClearStrategy();
@@ -1033,8 +1106,8 @@ namespace EatZD
 
         private void ShowLastTime()
         {
-           int time = CCmemberInstance.GetRaceLastTime(GetRace());
-            lblLastTime.Text =time.ToString();
+           //int time = CCmemberInstance.GetRaceLastTime(GetRace());
+           // lblLastTime.Text =time.ToString();
         }
 
         private void btnWeb2_Click(object sender, EventArgs e)

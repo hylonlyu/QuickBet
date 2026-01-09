@@ -78,6 +78,12 @@ namespace EatZD
         public double BU52;
         #endregion
 
+        public double WPZhe;
+        public int WPPiao;
+        public double QZhe;
+        public int QPiao;
+        public double QPZhe;
+        public int QPPiao;
     }
 
     public class RCConfig

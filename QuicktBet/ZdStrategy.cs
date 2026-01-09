@@ -57,30 +57,30 @@ namespace EatZD
 
         private new void GetQData()
         {
-            Dictionary<string, Tuple<double, double>> dicQData2 = GetQData(Config.Race);
-            if (dicQData2.Count > 0)
-            {
-                dicQData = dicQData2;
-            }
+            //Dictionary<string, Tuple<double, double>> dicQData2 = GetQData(Config.Race);
+            //if (dicQData2.Count > 0)
+            //{
+            //    dicQData = dicQData2;
+            //}
         }
 
         private new void GetQPData()
         {
-            Dictionary<string, Tuple<double, double>> dicQPData2 = GetQPData(Config.Race);
-            if (dicQPData2.Count > 0)
-            {
-                dicQPData = dicQPData2;
-            }
+            //Dictionary<string, Tuple<double, double>> dicQPData2 = GetQPData(Config.Race);
+            //if (dicQPData2.Count > 0)
+            //{
+            //    dicQPData = dicQPData2;
+            //}
         }
 
         private new void  GetQPOdds()
         {
-            Dictionary<string, string[,]> dicData = GetQPOddsByRace(Config.Race);
-            if (dicData != null)
-            {
-                qpOdds = dicData["QP"];
-                qOdds = dicData["Q"];
-            }
+            //Dictionary<string, string[,]> dicData = GetQPOddsByRace(Config.Race);
+            //if (dicData != null)
+            //{
+            //    qpOdds = dicData["QP"];
+            //    qOdds = dicData["Q"];
+            //}
         }
 
         private void GetHorses(string hss, out int h1, out int h2)
