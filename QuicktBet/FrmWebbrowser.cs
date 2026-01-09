@@ -1,10 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Windows.Forms;
-using CefSharp;
-using CefSharp.WinForms;
+using Microsoft.Web.WebView2.Core;
 
-namespace GuaDan
+namespace EatZD
 {
     public partial class FrmWebbrowser : Form
     {
@@ -19,26 +19,36 @@ namespace GuaDan
             set;
         }
 
-        ChromiumWebBrowser chromeBrowser;
+
         public FrmWebbrowser()
         {
             InitializeComponent();
         }
 
-        private void FrmWeb_Load(object sender, EventArgs e)
+        private async void FrmWeb_Load(object sender, EventArgs e)
         {
+            string userDataFolder1 = Path.Combine(Application.StartupPath, Text);
+            CoreWebView2EnvironmentOptions options = new CoreWebView2EnvironmentOptions();
+            CoreWebView2Environment environment1 = await CoreWebView2Environment.CreateAsync(null, userDataFolder1, options);
+            await webView21.EnsureCoreWebView2Async(environment1);
+            webView21.CoreWebView2.NewWindowRequested += CoreWebView2_NewWindowRequested;
             Init();
+            webView21.CoreWebView2.Navigate(Url);
+        }
+
+        private void CoreWebView2_NewWindowRequested(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NewWindowRequestedEventArgs e)
+        {
+            String url = e.Uri.ToString();
+            if (!url.Contains("oauth"))
+            {
+                webView21.Source = new Uri(url);
+                e.Handled = true;//禁止弹窗
+            }
         }
 
         private void Init()
         {
             SetCookie();
-            chromeBrowser = new ChromiumWebBrowser(Url);
-            this.Controls.Add(this.chromeBrowser);
-            chromeBrowser.LifeSpanHandler = new OpenPageSelf();
-            chromeBrowser.Dock = DockStyle.Fill;
-            
-            
         }
 
         private void SetCookie()
@@ -47,66 +57,37 @@ namespace GuaDan
             string cDomain = uri.Host;
             CookieContainer container = CC;
             CookieCollection cc = container.GetCookies(new Uri(Url));
-            var cookieManager = CefSharp.Cef.GetGlobalCookieManager();
             foreach (System.Net.Cookie c in cc)
             {
-                //    InternetSetCookie("http://" + cDomain, c.Name.ToString(), c.Value.ToString());
-
-                cookieManager.SetCookie("http://" + cDomain, new CefSharp.Cookie()
-                {
-                    Domain = cDomain,
-                    Name = c.Name.ToString(),
-                    Value = c.Value.ToString(),
-                    Expires = DateTime.MinValue
-                });
+                var cookie = webView21.CoreWebView2.CookieManager.CreateCookie(c.Name.ToString(), c.Value.ToString(), cDomain, "/");
+                cookie.IsHttpOnly = true;
+                //cookie.IsSecure = true;
+                webView21.CoreWebView2.CookieManager.AddOrUpdateCookie(cookie);
             }
-
-
-
         }
 
         private void toolForward_Click(object sender, EventArgs e)
         {
-            this.chromeBrowser.Forward();
+            SetCookie();
+            webView21.GoForward();
         }
 
         private void toolBack_Click(object sender, EventArgs e)
         {
-            this.chromeBrowser.Back();
+            SetCookie();
+            webView21.GoBack();
         }
 
         private void toolRefresh_Click(object sender, EventArgs e)
         {
-            this.chromeBrowser.Reload();
-        }
-    }
-
-    /// <summary>
-    /// 在自己窗口打开链接
-    /// </summary>
-    internal class OpenPageSelf : ILifeSpanHandler
-    {
-        public bool DoClose(IWebBrowser browserControl, IBrowser browser)
-        {
-            return false;
+            SetCookie();
+            webView21.CoreWebView2.Reload();
         }
 
-        public void OnAfterCreated(IWebBrowser browserControl, IBrowser browser)
+        private void webView21_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
-
-        }
-
-        public void OnBeforeClose(IWebBrowser browserControl, IBrowser browser)
-        {
-
-        }
-
-        public bool OnBeforePopup(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, string targetFrameName, WindowOpenDisposition targetDisposition, bool userGesture, IPopupFeatures popupFeatures, IWindowInfo windowInfo, IBrowserSettings browserSettings, ref bool noJavascriptAccess, out IWebBrowser newBrowser)
-        {
-            newBrowser = null;
-            var chromiumWebBrowser = (ChromiumWebBrowser)browserControl;
-            chromiumWebBrowser.Load(targetUrl);
-            return true; //Return true to cancel the popup creation copyright by codebye.com.
+            this.toolBack.Enabled = webView21.CanGoBack ? true : false;
+            this.toolForward.Enabled = webView21.CanGoForward ? true : false;
         }
     }
 }

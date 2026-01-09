@@ -1,6 +1,4 @@
-﻿using CefSharp;
-using CefSharp.WinForms;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GuaDan;
+
 namespace EatZD
 {
     public partial class FrmEatZd : Form
@@ -68,8 +66,8 @@ namespace EatZD
             CCmemberInstance.ShowMsg += CCmemberInstance_ShowMsg;
             CCmemberInstance.OnNewTickt += CCmemberInstance_OnNewTickt;
 
-            CefSettings setting = new CefSettings();
-            Cef.Initialize(setting);
+            //CefSettings setting = new CefSettings();
+            //Cef.Initialize(setting);
         }
 
         private void CCmemberInstance_OnNewTickt(RaceInfoEnity enity)
@@ -85,7 +83,7 @@ namespace EatZD
         private void CCmemberInstance_OnBetOk(BettedItem item)
         {
             ShowInfoMsg(item.ToString());
-            ShowBetResult(item);
+           // ShowBetResult(item);
             if(!item.Result)
             {
                 ShowBetFailResult(item);
@@ -293,6 +291,10 @@ namespace EatZD
             Config.QPZhe = Util.Text2Double(txtQPZhe.Text.Trim());
             Config.QPPiao = Util.Text2Int(txtQPPiao.Text.Trim());
 
+            Config.IsWP = chkWP.Checked;
+            Config.IsQ1 = chkQ1.Checked;
+            Config.IsQP1 = chkQP1.Checked;
+
             string file = string.Format(@"setting\{0}.jpg", "FrmEatZd");
 
             using (FileStream fs = new FileStream(file, FileMode.Create))
@@ -399,6 +401,10 @@ namespace EatZD
                 txtQPiao.Text = Config.QPiao.ToString();
                 txtQPZhe.Text = Config.QPZhe.ToString();
                 txtQPPiao.Text = Config.QPPiao.ToString();
+
+                chkWP.Checked = Config.IsWP;
+                chkQ1.Checked = Config.IsQ1;
+                chkQP1.Checked = Config.IsQP1;
             }
             catch (Exception ex)
             {
@@ -666,6 +672,7 @@ namespace EatZD
             FrmWeb frmMatch = new FrmWeb();
             frmMatch.Url = $"http://{CCmemberInstance.DoMain}/playerhk.jsp";
             frmMatch.CC = CCmemberInstance.cc;
+            frmMatch.Text = "1";
             frmMatch.Show();
         }
 
@@ -925,88 +932,79 @@ namespace EatZD
         {
             foreach (var horse in quickSelection1.GetWPExpression())
             {
-                RaceInfoItem item = new RaceInfoItem();
-                item.Url = Config.MatchUrl;
-                item.Horse = horse;
-                item.Race = Config.Race;
-                item.Place = Config.WPPiao;
-                item.Win =Config.WPPiao ;
+                //RaceInfoItem item = new RaceInfoItem();
+                //item.Url = Config.MatchUrl;
+                //item.Horse = horse;
+                //item.Race = Config.Race;
+                //item.Place = Config.WPPiao;
+                //item.Win =Config.WPPiao ;
 
-                item.Zhe = Config.WPZhe;
+                //item.Zhe = Config.WPZhe;
 
-                item.LWin = 300;
-                item.LPlace = 100;
-                item.Playtype = PlayType.WP;
-                item.Bettype = BetType.EAT;
+                //item.LWin = 300;
+                //item.LPlace = 100;
+                //item.Playtype = PlayType.WP;
+                //item.Bettype = BetType.BET;
 
-                item.Date = CCmemberInstance.GetNow(Config.MatchUrl);
+                //item.Date = CCmemberInstance.GetNow(Config.MatchUrl);
 
-                bool b = CCmemberInstance.QiPiaoGua(item, out BetResultInfo info);
-                ShowInfoMsg($"会员1{b}# {item.ToString()}#赔率{item.Odds}");
+                bool b = CCmemberInstance.DoBetWP(horse);
+                ShowInfoMsg($"会员1{b}# {horse} WP");
             }
-          
+            
+
+
         }
         private void DoBetQ()
         {
 
             foreach(var horse in quickSelection1.GetQExpression())
             {
-                RaceInfoItem item = new RaceInfoItem();
-                item.Url = Config.MatchUrl;
-                item.Horse = horse;
-                item.Race = Config.Race;
-                item.Win = Config.QPiao;
-                item.Place = 0;
+                //RaceInfoItem item = new RaceInfoItem();
+                //item.Url = Config.MatchUrl;
+                //item.Horse = horse;
+                //item.Race = Config.Race;
+                //item.Win = Config.QPiao;
+                //item.Place = 0;
 
-                item.Zhe = Config.QZhe;
+                //item.Zhe = Config.QZhe;
 
-                item.LWin = 700;
-                item.LPlace = 0;
-                item.Playtype = PlayType.Q;
-                item.Bettype = BetType.EAT;
+                //item.LWin = 700;
+                //item.LPlace = 0;
+                //item.Playtype = PlayType.Q;
+                //item.Bettype = BetType.BET;
 
-                item.Date = CCmemberInstance.GetNow(Config.MatchUrl);
+                //item.Date = CCmemberInstance.GetNow(Config.MatchUrl);
 
-                bool b = CCmemberInstance.QiPiaoGuaQ(item, out BetResultInfo info);
-                ShowInfoMsg($"会员1{b}# {item.ToString()}#赔率{item.Odds}");
+                bool b = CCmemberInstance.DoBetQ(horse);
+                ShowInfoMsg($"会员1{b}# {horse} Q");
             }
    
-            //if (!b)
-            //{
-            //    BetInfo binfo = new BetInfo
-            //    {
-            //        horse = $"{item.Horse}",
-            //        bettype = "Q",
-            //        playtype = item.Bettype.ToString()
-            //    };
-            //    AddBetFail(binfo, info.StrAnswer);
-            //};
-            //return b;
-
         }
         private void DoBetQP()
         {
             foreach (var horse in quickSelection1.GetQExpression())
             {
-                RaceInfoItem item = new RaceInfoItem();
-                item.Url = Config.MatchUrl;
-                item.Horse = horse;
-                item.Race = Config.Race;
-                item.Place = Config.QPiao;
-                item.Win = 0;
+                //RaceInfoItem item = new RaceInfoItem();
+                //item.Url = Config.MatchUrl;
+                //item.Horse = horse;
+                //item.Race = Config.Race;
+                //item.Place = Config.QPiao;
+                //item.Win = 0;
 
-                item.Zhe = Config.QZhe;
+                //item.Zhe = Config.QZhe;
 
-                item.LWin = 0;
-                item.LPlace = 400;
-                item.Playtype = PlayType.QP;
-                item.Bettype = BetType.EAT;
+                //item.LWin = 0;
+                //item.LPlace = 400;
+                //item.Playtype = PlayType.QP;
+                //item.Bettype = BetType.BET;
 
-                item.Date = CCmemberInstance.GetNow(Config.MatchUrl);
+                //item.Date = CCmemberInstance.GetNow(Config.MatchUrl);
 
-                bool b = CCmemberInstance.QiPiaoGuaQ(item, out BetResultInfo info);
-                ShowInfoMsg($"会员1{b}# {item.ToString()}#赔率{item.Odds}");
+                bool b = CCmemberInstance.DoBetQP(horse);
+                ShowInfoMsg($"会员1{b}# {horse} QP");
             }
+            
         }
         private void rc12_CheckedChanged(object sender, EventArgs e)
         {
@@ -1156,6 +1154,7 @@ namespace EatZD
             FrmWebbrowser frmMatch = new FrmWebbrowser();
             frmMatch.Url = $"http://{CCmemberInstance.DoMain}/playerhk.jsp";
             frmMatch.CC = CCmemberInstance.cc;
+            frmMatch.Text = "2";
             frmMatch.Show();
         }
 

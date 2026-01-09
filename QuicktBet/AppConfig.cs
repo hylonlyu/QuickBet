@@ -84,6 +84,10 @@ namespace EatZD
         public int QPiao;
         public double QPZhe;
         public int QPPiao;
+
+        public bool IsWP;
+        public bool IsQ1;
+        public bool IsQP1;
     }
 
     public class RCConfig
