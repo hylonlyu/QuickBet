@@ -923,8 +923,7 @@ namespace EatZD
 
         private void DoBetWP()
         {
-            string horse = quickSelection1.GetWPExpression();
-            if(!string.IsNullOrEmpty(horse))
+            foreach (var horse in quickSelection1.GetWPExpression())
             {
                 RaceInfoItem item = new RaceInfoItem();
                 item.Url = Config.MatchUrl;
