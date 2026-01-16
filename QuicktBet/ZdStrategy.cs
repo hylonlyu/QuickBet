@@ -368,7 +368,7 @@ namespace EatZD
 
             item.Date = GetNow(Config.MatchUrl);
 
-            bool bRet = QiPiaoGua(item, out BetResultInfo info);
+            bool bRet = XiaZhuGua(item, out BetResultInfo info);
 
             BettedItem bitem = new BettedItem();
             bitem.BetTime = DateTime.Now;

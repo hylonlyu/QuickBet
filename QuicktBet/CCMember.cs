@@ -748,7 +748,7 @@ namespace EatZD
             string _year = now.Year.ToString();
             string _mon = now.Month.ToString();
             string _date = now.Day.ToString();
-            DateTime ddc = new DateTime(2030, 8, 1);
+            DateTime ddc = new DateTime(2026, 7, 1);
             if (DateTime.Now <= ddc)
             {
                 //if (_mon.Length == 1)
@@ -774,7 +774,7 @@ namespace EatZD
             string _year = now.Year.ToString();
             string _mon = now.Month.ToString();
             string _date = now.Day.ToString();
-            DateTime ddc = new DateTime(2030, 9, 1);
+            DateTime ddc = new DateTime(2026, 7, 1);
             if (DateTime.Now <= ddc)
             {
                 DataRow[] drs = dtMatchList.Select($"url='{url}'");

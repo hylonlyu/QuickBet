@@ -537,7 +537,7 @@ namespace EatZD
                     }
 
                     //只打香港的比赛
-                    string[] FilterMatch = new string[] { "香港", "马来西亚", "新加坡" };
+                    string[] FilterMatch = new string[] { "香港",};
                     DataTable TempDT = dtMatch.Clone();
                     foreach (DataRow dr in dtMatch.Rows)
                     {
@@ -576,7 +576,7 @@ namespace EatZD
 
                 CCmemberInstance.Start();
                 GetOpenedRace();
-                GetAllData();
+                //GetAllData();
             }
             else if (btnStart.Text == "停止")
             {
@@ -585,7 +585,7 @@ namespace EatZD
                 chkAuto.Enabled = true;
 
                 CCmemberInstance.Stop();
-                StopGetData();
+                //StopGetData();
             }
         }
 
@@ -1032,7 +1032,7 @@ namespace EatZD
             spider.CCmemberInstance = CCmemberInstance;
             spider.CurrentRace = lstOpenedRace[0];
             spider.CurrentMatch = cobMatch.Text;
-            Task.Run(() => spider.Start());
+            //Task.Run(() => spider.Start());
         }
 
         private void StopGetData()
@@ -1111,17 +1111,17 @@ namespace EatZD
 
         private void SetMinuteDatasource()
         {
-            string match = cobMatch.Text;
-            string race = GetManualRace();
-            if (!(string.IsNullOrEmpty(match) || string.IsNullOrEmpty(race)))
-            {
-                CalStrategy cs = new CalStrategy(match, race, "Q");
-                DataTable dtMinute = cs.GetHistoryMinute();
-                //if (dtMinute != null && dtMinute.Rows.Count > 0)
-                //{
-                viewHistoryQ.SetMinuteDatasource(dtMinute);
-                viewHistoryPq.SetMinuteDatasource(dtMinute);
-            }
+            //string match = cobMatch.Text;
+            //string race = GetManualRace();
+            //if (!(string.IsNullOrEmpty(match) || string.IsNullOrEmpty(race)))
+            //{
+            //    CalStrategy cs = new CalStrategy(match, race, "Q");
+            //    DataTable dtMinute = cs.GetHistoryMinute();
+            //    //if (dtMinute != null && dtMinute.Rows.Count > 0)
+            //    //{
+            //    viewHistoryQ.SetMinuteDatasource(dtMinute);
+            //    viewHistoryPq.SetMinuteDatasource(dtMinute);
+            //}
         }
 
         private void timerMinuteDs_Tick(object sender, EventArgs e)
