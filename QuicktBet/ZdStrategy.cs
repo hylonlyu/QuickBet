@@ -278,9 +278,9 @@ namespace EatZD
             item.Url = Config.MatchUrl;
             item.Horse = horse;
             item.Race = Config.Race;
-            item.Place = Config.QPiao;
+            item.Place = Config.QPPiao;
             item.Win = 0;
-            item.Zhe = Config.QZhe;
+            item.Zhe = Config.QPZhe;
             item.LWin = 0;
             item.LPlace = 400;
             item.Playtype = PlayType.QP;
