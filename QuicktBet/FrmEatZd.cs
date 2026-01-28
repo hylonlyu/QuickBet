@@ -914,6 +914,7 @@ namespace EatZD
             //        CCmemberInstance.DoBetQP(QPbetComposeCtrl2.LstStrategy);
             //    }
             //}
+            ShowInfoMsg("begin");
             if (chkWP.Checked)
             {
                 DoBetWP();
@@ -1485,6 +1486,18 @@ namespace EatZD
                     }
                 }
             }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // 检测是否按下 Enter 键
+            if (keyData == Keys.Enter)
+            {
+                btnBet.PerformClick();
+                return true; // 表示已处理，不再传递给控件
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
